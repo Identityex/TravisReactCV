@@ -11,7 +11,6 @@ export default defineConfig({
     emptyOutDir: true,
     chunkSizeWarningLimit: 1500,
     rollupOptions: {
-      external: ['next/navigation.js'],
       output: {
         manualChunks: {
           react: ['react'],
