@@ -4,7 +4,13 @@
 @import "../../../node_modules/bootstrap/scss/functions";
 @import "../../../node_modules/bootstrap/scss/mixins";
 @import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/variables-dark";
 @import "../../../node_modules/bootstrap/scss/bootstrap-grid";
+@import "../../../node_modules/bootstrap/scss/bootstrap-utilities";
+@import "../../../node_modules/bootstrap/scss/utilities";
+@import "../../../node_modules/bootstrap/scss/card";
+@import "../../../node_modules/bootstrap/scss/containers";
+@import "../../../node_modules/bootstrap/scss/forms";
 
 .position {
   font-size: 2rem;
@@ -64,14 +70,14 @@
     margin-bottom: 0.2rem;
   }
 
-  .experienceAccount {
-    width: 100%;
-    text-align: start !important;
-
-    .accountList {
-      li {
-        margin-bottom: 0.5rem;
-      }
-    }
+  .cardArea {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    flex-basis: content;
+    align-items: self-start;
+    justify-content: center;
   }
 }
