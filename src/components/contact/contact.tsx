@@ -8,8 +8,11 @@ export function Contact() {
             <img className={styles.companyLogo} src={'/images/IDXLogo-White.png'} alt={'IDX Studios Canada Ltd.'}/>
             <div className={`${styles.row} ${styles.contactArea}`}>
                 <div className={`${styles['col-md-4']} ${styles['col-sm-12']}`}>
-                    <h2>Personal Info</h2>
-                    <p>Travis Arsenault</p>
+                    <h2>Hours of Operation</h2>
+                    <div className={styles.hours}>
+                        <p>Monday - Friday</p>
+                        <p>10:30am - 6:00pm</p>
+                    </div>
                 </div>
                 <div className={`${styles['col-md-4']} ${styles['col-sm-12']}`}>
                     <h2>Business Info</h2>

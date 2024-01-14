@@ -5,6 +5,7 @@ import styles from './experiences.module.scss';
 
 
 export interface ExperienceAccount {
+  point: string;
   skillTypes: string[],
   description: string
 }
