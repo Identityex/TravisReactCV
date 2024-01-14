@@ -8,6 +8,7 @@ import { CodeButtons } from '../components/background-code/code-buttons.tsx';
 import { useState } from 'react';
 import { CodeType } from '../components/background-code/code-type.ts';
 import { Contact } from '../components/contact/contact.tsx';
+import { Footer } from './footer.tsx';
 
 export function Home() {
   const [codeType, setCodeType] = useState(CodeType.Regular);
@@ -21,6 +22,7 @@ export function Home() {
   };
     
   return (
+      <>
         <div className={styles.mainContent}>
             <CodeButtons onChange={changeCodeType} codeType={codeType} />
             <BackgroundCode codeType={codeType} onReloaded={onReloaded}  />
@@ -29,6 +31,8 @@ export function Home() {
             <Experiences />
             <Projects />
             <Contact />
+            <Footer />
         </div>
+      </>
   );
 }

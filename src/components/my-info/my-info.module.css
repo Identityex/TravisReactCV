@@ -1,28 +1,29 @@
 .headerImage {
   width: 10%;
   height: 10%;
+  min-width: 250px;
   object-fit: cover;
   object-position: center;
   border-radius: 50%;
-  border: 2px solid #fff;
-  box-shadow: 0 0 0 2px #fff;
+  border: 1px solid #fff;
+  box-shadow: 0 0 0 1px #fff;
   transition: all 0.3s ease-in-out;
-  cursor: pointer;
 }
 
 .headerTitle {
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0rem;
   margin-top: 0;
 }
 
 .headerSubtitle {
   font-size: 1rem;
-  font-weight: 400;
   color: #fff;
+  margin-top: 0;
   margin-bottom: 1rem;
+  font-weight: 300;
 }
 
 .summary {

@@ -5,6 +5,7 @@ import styles from './experience-item.module.css';
 export interface ExperienceItemProps {
   children?: React.ReactNode;
   skillFilters?: string[];
+  index: number;
   item: ExperienceData;
 }
 
@@ -15,7 +16,7 @@ export function ExperienceItem(props: ExperienceItemProps) {
   const dateString = `${fromDateString} - ${toDateString}`;
     
   return (
-        <div id={props.item.id} className={styles.experienceItem}>
+        <div id={props.item.id} className={`${styles.experienceItem} ${props.index % 2 == 0 ? styles.left : styles.right}`}>
             <h3 className={styles.position}>{props.item.role}</h3>
             <div className={`${styles.experienceItem__title}  `}>
                 <div className={`${styles.bubble} ${styles.row}`}>

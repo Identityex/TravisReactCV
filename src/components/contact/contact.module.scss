@@ -13,7 +13,7 @@
     padding: 0;
     &:first-child {
       //  Align to the left
-      text-align: left;
+      text-align: center;
       margin-left: 0;
       margin-right: auto;
       margin-bottom: 0;
@@ -32,7 +32,7 @@
 
     &:last-child {
       //  Align to the right
-      text-align: right;
+      text-align: center;
       margin-left: auto;
       margin-right: 0;
       margin-bottom: 0;
@@ -41,3 +41,35 @@
     }
   }
 }
+
+.companyLogo {
+  color: white;
+  width: 200px
+}
+.socials {
+  
+  
+  .socialArea {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    padding: 0;
+    flex-wrap: wrap;
+    flex-basis: fit-content;
+    align-items: baseline;
+
+    .social {
+      padding: 0;
+      list-style: none;
+      margin-top: 10px;
+      margin-bottom: 10px;
+
+      .socialImage {
+        width: 30px;
+        margin: 10px;
+      }
+    }
+  }
+
+}
+

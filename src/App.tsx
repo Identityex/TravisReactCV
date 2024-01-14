@@ -3,6 +3,8 @@ import { Home } from './pages/home.tsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './pages/layout.tsx';
 import { NoPage } from './pages/no-page.tsx';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
 
@@ -29,16 +31,21 @@ function App() {
   //     Click on the Vite and React logos to learn more
   //   </p>
   // </>
-      <BrowserRouter>
-          <Routes>
-              <Route path="/" element={<Layout />}>
-                  <Route index element={<Home />} />
-                  {/*<Route path="blogs" element={<Blogs />} />*/}
-                  {/*<Route path="contact" element={<Contact />} />*/}
-                  <Route path="*" element={<NoPage />} />
-              </Route>
-          </Routes>
-      </BrowserRouter>
+    <>
+        <SpeedInsights />
+        <Analytics />
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Home />} />
+                    {/*<Route path="blogs" element={<Blogs />} />*/}
+                    {/*<Route path="contact" element={<Contact />} />*/}
+                    <Route path="*" element={<NoPage />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    </>
+      
   );
 }
 

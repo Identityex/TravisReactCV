@@ -29,15 +29,15 @@ export function Projects() {
             <Carousel
                 emulateTouch={true}
                 width={'80%'}
-                dynamicHeight={true}
                 className={`${styles.projects}`}
                 showIndicators={false}
+                showArrows={false}
                 renderThumbs={() => projects.map((project) => (
                     <img key={project.id} src={project.Gif} alt={project.Title}/>
                 ) as unknown as ReactChild)}
             >
                 {projects.map((project) => (
-                    <div key={project.id} >
+                    <div key={project.id}>
                         <div className={`${styles.projectImage}`} onClick={() => window.open(project.Url, '_blank')}>
                             <img src={project.Gif} alt={project.Title} />
                         </div>

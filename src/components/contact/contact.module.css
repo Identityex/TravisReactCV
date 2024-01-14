@@ -4088,7 +4088,7 @@
   padding: 0;
 }
 .contactArea div:first-child {
-  text-align: left;
+  text-align: center;
   margin-left: 0;
   margin-right: auto;
   margin-bottom: 0;
@@ -4103,12 +4103,37 @@
   padding: 0;
 }
 .contactArea div:last-child {
-  text-align: right;
+  text-align: center;
   margin-left: auto;
   margin-right: 0;
   margin-bottom: 0;
   margin-top: 0;
   padding: 0;
+}
+
+.companyLogo {
+  color: white;
+  width: 200px;
+}
+
+.socials .socialArea {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  padding: 0;
+  flex-wrap: wrap;
+  flex-basis: fit-content;
+  align-items: baseline;
+}
+.socials .socialArea .social {
+  padding: 0;
+  list-style: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.socials .socialArea .social .socialImage {
+  width: 30px;
+  margin: 10px;
 }
 
 /*# sourceMappingURL=contact.module.css.map */
