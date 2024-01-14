@@ -1,0 +1,15 @@
+.footer {
+  height: 20px;
+  text-align: left;
+  font-size: 14px;
+  width: 100%;
+  color: #999;
+}
+.footer a {
+  color: #40a9ff;
+}
+.footer a:hover {
+  color: #1890ff;
+}
+
+/*# sourceMappingURL=footer.module.css.map */
