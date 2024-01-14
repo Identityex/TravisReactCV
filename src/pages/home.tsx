@@ -9,7 +9,7 @@ import { useState } from 'react';
 import { CodeType } from '../components/background-code/code-type.ts';
 import { Contact } from '../components/contact/contact.tsx';
 import { Footer } from './footer.tsx';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Analytics } from '@vercel/analytics/react';
 
 export function Home() {
