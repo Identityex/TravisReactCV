@@ -40,6 +40,7 @@ export function Projects() {
                 className={`${styles.projects}`}
                 showIndicators={false}
                 useKeyboardArrows={true}
+                infiniteLoop={true}
                 showStatus={false}
                 renderThumbs={(children) => children.map((project) => (
                     <div>
@@ -55,6 +56,7 @@ export function Projects() {
                                 <FontAwesomeIcon
                                     className={`${styles.projectStatus} ${project.Status === ProjectStatus.Completed ? styles.completed : styles.inProgress}`}
                                     icon={project.Status === ProjectStatus.Completed ? faCircleCheck : faCode}
+                                    title={project.Status}
                                 />
                             </div>
                         </div>
