@@ -2,21 +2,30 @@
   "data": [
     {
       "id": "1",
-      "Title": "The Shawshank Redemption",
+      "Title": "Research TV",
       "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam ni",
-      "Gif": "https://media.giphy.com/media/3o7aD2X9Y5W5XxUdqo/giphy.gif",
-      "Video": "https://www.youtube.com/embed/6hB3S9bIaco",
+      "Gif": "/images/ResearchTV.png",
+      "Video": "",
       "Status": "Completed",
-      "Url": "https://www.imdb.com/title/tt0111161/"
+      "Url": "https://staticrtv.idxstudios.ca/"
     },
     {
       "id": "2",
-      "Title": "The Shawshank Redemption",
+      "Title": "Nymphs Notes",
       "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam ni",
-      "Gif": "https://media.giphy.com/media/3o7aD2X9Y5W5XxUdqo/giphy.gif",
-      "Video": "https://www.youtube.com/embed/6hB3S9bIaco",
+      "Gif": "/images/NymphsNotes.png",
+      "Video": "",
       "Status": "Completed",
-      "Url": "https://www.imdb.com/title/tt0111161/"
+      "Url": "https://nymphsnotes.com/"
+    },
+    {
+      "id": "3",
+      "Title": "Nymphs Nook",
+      "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl vitae aliquam ultricies, nunc nisl aliquet nunc, vitae aliquam ni",
+      "Gif": "/images/NymphsNook.png",
+      "Video": "",
+      "Status": "In Progress",
+      "Url": "https://testing.nymphsnook.com/"
     }
   ]
 }
