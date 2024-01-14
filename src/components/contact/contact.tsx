@@ -13,8 +13,14 @@ export function Contact() {
                 </div>
                 <div className={`${styles['col-md-4']} ${styles['col-sm-12']}`}>
                     <h2>Business Info</h2>
-                    <p>Travis Arsenault</p>
+                    <div className={styles.businessInfo}>
+                        <p>IDX Studios Canada Ltd.</p>
+                        <p>Thunder Bay, Ontario</p>
+                        <p>Canada</p>
+                        <p>Email: <a href={'mailto:identityex@idxstudios.ca'}>identityex@idxstudios.ca</a></p>
+                    </div>
                 </div>
+                
                 <div className={`${styles['col-md-4']} ${styles['col-sm-12']} ${styles.socials}`}>
                     <h2>Socials</h2>
                     <div className={styles.socialArea}>
