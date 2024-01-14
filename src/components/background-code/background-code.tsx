@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { stackoverflowDark as highlightTheme } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import '../../../node_modules/highlight.js/styles/github-dark.min.css';
 import styles from './background-code.module.css';
 
 import { CodeType } from './code-type.ts';
