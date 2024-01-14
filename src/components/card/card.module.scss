@@ -3,8 +3,13 @@
   border-radius: 8px;
   padding: 16px;
   margin: 10px;
-  width: 300px;
+  width: 300px; 
   background-color: #2b2f32;
+
+  @media (max-width: 600px) {
+    width: auto; 
+    margin: 10px 5px; 
+  }
 }
 
 .CardTitle {
@@ -33,8 +38,14 @@
   padding: 5px;
   margin-bottom: 8px;
   font-size: 0.8rem;
-  
+
   &:not(:last-child) {
     margin-right: 8px;
+  }
+
+  
+  @media (max-width: 600px) {
+    font-size: 0.7rem;
+    padding: 4px;
   }
 }
