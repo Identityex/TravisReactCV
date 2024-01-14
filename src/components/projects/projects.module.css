@@ -1,3 +1,6 @@
+.projects {
+  width: 100%;
+}
 .projects div {
   margin-left: auto !important;
   margin-right: auto !important;
@@ -21,6 +24,9 @@
 }
 .projectImageOverlay .projectStatus.planned {
   color: darkslateblue;
+}
+.projectImageOverlay .projectStatus.onHold {
+  color: red;
 }
 
 .projectImage:hover {

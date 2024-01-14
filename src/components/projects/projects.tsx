@@ -6,12 +6,13 @@ import { Carousel } from 'react-responsive-carousel';
 import styles from './projects.module.scss';
 import './projects-global.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleCheck, faCode } from '@fortawesome/free-solid-svg-icons';
+import { faBrain, faCircleCheck, faCode, faStopCircle } from '@fortawesome/free-solid-svg-icons';
 
 export enum ProjectStatus {
   Completed = 'Completed',
   InProgress = 'In Progress',
   Planned = 'Planned',
+  OnHold = 'On Hold',
   Cancelled = 'Cancelled',
 }
 
@@ -20,9 +21,9 @@ export interface ProjectData {
   Title: string;
   Description: string;
   Gif: string;
-  Video: string;
+  Video: string | null;
   Status: ProjectStatus;
-  Url: string;
+  Url: string | null;
 }
 
 export function Projects() {
@@ -50,12 +51,21 @@ export function Projects() {
             >
                 {projects.map((project) => (
                     <div key={project.id}>
-                        <div className={`${styles.projectImage}`} onClick={() => window.open(project.Url, '_blank')}>
+                        <div className={`${styles.projectImage}`} onClick={() => project.Url && window.open(project.Url, '_blank')}>
                             <div className={styles.projectImageOverlay}>
                                 <img className={'project-image'} src={project.Gif} alt={project.Title}/>
                                 <FontAwesomeIcon
-                                    className={`${styles.projectStatus} ${project.Status === ProjectStatus.Completed ? styles.completed : styles.inProgress}`}
-                                    icon={project.Status === ProjectStatus.Completed ? faCircleCheck : faCode}
+                                    className={`${styles.projectStatus} ${project.Status === ProjectStatus.Completed 
+                                      ? styles.completed : 
+                                      project.Status === ProjectStatus.InProgress ? styles.inProgress :
+                                        project.Status === ProjectStatus.Planned ? styles.planned :
+                                          project.Status === ProjectStatus.OnHold ? styles.onHold :
+                                            styles.inProgress}`}
+                                    icon={project.Status === ProjectStatus.Completed ? faCircleCheck :
+                                      project.Status === ProjectStatus.InProgress ? faCode :
+                                        project.Status === ProjectStatus.Planned ? faBrain :
+                                          project.Status === ProjectStatus.OnHold ? faStopCircle :
+                                            faCode}
                                     title={project.Status}
                                 />
                             </div>

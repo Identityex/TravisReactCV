@@ -1,4 +1,5 @@
 .projects {
+  width: 100%;
   div {
     margin-left: auto !important;
     margin-right: auto !important;
@@ -27,6 +28,10 @@
 
     &.planned {
       color: darkslateblue;
+    }
+    
+    &.onHold {
+      color: red;
     }
   }
 }
