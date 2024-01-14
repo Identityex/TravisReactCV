@@ -1,0 +1,67 @@
+//@import "~bootstrap/scss/functions";
+//@import "~bootstrap/scss/variables";
+//@import "~bootstrap/scss/mixins";
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/mixins";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/bootstrap-grid";
+
+.position {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+  margin-right: auto;
+}
+.experienceItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: RGBA(105, 105, 105, 0.45);
+    transition: all 0.3s ease-in-out;
+    width: 80%;
+    border: 1px solid black;
+  
+  .experienceItem__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+    width: 100%;
+  }
+
+  .company {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+  }
+  
+  .spacer {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+    
+    
+    @include media-breakpoint-down(lg) {
+      display: none;
+    }
+  }
+  
+  .date {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+  }
+
+  .experienceAccount {
+    width: 100%;
+    text-align: start!important;
+    
+    .accountList {
+      li {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}

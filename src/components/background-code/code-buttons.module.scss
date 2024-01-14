@@ -1,0 +1,44 @@
+.codeButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0.3rem;
+  left: 0.3rem;
+  transition: all 0.5s ease-in-out;
+  opacity: 1;
+
+  &.hidden {
+    left: -100px;
+    opacity: 0;
+  }
+  
+  
+  .codeButton {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease-in-out;
+    height: fit-content;
+    width: fit-content;
+    
+    &:hover {
+      background-color: RGBA(100, 100, 230, 0.7);
+      outline: none;
+      border: none;
+    }
+    
+    &.active {
+      background-color: RGBA(100, 100, 230, 0.7);
+      border: none;
+      outline: none;
+    }
+    
+    &:focus {
+      outline: none;
+    }
+    
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+  }
+}

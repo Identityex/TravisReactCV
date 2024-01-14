@@ -1,0 +1,38 @@
+.skillsArea {
+  margin-top: -50px;
+}
+.skillsArea .divider {
+  width: 100%;
+  height: 2px;
+  background-color: RGBA(190, 190, 230, 0.5);
+}
+.skillsArea .skillGroups {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+  width: 90%;
+}
+.skillsArea .skillGroups .skillGroup {
+  margin: 5px 5px 5px 5px;
+}
+.skillsArea .skillGroups .active {
+  background-color: RGBA(100, 100, 230, 0.7);
+}
+.skillsArea .skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  width: 90%;
+}
+.skillsArea .skills .active {
+  background-color: RGBA(100, 100, 230, 0.7);
+}
+
+/*# sourceMappingURL=skills.module.css.map */

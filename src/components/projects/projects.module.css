@@ -1,0 +1,10 @@
+.projects div {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.projectImage:hover {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=projects.module.css.map */

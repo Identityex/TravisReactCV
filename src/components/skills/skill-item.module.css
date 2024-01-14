@@ -1,0 +1,24 @@
+.skillItem {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: RGBA(105, 105, 105, 0.5);
+  color: var(--color-black);
+}
+.skillItem:hover {
+  background-color: RGBA(100, 100, 230, 0.7);
+  color: var(--color-white);
+  cursor: pointer;
+}
+.skillItem.active {
+  background-color: RGBA(100, 100, 230, 0.7);
+  color: var(--color-white);
+}
+.skillItem.hidden {
+  display: none;
+}
+.skillItem.visible {
+  display: block;
+}
+
+/*# sourceMappingURL=skill-item.module.css.map */

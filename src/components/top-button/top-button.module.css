@@ -1,0 +1,36 @@
+.topButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-in-out;
+}
+.topButton:hover {
+  cursor: pointer;
+}
+.topButton .top-button-icon {
+  font-size: 2rem;
+  color: white;
+  transition: all 0.5s ease-in-out;
+}
+.topButton .top-button-text {
+  font-size: 1rem;
+  color: white;
+  transition: all 0.5s ease-in-out;
+}
+.topButton.hidden {
+  right: -100px;
+  opacity: 0;
+}
+.topButton.hidden .top-button-icon {
+  font-size: 0;
+}
+.topButton.hidden .top-button-text {
+  font-size: 0;
+}
+
+/*# sourceMappingURL=top-button.module.css.map */

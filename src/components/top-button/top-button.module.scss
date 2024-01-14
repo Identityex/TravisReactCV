@@ -1,0 +1,40 @@
+.topButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-in-out;
+  
+  &:hover {
+    cursor: pointer;
+  }
+  
+  .top-button-icon {
+    font-size: 2rem;
+    color: white;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .top-button-text {
+    font-size: 1rem;
+    color: white;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  &.hidden {
+    right: -100px;
+    opacity: 0;
+    
+    .top-button-icon {
+      font-size: 0;
+    }
+    
+    .top-button-text {
+      font-size: 0;
+    }
+  }
+}
