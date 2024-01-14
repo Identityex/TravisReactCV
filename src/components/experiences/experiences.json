@@ -1,30 +1,47 @@
 {
-  "data": [{
-    "id": "1",
-    "role": "Senior Software Engineer",
-    "company": "Freshcut.gg",
-    "fromDate": "2019-11-02",
-    "toDate": "2024-01-02",
-    "accounts": [{
-      "skillTypes": ["nodeJS"],
-      "description": "Helped change development workflows to improve efficiency and accuracy of development and even developer satisfaction. These changes included scripts, Github Actions, and terraform to automate the deployment process from unit tests and infrastructure."
-    }, {
-      "skillTypes": ["nodeJS"],
-      "description": "Helped mentor junior developers on important code practices taking the time to ensure they understood the reasoning behind certain decisions. Ensuring good teammates where teammates who can rely on each other without worry"
-    }, {
-      "skillTypes": ["nodeJS"],
-      "description": "Played a large role in designing and developing API's to support a rapidly growing user-base by over 100X in a 1 month timespan"
-    }]
-  },{
-    "id": "2",
-    "experience": "1",
-    "role": "Developer",
-    "company": "TEsting",
-    "fromDate": "2017-01-01",
-    "toDate": "2017-12-31",
-    "accounts": [{
-      "skillTypes": ["nodeJS"],
-      "description": "nodeJS"
-    }]
-  }]
+  "data": [
+    {
+      "id": "1",
+      "role": "Senior Software Engineer",
+      "company": "Freshcut.gg",
+      "fromDate": "2019-11-02",
+      "toDate": "2024-01-02",
+      "accounts": [
+        {
+          "skillTypes": [
+            "nodeJS"
+          ],
+          "description": "Helped change development workflows to improve efficiency and accuracy of development and even developer satisfaction. These changes included scripts, Github Actions, and terraform to automate the deployment process from unit tests and infrastructure."
+        },
+        {
+          "skillTypes": [
+            "nodeJS"
+          ],
+          "description": "Helped mentor junior developers on important code practices taking the time to ensure they understood the reasoning behind certain decisions. Ensuring good teammates where teammates who can rely on each other without worry"
+        },
+        {
+          "skillTypes": [
+            "nodeJS"
+          ],
+          "description": "Played a large role in designing and developing API's to support a rapidly growing user-base by over 100X in a 1 month timespan"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "experience": "1",
+      "role": "Developer",
+      "company": "TEsting",
+      "fromDate": "2017-01-01",
+      "toDate": "2017-12-31",
+      "accounts": [
+        {
+          "skillTypes": [
+            "nodeJS"
+          ],
+          "description": "nodeJS"
+        }
+      ]
+    }
+  ]
 }

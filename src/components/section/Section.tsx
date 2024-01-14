@@ -21,7 +21,7 @@ export function Section(props: SectionProps) {
         } style={{
           backgroundImage: props.backgroundImg ? `url(${props.backgroundImg})` : undefined,
         }}
-        id={props.sectionId}
+             id={props.sectionId}
         >
             {props.children}
         </div>

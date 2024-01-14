@@ -4,14 +4,14 @@
   border-radius: 10px;
   background-color: RGBA(105, 105, 105, 0.5);
   color: var(--color-black);
-  
-  
+
+
   &:hover {
     background-color: RGBA(100, 100, 230, 0.7);
     color: var(--color-white);
     cursor: pointer;
   }
-  
+
   &.active {
     background-color: RGBA(100, 100, 230, 0.7);
     color: var(--color-white);

@@ -8,9 +8,10 @@
 
 .contactArea {
   width: 100%;
-  
+
   div {
     padding: 0;
+
     &:first-child {
       //  Align to the left
       text-align: center;
@@ -46,9 +47,10 @@
   color: white;
   width: 200px
 }
+
 .socials {
-  
-  
+
+
   .socialArea {
     display: flex;
     flex-direction: row-reverse;

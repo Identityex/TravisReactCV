@@ -26,10 +26,10 @@ export function BackgroundCode(props: BackgroundCodeProps) {
     setCurrentLineIndex(0);
     setCurrentCharIndex(0);
   };
-  
-  
+
+
   let codeTypingSpeed: number;
-  
+
   switch (props.codeType) {
     case CodeType.Freeze:
       codeTypingSpeed = 1500;
@@ -46,7 +46,7 @@ export function BackgroundCode(props: BackgroundCodeProps) {
       codeTypingSpeed = BaseTypingSpeed;
       break;
   }
-  
+
   useEffect(() => {
     void loadCodeFile('/Equipment.cpp');
   }, []);
@@ -58,7 +58,7 @@ export function BackgroundCode(props: BackgroundCodeProps) {
       isCancelled = true;
       return;
     }
-    
+
     const typeLine = async (line: string) => {
       for (let i = currentCharIndex; i < line.length; i++) {
         // eslint-disable-next-line @typescript-eslint/no-loop-func
@@ -70,7 +70,7 @@ export function BackgroundCode(props: BackgroundCodeProps) {
               resolve(true);
             }
           }, Math.floor(Math.random() * codeTypingSpeed));
-          
+
           if (isCancelled) {
             clearTimeout(timeout);
             resolve(true);
@@ -95,7 +95,7 @@ export function BackgroundCode(props: BackgroundCodeProps) {
 
   return (
         <div className={`${styles.backgroundCode} ${styles.parallaxLayer} ${styles.parallaxBack}`}>
-            <SyntaxHighlighter 
+            <SyntaxHighlighter
                 language={'cpp'}
                 style={highlightTheme}
                 className={`${styles.hljs} ${styles.highlight} language-cpp`}>

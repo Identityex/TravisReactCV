@@ -21,18 +21,18 @@ export interface ExperienceData {
 export function Experiences() {
   // Load data from json file
   const experienceData = experiences.data as ExperienceData[];
-    
+
   return (
         <Section sectionId={'Experiences'}>
             <h1>Experience</h1>
-            
+
             <div className={`${styles.experience} flex flex-row justify-between items-center`}>
                 {experienceData
                   .filter((exp) => exp != null)
                   .map((exp, index) => (
-                    <ExperienceItem item={exp} key={exp.id} index={index} />
+                        <ExperienceItem item={exp} key={exp.id} index={index}/>
                   ))}
             </div>
         </Section>
-  );   
+  );
 }

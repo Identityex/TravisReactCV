@@ -5,8 +5,53 @@
   }
 }
 
+.projectImageOverlay {
+
+  .projectStatus {
+    top: 10px;
+    right: 10px;
+    position: absolute;
+    padding: 10px;
+    border-radius: 10px;
+    height: 40px;
+    width: 40px;
+    background-color: RGBA(50, 50, 50, 0.5);
+
+    &.completed {
+      color: lime;
+    }
+
+    &.inProgress {
+      color: darkorange;
+    }
+
+    &.planned {
+      color: darkslateblue;
+    }
+  }
+}
+
 .projectImage {
   &:hover {
     cursor: pointer;
   }
+}
+
+.arrow {
+  position: relative;
+  width: 15px;
+  height: auto;
+  background-color: RGBA(245, 245, 245, 0.25);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.arrowLeft {
+  transform: rotate(180deg);
+}
+
+.arrowRight {
+  transform: rotate(0deg);
 }

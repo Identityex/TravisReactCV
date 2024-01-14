@@ -9,7 +9,9 @@ export interface SkillItemProps {
 
 export function SkillItem(props: SkillItemProps) {
   return (
-        <button className={`${styles.skillItem} ${props.isActive && styles.active} ${props.isVisible ? styles.visible : styles.hidden}`} onClick={props.onClick}>
+        <button
+            className={`${styles.skillItem} ${props.isActive && styles.active} ${props.isVisible ? styles.visible : styles.hidden}`}
+            onClick={props.onClick}>
             {/*{props.imageUrl && <div className="skill-item__overlay"></div>}*/}
             <span>{props.skill}</span>
         </button>

@@ -1,12 +1,12 @@
 .skillsArea {
   margin-top: -50px;
-  
+
   .divider {
     width: 100%;
     height: 2px;
     background-color: RGBA(190, 190, 230, 0.5);
   }
-  
+
   .skillGroups {
     display: flex;
     flex-wrap: wrap;
@@ -16,16 +16,16 @@
     border-radius: 0.5rem;
     transition: all 0.3s ease-in-out;
     width: 90%;
-    
+
     .skillGroup {
       margin: 5px 5px 5px 5px;
     }
-    
+
     .active {
       background-color: RGBA(100, 100, 230, 0.7);
     }
   }
-  
+
   .skills {
     display: flex;
     flex-wrap: wrap;
@@ -34,7 +34,7 @@
     padding: 1rem;
     border-radius: 0.5rem;
     width: 90%;
-    
+
     .active {
       background-color: RGBA(100, 100, 230, 0.7);
     }

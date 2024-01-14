@@ -18,8 +18,8 @@ const Layout = () => {
             {/*    </ul>*/}
             {/*</nav>*/}
 
-            <TopButton />
-            <Outlet />
+            <TopButton/>
+            <Outlet/>
         </>
   );
 };

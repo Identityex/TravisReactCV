@@ -3,8 +3,46 @@
   margin-right: auto !important;
 }
 
+.projectImageOverlay .projectStatus {
+  top: 10px;
+  right: 10px;
+  position: absolute;
+  padding: 10px;
+  border-radius: 10px;
+  height: 40px;
+  width: 40px;
+  background-color: RGBA(50, 50, 50, 0.5);
+}
+.projectImageOverlay .projectStatus.completed {
+  color: lime;
+}
+.projectImageOverlay .projectStatus.inProgress {
+  color: darkorange;
+}
+.projectImageOverlay .projectStatus.planned {
+  color: darkslateblue;
+}
+
 .projectImage:hover {
   cursor: pointer;
+}
+
+.arrow {
+  position: relative;
+  width: 15px;
+  height: auto;
+  background-color: RGBA(245, 245, 245, 0.25);
+}
+.arrow:hover {
+  cursor: pointer;
+}
+
+.arrowLeft {
+  transform: rotate(180deg);
+}
+
+.arrowRight {
+  transform: rotate(0deg);
 }
 
 /*# sourceMappingURL=projects.module.css.map */

@@ -1,9 +1,10 @@
-.backgroundCode{
+.backgroundCode {
   position: absolute;
   z-index: -10;
-  
+
   pre {
     overflow: hidden;
+
     code {
       margin: auto;
       display: block;
@@ -13,7 +14,7 @@
   }
 }
 
-.hljs{
+.hljs {
   background: none !important;
 }
 
@@ -24,8 +25,9 @@
   overflow-x: hidden;
   overflow-y: auto;
 
-  background-color: RGBA(20,20,20,1);
+  background-color: RGBA(20, 20, 20, 1);
 }
+
 .parallaxLayer {
   position: absolute;
   transform-origin-x: 100%;

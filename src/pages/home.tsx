@@ -14,29 +14,29 @@ import { Analytics } from '@vercel/analytics/react';
 
 export function Home() {
   const [codeType, setCodeType] = useState(CodeType.Regular);
-    
+
   const changeCodeType = (ct: CodeType) => {
     setCodeType(ct);
   };
-  
+
   const onReloaded = () => {
     setCodeType(CodeType.Regular);
   };
-    
+
   return (
-      <>
-        <SpeedInsights />
-        <Analytics />
-        <div className={styles.mainContent}>
-            <CodeButtons onChange={changeCodeType} codeType={codeType} />
-            <BackgroundCode codeType={codeType} onReloaded={onReloaded}  />
-            <MyInfo />
-            <Skills />
-            <Experiences />
-            <Projects />
-            <Contact />
-            <Footer />
-        </div>
-      </>
+        <>
+            <SpeedInsights/>
+            <Analytics/>
+            <div className={styles.mainContent}>
+                <CodeButtons onChange={changeCodeType} codeType={codeType}/>
+                <BackgroundCode codeType={codeType} onReloaded={onReloaded}/>
+                <MyInfo/>
+                <Skills/>
+                <Experiences/>
+                <Projects/>
+                <Contact/>
+                <Footer/>
+            </div>
+        </>
   );
 }
