@@ -43,8 +43,10 @@ export function Projects() {
                 useKeyboardArrows={true}
                 infiniteLoop={true}
                 showStatus={false}
+                selectedItem={projects.length - 1}
                 renderThumbs={(children) => children.map((project) => (
                     <div>
+                        {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
                         {(project as ReactElement).props.children[0].props.children.props.children[0]}
                     </div>
                 ))}
