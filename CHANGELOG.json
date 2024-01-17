@@ -5,7 +5,8 @@
       "changes": [
         "Add Changelog to the site",
         "Move around components to make the site more responsive and load faster",
-        "Add page to review the site's changelog"
+        "Add page to review the site's changelog",
+        "Updates cloudinary images to be more responsive and properly scale with WEBP instead of pngs"
       ]
     },
     {
