@@ -1,6 +1,14 @@
 {
   "changes": [
     {
+        "date": "2024-01-17",
+        "changes": [
+            "Add vercel.json to fix react router issues",
+            "Added cloudinary image optimization to auto scale images based on screen size",
+            "Force Dark mode for the site"
+        ]
+    },
+    {
       "date": "2024-01-16",
       "changes": [
         "Add Changelog to the site",
