@@ -6,7 +6,7 @@ export function MyInfo() {
         <Section sectionId={'MyInfo'}>
             <img
                 className={styles.headerImage}
-                src="https://res.cloudinary.com/dm2o9jrso/image/upload/f_auto/q_auto/IDXStudios/Images/j1ybfvp01nt04y5nlfhu" alt="Profile Picture"
+                src="https://res.cloudinary.com/dm2o9jrso/image/upload/f_webp/q_auto/IDXStudios/Images/j1ybfvp01nt04y5nlfhu" alt="Profile Picture"
             />
 
             <div className={styles.contentArea}>
