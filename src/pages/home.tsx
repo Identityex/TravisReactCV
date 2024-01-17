@@ -28,14 +28,14 @@ export function Home() {
             <SpeedInsights/>
             <Analytics/>
             <div className={styles.mainContent}>
-                <CodeButtons onChange={changeCodeType} codeType={codeType}/>
-                <BackgroundCode codeType={codeType} onReloaded={onReloaded}/>
                 <MyInfo/>
                 <Skills/>
                 <Experiences/>
                 <Projects/>
                 <Contact/>
                 <Footer/>
+                <CodeButtons onChange={changeCodeType} codeType={codeType}/>
+                <BackgroundCode codeType={codeType} onReloaded={onReloaded}/>
             </div>
         </>
   );
