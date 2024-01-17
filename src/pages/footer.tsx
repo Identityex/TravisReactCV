@@ -13,7 +13,7 @@ export function Footer() {
                     <strong>IDX Studios Canada Ltd.</strong> &copy; {currentYear}.
                 </p>
                 
-                <Link className={styles.changelogLink} to={'/changelog'} target={'_blank'}>Changelog</Link>
+                <Link className={styles.changelogLink} to={'changelog'} target={'_blank'}>Changelog</Link>
             </div>
         </Section>
   );

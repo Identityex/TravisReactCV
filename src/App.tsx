@@ -11,8 +11,8 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Layout/>}>
-                    <Route path="changelog" element={<Changelog />} />
                     <Route index element={<Home/>}/>
+                    <Route path="changelog" element={<Changelog />} />
                     <Route path="*" element={<NoPage/>}/>
                 </Route>
             </Routes>
