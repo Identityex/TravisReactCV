@@ -11,5 +11,22 @@
 .footer a:hover {
   color: #1890ff;
 }
+.footer .footerWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.footer .footerWrapper p {
+  width: 50%;
+  align-self: flex-start;
+}
+.footer .changelogLink {
+  align-self: normal;
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
 
 /*# sourceMappingURL=footer.module.css.map */

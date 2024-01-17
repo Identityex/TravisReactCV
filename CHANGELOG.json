@@ -1,0 +1,34 @@
+{
+  "changes": [
+    {
+      "date": "2024-01-16",
+      "changes": [
+        "Add Changelog to the site",
+        "Move around components to make the site more responsive and load faster",
+        "Add page to review the site's changelog"
+      ]
+    },
+    {
+      "date": "2024-01-15",
+      "changes": [
+        "Stylize the site better, add buttons to stop, speed-up, or restart the background code",
+        "Move to cards for the experience section",
+        "Add and create video gif for the projects section"
+      ]
+    },
+    {
+      "date": "2024-01-14",
+      "changes": [
+        "Add actual project info and cleanup background coding for the site",
+        "Move images and other assets to a CDN cloudinary",
+        "Setup Vercel for deployment"
+      ]
+    },
+    {
+      "date": "2024-01-13",
+      "changes": [
+        "Develop a base web application to show case my personal projects and skills"
+      ]
+    }
+  ]
+}

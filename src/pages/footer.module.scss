@@ -12,4 +12,24 @@
       color: #1890ff;
     }
   }
+  
+  .footerWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    
+    p {
+      width: 50%;
+      align-self: flex-start;
+    }
+  }
+  
+  .changelogLink {
+    align-self: normal;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;;
+  }
 }
