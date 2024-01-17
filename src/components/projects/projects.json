@@ -5,6 +5,7 @@
       "Title": "Research TV",
       "Description": "Client had requested a 70s feel theme to the website with the ability to add and update content without the need of a developer. This was created using wordpress and a custom theme, allowing the client to update almost all aspects of the website. The client was quite pleased with the final product and had used it for a few years before deciding to move on to a new website.",
       "Gif": "https://res.cloudinary.com/dm2o9jrso/image/upload/f_webp/q_auto/v1/IDXStudios/Images/dcdsgpjrdktmbiynhvyy",
+      "CloudinaryImage": "IDXStudios/Images/dcdsgpjrdktmbiynhvyy",
       "Video": null,
       "Status": "Completed",
       "Url": "https://staticrtv.idxstudios.ca/"
@@ -14,6 +15,7 @@
       "Title": "Nymphs Notes",
       "Description": "Client had requested a blog website, something with little to no cost to host and maintain. This was a simple website using a free theme with a few customizations. The client was quite pleased with the final product.",
       "Gif": "https://res.cloudinary.com/dm2o9jrso/image/upload/f_webp/q_auto/v1/IDXStudios/Images/ebtkmqs92ez9g4y9aqxj",
+      "CloudinaryImage": "IDXStudios/Images/ebtkmqs92ez9g4y9aqxj",
       "Video": null,
       "Status": "Completed",
       "Url": "https://nymphsnotes.com/"
@@ -23,6 +25,7 @@
       "Title": "Nymphs Nook",
       "Description": "This is a website I am currently working on for a client. The client had requested a e-commerce website with customizations to the regular web-store. Currently this will be using shopify API to handle the store and inventory. Using Hydrogen as the front-end framework and a custom theme, I am able to create a unique experience for the client and their customers. This is currently in progress and will be updated as the project progresses.",
       "Gif": "https://res.cloudinary.com/dm2o9jrso/image/upload/f_webp/q_auto/v1/IDXStudios/Images/kpvkipruyq4py0u2cqoe",
+      "CloudinaryImage": "IDXStudios/Images/kpvkipruyq4py0u2cqoe",
       "Video": null,
       "Status": "In Progress",
       "Url": "https://testing.nymphsnook.com/"
@@ -32,6 +35,7 @@
       "Title": "TeStress",
       "Description": "This is a personal project I am working on. This is a horror video game using Unreal Engine 5 and Blender. This is currently in progress and will be updated as the project progresses.",
       "Gif": "https://res.cloudinary.com/dm2o9jrso/image/upload/f_webp/q_auto/v1/IDXStudios/Images/hl4nhtnndzo0ctxbnhtr",
+      "CloudinaryImage": "IDXStudios/Images/hl4nhtnndzo0ctxbnhtr",
       "Video": null,
       "Status": "In Progress",
       "Url": "/testress"

@@ -8,6 +8,11 @@ import './projects-global.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBrain, faCircleCheck, faCode, faStopCircle } from '@fortawesome/free-solid-svg-icons';
 
+import { Cloudinary } from '@cloudinary/url-gen';
+
+// Import the responsive plugin
+import { AdvancedImage, responsive } from '@cloudinary/react';
+
 export enum ProjectStatus {
   Completed = 'Completed',
   InProgress = 'In Progress',
@@ -21,6 +26,7 @@ export interface ProjectData {
   Title: string;
   Description: string;
   Gif: string;
+  cloudinaryImage?: string;
   Video: string | null;
   Status: ProjectStatus;
   Url: string | null;
@@ -33,6 +39,12 @@ export function Projects() {
     setProjects(projectsJson.data as ProjectData[]);
   }, []);
 
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: 'dm2o9jrso',
+    },
+  });
+  
   return (
         <Section sectionId={'Projects'}>
             <h1>Projects</h1>
@@ -55,7 +67,12 @@ export function Projects() {
                     <div key={project.id}>
                         <div className={`${styles.projectImage}`} onClick={() => project.Url && window.open(project.Url, '_blank')}>
                             <div className={styles.projectImageOverlay}>
-                                <img className={'project-image'} src={project.Gif} alt={project.Title}/>
+                                {project.cloudinaryImage ? <AdvancedImage
+                                    cldImg={cld.image(project.cloudinaryImage)}
+                                    plugins={[responsive({ steps: 200 })]}
+                                    alt={project.Title}
+                                    className={'project-image'}
+                                /> : <img src={project.Gif} alt={project.Title} />}
                                 <FontAwesomeIcon
                                     className={`${styles.projectStatus} ${project.Status === ProjectStatus.Completed 
                                       ? styles.completed : 

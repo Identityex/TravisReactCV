@@ -1,12 +1,26 @@
 import { Section } from '../section/Section.tsx';
 import styles from './my-info.module.scss';
 
+import { Cloudinary } from '@cloudinary/url-gen';
+
+// Import the responsive plugin
+import { AdvancedImage, responsive } from '@cloudinary/react';
+
 export function MyInfo() {
+
+  const cld = new Cloudinary({
+    cloud: {
+      cloudName: 'dm2o9jrso',
+    },
+  });
+    
   return (
         <Section sectionId={'MyInfo'}>
-            <img
-                className={styles.headerImage}
-                src="https://res.cloudinary.com/dm2o9jrso/image/upload/f_webp/q_auto/IDXStudios/Images/j1ybfvp01nt04y5nlfhu" alt="Profile Picture"
+            
+            <AdvancedImage cldImg={cld.image('IDXStudios/Images/j1ybfvp01nt04y5nlfhu')}
+                           plugins={[responsive({ steps: 200 })]}
+                            className={styles.headerImage}
+                           alt="Profile Picture"
             />
 
             <div className={styles.contentArea}>
