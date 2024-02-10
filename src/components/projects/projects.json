@@ -1,6 +1,15 @@
 {
   "data": [
     {
+      "id": "0",
+      "Title": "Freshcut.gg",
+      "Description": "Established a long term contract with Freshcut.gg to Help build a scalable solution capable of handling 50K+ Simultaneous users streaming short form content. This included virtual currency that partners could use to cash-out for real money. I was also in charge of the video recommendation system and built an anomaly detection system to identify fraudulent users",
+      "Gif": "https://res.cloudinary.com/dm2o9jrso/image/upload/f_auto,q_auto/v1/IDXStudios/Images/j8gckugqmvqhu6zzwvx6",
+      "Video": null,
+      "Status": "Completed",
+      "Url": "https://freshcut.gg"
+    },
+    {
       "id": "1",
       "Title": "Research TV",
       "Description": "Client had requested a 70s feel theme to the website with the ability to add and update content without the need of a developer. This was created using wordpress and a custom theme, allowing the client to update almost all aspects of the website. The client was quite pleased with the final product and had used it for a few years before deciding to move on to a new website.",
@@ -38,7 +47,16 @@
       "CloudinaryImage": "IDXStudios/Images/hl4nhtnndzo0ctxbnhtr",
       "Video": null,
       "Status": "In Progress",
-      "Url": "/testress"
+      "Url": "/projects/testress"
+    },
+    {
+      "id": "7",
+      "Title": "Froot Floofs",
+      "Description": "A mobile puzzle game with a twist. This is a personal project I am working on. This is currently in progress and will be updated as the project progresses.",
+      "Gif": "https://res.cloudinary.com/dm2o9jrso/image/upload/f_auto,q_auto/v1/IDXStudios/Images/nxw0jpng0x4cykh7lkxs",
+      "Video": null,
+      "Status": "Planned",
+      "Url": "/projects/frootfloofs"
     },
     {
       "id": "5",
@@ -47,7 +65,7 @@
         "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=Good+Animals+LLC+Game",
         "Video": null,
         "Status": "In Progress",
-        "Url": "/goodanimalsllcgame"
+        "Url": "/projects/goodanimalsllcgame"
     },
     {
       "id": "6",
@@ -56,16 +74,7 @@
       "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=Good+Animals+LLC+Website",
       "Video": null,
       "Status": "In Progress",
-      "Url": "/goodanimalsllcwebsite"
-    },
-    {
-      "id": "7",
-      "Title": "Froot Floofs",
-      "Description": "A mobile puzzle game with a twist. This is a personal project I am working on. This is currently in progress and will be updated as the project progresses.",
-      "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=Froot+Floofs",
-      "Video": null,
-      "Status": "Planned",
-      "Url": "/frootfloofs"
+      "Url": "/projects/goodanimalsllcwebsite"
     },
     {
       "id": "8",
@@ -74,7 +83,7 @@
         "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=ImagiNation",
         "Video": null,
         "Status": "On Hold",
-        "Url": "/imagination"
+        "Url": "/projects/imagination"
     }
   ]
 }

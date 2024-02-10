@@ -10418,6 +10418,7 @@ textarea.form-control-lg {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  flex-flow: column;
   align-items: center;
   margin-bottom: 2rem;
   padding: 1rem;
@@ -10426,6 +10427,12 @@ textarea.form-control-lg {
   transition: all 0.3s ease-in-out;
   width: 80%;
   border: 1px solid black;
+}
+@media (max-width: 767.98px) {
+  .experienceItem {
+    width: 100%;
+    padding: 0.2rem;
+  }
 }
 .experienceItem .experienceItem__title {
   font-size: 1.5rem;
@@ -10458,6 +10465,7 @@ textarea.form-control-lg {
   flex-direction: row;
   flex-wrap: wrap;
   padding: 1rem;
+  width: 100%;
   border-radius: 0.5rem;
   flex-basis: content;
   align-items: self-start;

@@ -1,6 +1,15 @@
 {
   "changes": [
     {
+      "date": "2024-02-10",
+      "changes": [
+        "Added Freshcut.gg to the projects section",
+        "Fixed mobile view for experience section",
+        "Added routes for the projects section and created a not yet created page for the projects",
+        "Added Gif for Froot Floofs"
+      ]
+    },
+    {
         "date": "2024-01-17",
         "changes": [
             "Add vercel.json to fix react router issues",
