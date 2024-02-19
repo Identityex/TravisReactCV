@@ -7,16 +7,16 @@ interface ChangeLog {
   changes: ChangelogItem[]
 }
 
-interface ChangelogItem {
+export interface ChangelogItem {
   date: string;
   changes: string[]
 }
 
 export function Changelog() {
   const changelogData: ChangelogItem[] = (changelog as ChangeLog).changes;
-    
+
   console.log(changelogData);
-  
+
   return (
       <>
           <SpeedInsights/>

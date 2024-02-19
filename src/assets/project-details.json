@@ -1,0 +1,73 @@
+{
+  "projects": [{
+    "slug": "testress",
+    "title": "TeStress",
+    "description": "This is a personal project I am working on. This is a horror video game using Unreal Engine 5 and Blender. This is currently in progress and will be updated as the project progresses.",
+    "gif": "https://res.cloudinary.com/dm2o9jrso/image/upload/f_webp/q_auto/v1/IDXStudios/Images/hl4nhtnndzo0ctxbnhtr",
+    "cloudinaryImage": "IDXStudios/Images/hl4nhtnndzo0ctxbnhtr",
+    "video": null,
+    "status": "In Progress",
+    "expectedCompletion": "2021-12-31",
+    "url": null,
+    "changeLog": [{
+      "date": "2021-01-01",
+      "changes": ["Started development."]
+    }]
+  },{
+    "slug": "frootfloofs",
+    "title": "Froot Floofs",
+    "description": "A mobile puzzle game with a twist. This is a personal project I am working on. This is currently in progress and will be updated as the project progresses.",
+    "gif": "https://res.cloudinary.com/dm2o9jrso/image/upload/f_auto,q_auto/v1/IDXStudios/Images/nxw0jpng0x4cykh7lkxs",
+    "cloudinaryImage": "IDXStudios/Images/hl4nhtnndzo0ctxbnhtr",
+    "video": null,
+    "status": "In Progress",
+    "expectedCompletion": "2021-12-31",
+    "url": null,
+    "changeLog": [{
+      "date": "2021-01-01",
+      "changes": ["Started development."]
+    }]
+  }, {
+    "slug": "goodanimalsllcgame",
+    "title": "Good Animals LLC Game",
+    "description": "A Contract I am working on finalizing with a client. This is a battle arena game with a unique twist to the genre. This is currently in progress and will be updated as the project progresses.",
+    "gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=Good+Animals+LLC+Game",
+    "cloudinaryImage": "IDXStudios/Images/hl4nhtnndzo0ctxbnhtr",
+    "video": null,
+    "status": "In Progress",
+    "expectedCompletion": "2021-12-31",
+    "url": null,
+    "changeLog": [{
+      "date": "2021-01-01",
+      "changes": ["Started development."]
+    }]
+  }, {
+    "slug": "goodanimalsllcwebsite",
+    "title": "Good Animals LLC Website",
+    "description": "A Contract I am working on finalizing with a client. This is a website for the company to showcase their games and other projects. This is currently in progress and will be updated as the project progresses.",
+    "gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=Good+Animals+LLC+Website",
+    "cloudinaryImage": "IDXStudios/Images/hl4nhtnndzo0ctxbnhtr",
+    "video": null,
+    "status": "In Progress",
+    "expectedCompletion": "2021-12-31",
+    "url": null,
+    "changeLog": [{
+      "date": "2021-01-01",
+      "changes": ["Started development."]
+    }]
+  }, {
+    "slug": "imagination",
+    "title": "ImagiNation",
+    "description": "A personal project to create a way to help people come up with unique ideas for any type of project. Currently on hold until I can find more time to work on it.",
+    "gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=ImagiNation",
+    "cloudinaryImage": "IDXStudios/Images/hl4nhtnndzo0ctxbnhtr",
+    "video": null,
+    "status": "On Hold",
+    "expectedCompletion": "2021-12-31",
+    "url": null,
+    "changeLog": [{
+      "date": "2021-01-01",
+      "changes": ["Started development."]
+    }]
+  }]
+}

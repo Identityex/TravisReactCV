@@ -77,6 +77,15 @@
       "Url": "/projects/goodanimalsllcwebsite"
     },
     {
+      "id": "7",
+      "Title": "Froot Floofs",
+      "Description": "A mobile puzzle game with a twist. This is a personal project I am working on. This is currently in progress and will be updated as the project progresses.",
+      "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=Froot+Floofs",
+      "Video": null,
+      "Status": "Planned",
+      "Url": "/projects/frootfloofs"
+    },
+    {
       "id": "8",
         "Title": "ImagiNation",
         "Description": "A personal project to create a way to help people come up with unique ideas for any type of project. Currently on hold until I can find more time to work on it.",
