@@ -40,6 +40,15 @@
       "Url": "https://testing.nymphsnook.com/"
     },
     {
+      "id": "9",
+      "Title": "Work Stable",
+      "Description": "A personal project I am working on. This is a SaaS that uses ML to help people find work and help job seekers find employment only bringing forward jobs that best match their skill-set and preferences. This is currently in progress and will be updated as the project progresses.",
+      "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=Work+Stable",
+      "Video": null,
+      "Status": "In Progress",
+      "Url": "/projects/workstable"
+    },
+    {
       "id": "4",
       "Title": "TeStress",
       "Description": "This is a personal project I am working on. This is a horror video game using Unreal Engine 5 and Blender. This is currently in progress and will be updated as the project progresses.",

@@ -1,6 +1,12 @@
 {
   "changes": [
     {
+      "date": "2024-02-21",
+      "changes": [
+        "Added WorkStable project"
+      ]
+    },
+    {
       "date": "2024-02-19",
       "changes": [
         "Added new Project Page to get project data from a json file"

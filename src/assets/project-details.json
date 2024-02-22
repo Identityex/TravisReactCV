@@ -69,5 +69,40 @@
       "date": "2021-01-01",
       "changes": ["Started development."]
     }]
+  }, {
+    "slug": "workstable",
+    "title": "WorkStable",
+    "description": "A personal project to create a way to help people come up with unique ideas for any type of project. Currently on hold until I can find more time to work on it.",
+    "gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=WorkStable",
+    "cloudinaryImage": "IDXStudios/Images/hl4nhtnndzo0ctxbnhtr",
+    "video": null,
+    "status": "In Progress",
+    "expectedCompletion": "2024-06-31",
+    "url": null,
+    "changeLog": [
+      {
+        "date": "2024-02-18",
+        "changes": [
+          "Started Back-End Implementation."
+        ]
+      },
+      {
+        "date": "2024-02-11",
+        "changes": [
+          "Started Front-End Implementation.",
+          "Created Generated Routes and documentation for the API.",
+          "Implemented authentication for the API."
+        ]
+      },
+      {
+        "date": "2024-02-04",
+        "changes": [
+          "Created a working API in python, that shows a POC of the project."
+        ]
+      },
+      {
+      "date": "2024-02-01",
+      "changes": ["Started development."]
+    }]
   }]
 }
