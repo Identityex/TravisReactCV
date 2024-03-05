@@ -14,6 +14,7 @@ import { Analytics } from '@vercel/analytics/react';
 
 export function Home() {
   const [codeType, setCodeType] = useState(CodeType.Regular);
+  const [skills, setSkills] = useState<string[]>([]);
 
   const changeCodeType = (ct: CodeType) => {
     setCodeType(ct);
@@ -23,15 +24,19 @@ export function Home() {
     setCodeType(CodeType.Regular);
   };
 
+  const changeSkills = (newSkills: string[]) => {
+    setSkills(newSkills);
+  };
+
   return (
         <>
             <SpeedInsights/>
             <Analytics/>
             <div className={styles.mainContent}>
                 <MyInfo/>
-                <Skills/>
-                <Experiences/>
-                <Projects/>
+                <Skills onSkillChange={changeSkills} />
+                <Experiences skills={skills}/>
+                <Projects skills={skills} />
                 <Contact/>
                 <Footer/>
                 <CodeButtons onChange={changeCodeType} codeType={codeType}/>

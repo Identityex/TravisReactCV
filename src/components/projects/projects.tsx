@@ -32,19 +32,32 @@ export interface ProjectData {
   Url: string | null;
 }
 
-export function Projects() {
+interface ProjectsProps {
+  skills: string[];
+}
+
+export function Projects(props: ProjectsProps) {
   const [projects, setProjects] = useState<ProjectData[]>([]);
 
   useEffect(() => {
-    setProjects(projectsJson.data as ProjectData[]);
-  }, []);
+    const projectsData = projectsJson.data as ProjectData[];
+
+    if (props.skills.length > 0) {
+      const filteredProjects = projectsData.filter((project) => {
+        return props.skills.some((skill) => project.Description.toLowerCase().includes(skill.toLowerCase()));
+      });
+      setProjects(filteredProjects);
+    } else {
+      setProjects(projectsData);
+    }
+  }, [props.skills]);
 
   const cld = new Cloudinary({
     cloud: {
       cloudName: 'dm2o9jrso',
     },
   });
-  
+
   return (
         <Section sectionId={'Projects'}>
             <h1>Projects</h1>

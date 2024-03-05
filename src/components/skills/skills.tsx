@@ -150,16 +150,21 @@ export const primarySkills = [
   skills[SkillTypes.artificialIntelligence].pyTorch,
 ];
 
+interface SkillsProps {
+  onSkillChange: (skills: string[]) => void;
+}
 
-export function Skills() {
+export function Skills(props: SkillsProps) {
   const [skillGroup, setSkillGroup] = useState('Primary');
   const [activeSkills, setActiveSkills] = useState<string[]>([]);
 
   const toggleSkill = (skill: string) => {
     if (activeSkills.includes(skill)) {
       setActiveSkills(activeSkills.filter((s) => s !== skill));
+      props.onSkillChange(activeSkills.filter((s) => s !== skill));
     } else {
       setActiveSkills([...activeSkills, skill]);
+      props.onSkillChange([...activeSkills, skill]);
     }
   };
 

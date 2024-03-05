@@ -1,6 +1,13 @@
 {
   "changes": [
     {
+      "date": "2024-03-05",
+        "changes": [
+          "Remove duplicated FrootFloofs project",
+          "Implement Rudimentary skill-filtering"
+        ]
+    },
+    {
       "date": "2024-02-21",
       "changes": [
         "Added WorkStable project"
