@@ -1,6 +1,13 @@
 {
   "changes": [
     {
+      "date": "2024-05-24",
+      "changes": [
+        "Added more projects to the projects section",
+        "Added more notes to the experience section"
+      ]
+    },
+    {
       "date": "2024-03-05",
         "changes": [
           "Remove duplicated FrootFloofs project",
