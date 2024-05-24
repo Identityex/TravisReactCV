@@ -49,6 +49,15 @@
       "Url": "/projects/workstable"
     },
     {
+      "id": "10",
+      "Title": "Forebear",
+      "Description": "Currently working on a contract with a film production company, Sheba Films. Currently leading the development of a is a rogue-like, deck-building game that uniquely intertwines indigenous culture with engaging gameplay. As you traverse a world shaped by Ojibway and Cree folklore, you'll learn language and traditions organically through play. Featuring a procedurally-generated map and strategic card mechanics, every choice impacts your journey through rich narratives and authentic cultural encounters. Designed for desktop with expansions to mobile and consoles planned, this game offers a profound experience that educates, entertains, and enlightens—making indigenous heritage accessible to gamers everywhere. Built in Unity",
+      "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=Forebear",
+      "Video": null,
+      "Status": "In Progress",
+      "Url": "/projects/forebear"
+    },
+    {
       "id": "4",
       "Title": "TeStress",
       "Description": "This is a personal project I am working on. This is a horror video game using Unreal Engine 5 and Blender. This is currently in progress and will be updated as the project progresses.",
@@ -87,12 +96,12 @@
     },
     {
       "id": "8",
-        "Title": "ImagiNation",
-        "Description": "A personal project to create a way to help people come up with unique ideas for any type of project. Currently on hold until I can find more time to work on it.",
-        "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=ImagiNation",
-        "Video": null,
-        "Status": "On Hold",
-        "Url": "/projects/imagination"
+      "Title": "ImagiNation",
+      "Description": "A personal project to create a way to help people come up with unique ideas for any type of project. Currently on hold until I can find more time to work on it.",
+      "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=ImagiNation",
+      "Video": null,
+      "Status": "On Hold",
+      "Url": "/projects/imagination",
     }
   ]
 }
