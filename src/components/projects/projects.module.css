@@ -58,4 +58,8 @@
   transform: rotate(0deg);
 }
 
+.thumbnail {
+  height: 40px;
+}
+
 /*# sourceMappingURL=projects.module.css.map */

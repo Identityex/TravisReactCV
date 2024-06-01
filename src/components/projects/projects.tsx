@@ -52,8 +52,6 @@ export function Projects(props: ProjectsProps) {
     } else {
       setProjects(projectsData);
     }
-
-
   }, [props.skills]);
 
   const cld = new Cloudinary({
@@ -74,7 +72,7 @@ export function Projects(props: ProjectsProps) {
                 showStatus={false}
                 // renderItem={(children) => children}
                 renderThumbs={(children) => children.map((project) => (
-                    <div>
+                    <div className={styles.thumbnail}>
                       {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
                       { (project as ReactElement).props.children[0].props.children.props.children[0] }
                     </div>
