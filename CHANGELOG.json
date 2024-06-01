@@ -4,7 +4,8 @@
       "date": "2024-05-31",
       "changes": [
         "Added Forebear Graphic and updated the projects section",
-        "Added support for video and gif in the projects section"
+        "Added support for video and gif in the projects section",
+        "Fix Carousel for the projects section"
       ]
     },
     {

@@ -40,7 +40,9 @@ export function Projects(props: ProjectsProps) {
   const [projects, setProjects] = useState<ProjectData[]>([]);
 
   useEffect(() => {
-    const projectsData = projectsJson.data as ProjectData[];
+    // Sort by id
+    const projectsData = (projectsJson.data as ProjectData[])
+      .sort((a, b) => a.id.localeCompare(b.id));
 
     if (props.skills.length > 0) {
       const filteredProjects = projectsData.filter((project) => {
@@ -50,6 +52,8 @@ export function Projects(props: ProjectsProps) {
     } else {
       setProjects(projectsData);
     }
+
+
   }, [props.skills]);
 
   const cld = new Cloudinary({
@@ -62,18 +66,15 @@ export function Projects(props: ProjectsProps) {
         <Section sectionId={'Projects'}>
             <h1>Projects</h1>
             <Carousel
+                selectedItem={0}
                 emulateTouch={true}
                 className={`${styles.projects}`}
                 showIndicators={false}
                 useKeyboardArrows={true}
-                infiniteLoop={true}
                 showStatus={false}
-                selectedItem={projects.length - 1}
+                // renderItem={(children) => children}
                 renderThumbs={(children) => children.map((project) => (
                     <div>
-                        {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
-                        {/*{(project as ReactElement).props.children[0].props.children.props.children[0]}*/}
-                    {/*  IF Video get thumb instead  */}
                       {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
                       { (project as ReactElement).props.children[0].props.children.props.children[0] }
                     </div>
@@ -91,13 +92,15 @@ export function Projects(props: ProjectsProps) {
                                         muted={true}
                                         loop={true}
                                         playsInline={true}
-                                        className={styles.projectImage} /> : project.cloudinaryImage ?
+                                        className={styles.projectImage} /> :
+                                  project.cloudinaryImage ?
                                     <AdvancedImage
                                     cldImg={cld.image(project.cloudinaryImage)}
                                     plugins={[responsive({ steps: 200 })]}
                                     alt={project.Title}
                                     className={styles.projectImage}
-                                /> : <img src={project.Gif} alt={project.Title} />}
+                                />
+                                    : <img src={project.Gif} alt={project.Title} />}
                                 <FontAwesomeIcon
                                     className={`${styles.projectStatus} ${project.Status === ProjectStatus.Completed 
                                       ? styles.completed : 
