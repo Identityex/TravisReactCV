@@ -30,14 +30,13 @@
       "Url": "https://nymphsnotes.com/"
     },
     {
-      "id": "3",
-      "Title": "Nymphs Nook",
-      "Description": "This is a website I am currently working on for a client. The client had requested a e-commerce website with customizations to the regular web-store. Currently this will be using shopify API to handle the store and inventory. Using Hydrogen as the front-end framework and a custom theme, I am able to create a unique experience for the client and their customers. This is currently in progress and will be updated as the project progresses.",
-      "Gif": "https://res.cloudinary.com/dm2o9jrso/image/upload/f_webp/q_auto/v1/IDXStudios/Images/kpvkipruyq4py0u2cqoe",
-      "CloudinaryImage": "IDXStudios/Images/kpvkipruyq4py0u2cqoe",
-      "Video": null,
+      "id": "10",
+      "Title": "Forebear",
+      "Description": "Currently working on a contract with a film production company, Sheba Films. Currently leading the development of a is a rogue-like, deck-building game that uniquely intertwines indigenous culture with engaging gameplay. As you traverse a world shaped by Ojibway and Cree folklore, you'll learn language and traditions organically through play. Featuring a procedurally-generated map and strategic card mechanics, every choice impacts your journey through rich narratives and authentic cultural encounters. Designed for desktop with expansions to mobile and consoles planned, this game offers a profound experience that educates, entertains, and enlightens—making indigenous heritage accessible to gamers everywhere. Built in Unity",
+      "Gif": null,
+      "Video": "Forebear/Images/kovr3gdw7vi0bhjzqcz0",
       "Status": "In Progress",
-      "Url": "https://testing.nymphsnook.com/"
+      "Url": "https://forebear.idxstudios.ca/wordpress/"
     },
     {
       "id": "9",
@@ -47,15 +46,6 @@
       "Video": null,
       "Status": "In Progress",
       "Url": "/projects/workstable"
-    },
-    {
-      "id": "10",
-      "Title": "Forebear",
-      "Description": "Currently working on a contract with a film production company, Sheba Films. Currently leading the development of a is a rogue-like, deck-building game that uniquely intertwines indigenous culture with engaging gameplay. As you traverse a world shaped by Ojibway and Cree folklore, you'll learn language and traditions organically through play. Featuring a procedurally-generated map and strategic card mechanics, every choice impacts your journey through rich narratives and authentic cultural encounters. Designed for desktop with expansions to mobile and consoles planned, this game offers a profound experience that educates, entertains, and enlightens—making indigenous heritage accessible to gamers everywhere. Built in Unity",
-      "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=Forebear",
-      "Video": null,
-      "Status": "In Progress",
-      "Url": "/projects/forebear"
     },
     {
       "id": "4",
@@ -84,6 +74,16 @@
         "Video": null,
         "Status": "In Progress",
         "Url": "/projects/goodanimalsllcgame"
+    },
+    {
+      "id": "3",
+      "Title": "Nymphs Nook",
+      "Description": "This is a website I am currently working on for a client. The client had requested a e-commerce website with customizations to the regular web-store. Currently this will be using shopify API to handle the store and inventory. Using Hydrogen as the front-end framework and a custom theme, I am able to create a unique experience for the client and their customers. This is currently in progress and will be updated as the project progresses.",
+      "Gif": "https://res.cloudinary.com/dm2o9jrso/image/upload/f_webp/q_auto/v1/IDXStudios/Images/kpvkipruyq4py0u2cqoe",
+      "CloudinaryImage": "IDXStudios/Images/kpvkipruyq4py0u2cqoe",
+      "Video": null,
+      "Status": "In Progress",
+      "Url": "https://testing.nymphsnook.com/"
     },
     {
       "id": "8",

@@ -3,7 +3,7 @@ import { ReactElement, useEffect, useState } from 'react';
 import projectsJson from './projects.json';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
-import styles from './projects.module.scss';
+import styles from './projects.module.css';
 import './projects-global.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBrain, faCircleCheck, faCode, faStopCircle } from '@fortawesome/free-solid-svg-icons';
@@ -11,7 +11,7 @@ import { faBrain, faCircleCheck, faCode, faStopCircle } from '@fortawesome/free-
 import { Cloudinary } from '@cloudinary/url-gen';
 
 // Import the responsive plugin
-import { AdvancedImage, responsive } from '@cloudinary/react';
+import { AdvancedImage, AdvancedVideo, responsive } from '@cloudinary/react';
 
 export enum ProjectStatus {
   Completed = 'Completed',
@@ -72,7 +72,10 @@ export function Projects(props: ProjectsProps) {
                 renderThumbs={(children) => children.map((project) => (
                     <div>
                         {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
-                        {(project as ReactElement).props.children[0].props.children.props.children[0]}
+                        {/*{(project as ReactElement).props.children[0].props.children.props.children[0]}*/}
+                    {/*  IF Video get thumb instead  */}
+                      {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
+                      { (project as ReactElement).props.children[0].props.children.props.children[0] }
                     </div>
                 ))}
             >
@@ -80,11 +83,20 @@ export function Projects(props: ProjectsProps) {
                     <div key={project.id}>
                         <div className={`${styles.projectImage}`} onClick={() => project.Url && window.open(project.Url, '_blank')}>
                             <div className={styles.projectImageOverlay}>
-                                {project.cloudinaryImage ? <AdvancedImage
+                                {project.Video ?
+                                    // Should use video if available
+                                    <AdvancedVideo
+                                        cldVid={cld.video(project.Video)}
+                                        autoPlay={true}
+                                        muted={true}
+                                        loop={true}
+                                        playsInline={true}
+                                        className={styles.projectImage} /> : project.cloudinaryImage ?
+                                    <AdvancedImage
                                     cldImg={cld.image(project.cloudinaryImage)}
                                     plugins={[responsive({ steps: 200 })]}
                                     alt={project.Title}
-                                    className={'project-image'}
+                                    className={styles.projectImage}
                                 /> : <img src={project.Gif} alt={project.Title} />}
                                 <FontAwesomeIcon
                                     className={`${styles.projectStatus} ${project.Status === ProjectStatus.Completed 
