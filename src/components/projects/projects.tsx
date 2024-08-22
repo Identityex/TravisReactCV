@@ -78,7 +78,13 @@ export function Projects(props: ProjectsProps) {
                     </div>
                 ))}
             >
-                {projects.map((project) => (
+                {projects.map((project) => {
+
+                  console.log(project);
+
+                  const url = project.cloudinaryImage ? cld.image(project.cloudinaryImage).toURL() : 'project.Gif';
+                  console.log(url);
+                  return (
                     <div key={project.id}>
                         <div className={`${styles.projectImage}`} onClick={() => project.Url && window.open(project.Url, '_blank')}>
                             <div className={styles.projectImageOverlay}>
@@ -94,7 +100,7 @@ export function Projects(props: ProjectsProps) {
                                   project.cloudinaryImage ?
                                     <AdvancedImage
                                     cldImg={cld.image(project.cloudinaryImage)}
-                                    plugins={[responsive({ steps: 200 })]}
+                                    // plugins={[responsive({ steps: 200 })]}
                                     alt={project.Title}
                                     className={styles.projectImage}
                                 />
@@ -120,7 +126,8 @@ export function Projects(props: ProjectsProps) {
                             <p>{project.Description}</p>
                         </div>
                     </div>
-                ))}
+                  );
+                })}
             </Carousel>
         </Section>
   );
