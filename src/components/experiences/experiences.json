@@ -1,6 +1,29 @@
 {
   "data": [
     {
+      "id": "0",
+      "role": "Senior Software Engineer",
+      "company": "Glo",
+      "fromDate": "2024-02-18",
+      "toDate": "Current",
+      "accounts": [
+        {
+          "skillTypes": [
+            "GitHub Actions", "nodeJS", "AWS", "Javascript", "CI/CD", "Git", "Feature Planning", "API Design", "Backend Architecture", "Postgres", "MySQL"
+          ],
+          "point": "Migrated MySQL to Postgres",
+          "description": "Successfully migrated a MySQL database to Postgres, enhancing data integrity and performance."
+        },
+        {
+            "skillTypes": [
+                "nodeJS", "AWS", "Javascript", "CI/CD", "Git", "Feature Planning", "API Design", "Backend Architecture", "Postgres", "MySQL", "GraphQL", "Typescript", "Mustache", "Handlebars", "Docker"
+            ],
+            "point": "Redesigning API systems for Scalability",
+            "description": "Redesigned API systems to support a 10X user base increase, ensuring scalability and performance."
+        }
+      ]
+    },
+    {
       "id": "1",
       "role": "Senior Software Engineer",
       "company": "Freshcut.gg",
@@ -41,6 +64,57 @@
           ],
           "point": "Machine Learning Innovation",
           "description": "Developed a machine learning system with 93% accuracy using Python and Jupyter notebooks to identify and mitigate risks from bad actors."
+        },
+        {
+          "point": "Security Enhancement",
+            "description": "Identified and rectified multiple security vulnerabilities, proposing preventive measures to safeguard against future risks.",
+            "skillTypes": [
+                "Nmap", "Burp Suite", "Code and Infrastructure Analysis", "nodeJS", "Typescript", "Docker", "GCP", "CI/CD", "Git"
+            ]
+        },
+        {
+            "point": "Operational Efficiency Initiative",
+            "description": "Helped lead in the design and implementation of a custom code generation tool, significantly reducing development time and improving code quality.",
+            "skillTypes": [
+                "Handlebars", "Mustache", "nodeJS", "Typescript", "Docker", "GCP", "CI/CD", "Git", "Feature Planning", "API Design", "Backend Architecture", "OpenAPI", "Swagger"
+            ]
+        }
+      ]
+    },
+    {
+      "id": "-1",
+      "role": "Game Production Lead",
+      "company": "Sheba-Films (Contract)",
+      "fromDate": "2024-05-02",
+      "toDate": "Current",
+      "accounts": [
+        {
+          "point": "Game Design Leadership",
+          "description": "Leading the game design team in the development of a new game, overseeing the project from concept to launch.",
+          "skillTypes": [
+            "Leadership", "Game Design", "Unity", "C#", "Game Development", "Feature Planning", "Game Design"
+          ]
+        },
+        {
+          "point": "Game Development",
+          "description": "Developing game mechanics and systems, ensuring a seamless and engaging player experience.",
+          "skillTypes": [
+            "Unity", "C#", "Game Development", "Feature Planning", "Game Design"
+          ]
+        },
+        {
+          "point": "Team Collaboration",
+          "description": "Collaborating with artists, developers, and designers to bring the game to life.",
+          "skillTypes": [
+            "Unity", "C#", "Game Development", "Feature Planning", "Game Design"
+          ]
+        },
+        {
+          "point": "Project Management",
+          "description": "Managing the project timeline, resources, and deliverables to ensure timely completion.",
+          "skillTypes": [
+            "Leadership", "Project Management", "Game Design", "Unity", "C#", "Game Development", "Feature Planning", "Asana"
+          ]
         }
       ]
     },
@@ -70,6 +144,13 @@
           "description": "Demonstrated leadership in expanding the business, hiring and training 3 employees, and managing industry outreach efforts to establish robust professional networks.",
           "skillTypes": [
             "Leadership", "Mentorship", "Client Relations", "Business Development"
+          ]
+        },
+        {
+          "point": "Effectively researched target demographics",
+          "description": "Effectively researched target demographics and developed marketing strategies to attract new clients",
+          "skillTypes": [
+              "Leadership", "Mentorship", "Client Relations", "Business Development"
           ]
         }
       ]
@@ -108,6 +189,20 @@
             "skillTypes": [
                 "Javascript", "jQuery", "HTML", "CSS", "SCSS", "ASP.NET Core", "Backend Architecture"
             ]
+        },
+        {
+          "point": "Client Relations and Issue Resolution",
+          "description": "Directly interfaced with clients to resolve complex issues and ensure high client satisfaction.",
+          "skillTypes": [
+            "Client Relations", "Leadership", "Mentorship", "C#", "ASP.NET", "Entity Framework", "SQL", "T-SQL"
+          ]
+        },
+        {
+            "point": "Banking Software Solutions",
+            "description": "Developed custom banking software solutions, integrating with various banking institutions and third-party services.",
+            "skillTypes": [
+                "C#", "ASP.NET", "MVC", "Javascript", "jQuery", "HTML", "CSS", "SCSS", "Entity Framework", "SQL", "Git", "ASP.NET Core", "Azure", "Foundation", "Azure DevOps", "Feature Planning", "API Design", "Backend Architecture"
+            ]
         }
       ]
     },
@@ -144,6 +239,13 @@
           "description": "Collaborated with the Dev-Ops team to optimize Azure architecture, slashing operating expenses by over 50%.",
           "skillTypes": [
             "Azure", "C#", "Backend Architecture", "CI/CD", "Azure DevOps", "PowerShell", "Git"
+          ]
+        },
+        {
+          "point": "Pre-Emptively resolved business-critical issues",
+          "description": "Went to each department and identified potential bottlenecks and issues, resolving them before they became critical.",
+          "skillTypes": [
+            "Leadership", "Mentorship", "Client Relations", "C#", "ASP.NET", "Entity Framework", "SQL", "T-SQL"
           ]
         }
       ]
@@ -188,6 +290,20 @@
           "description": "Led a team in resolving client data issues and system inconsistencies, ensuring high client satisfaction and data integrity.",
           "skillTypes": [
               "Leadership", "Mentorship", "Client Relations", "SQL", "T-SQL", "C#", "ASP.NET", "Entity Framework", "Javascript", "jQuery", "HTML", "CSS", "SCSS"
+          ]
+        },
+        {
+          "point": "Built a Custom CI/CD Pipeline",
+          "description": "Built a custom CI/CD pipeline into Azure DevOps, reducing the required time to onboard clients and test new features by 50%.",
+          "skillTypes": [
+            "Azure DevOps", "CI/CD", "PowerShell", "Azure", "Git", "C#", "ASP.NET", "Entity Framework", "SQL", "T-SQL"
+          ]
+        },
+        {
+          "point": "Awarded for ability to resolve complex client data issues",
+          "description": "Awarded for ability to resolve complex client data issues, ensuring high client satisfaction and data integrity.",
+          "skillTypes": [
+            "Client Relations", "SQL", "T-SQL", "C#", "ASP.NET", "Entity Framework"
           ]
         }
       ]

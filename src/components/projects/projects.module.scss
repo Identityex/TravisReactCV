@@ -29,7 +29,7 @@
     &.planned {
       color: darkslateblue;
     }
-    
+
     &.onHold {
       color: red;
     }
@@ -37,6 +37,13 @@
 }
 
 .projectImage {
+  width: 100%;
+
+  video {
+    width: 100%;
+    height: auto;
+  }
+
   &:hover {
     cursor: pointer;
   }
@@ -59,4 +66,8 @@
 
 .arrowRight {
   transform: rotate(0deg);
+}
+
+.thumbnail {
+  height: 40px;
 }

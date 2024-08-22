@@ -29,6 +29,13 @@
   color: red;
 }
 
+.projectImage {
+  width: 100%;
+}
+.projectImage video {
+  width: 100%;
+  height: auto;
+}
 .projectImage:hover {
   cursor: pointer;
 }
@@ -49,6 +56,10 @@
 
 .arrowRight {
   transform: rotate(0deg);
+}
+
+.thumbnail {
+  height: 40px;
 }
 
 /*# sourceMappingURL=projects.module.css.map */

@@ -31,16 +31,15 @@
     },
     {
       "id": "3",
-      "Title": "Nymphs Nook",
-      "Description": "This is a website I am currently working on for a client. The client had requested a e-commerce website with customizations to the regular web-store. Currently this will be using shopify API to handle the store and inventory. Using Hydrogen as the front-end framework and a custom theme, I am able to create a unique experience for the client and their customers. This is currently in progress and will be updated as the project progresses.",
-      "Gif": "https://res.cloudinary.com/dm2o9jrso/image/upload/f_webp/q_auto/v1/IDXStudios/Images/kpvkipruyq4py0u2cqoe",
-      "CloudinaryImage": "IDXStudios/Images/kpvkipruyq4py0u2cqoe",
-      "Video": null,
+      "Title": "Forebear",
+      "Description": "Currently working on a contract with a film production company, Sheba Films. Currently leading the development of a is a rogue-like, deck-building game that uniquely intertwines indigenous culture with engaging gameplay. As you traverse a world shaped by Ojibway and Cree folklore, you'll learn language and traditions organically through play. Featuring a procedurally-generated map and strategic card mechanics, every choice impacts your journey through rich narratives and authentic cultural encounters. Designed for desktop with expansions to mobile and consoles planned, this game offers a profound experience that educates, entertains, and enlightens—making indigenous heritage accessible to gamers everywhere. Built in Unity",
+      "Gif": null,
+      "Video": "Forebear/Images/kovr3gdw7vi0bhjzqcz0",
       "Status": "In Progress",
-      "Url": "https://testing.nymphsnook.com/"
+      "Url": "https://forebear.idxstudios.ca/"
     },
     {
-      "id": "9",
+      "id": "4",
       "Title": "Work Stable",
       "Description": "A personal project I am working on. This is a SaaS that uses ML to help people find work and help job seekers find employment only bringing forward jobs that best match their skill-set and preferences. This is currently in progress and will be updated as the project progresses.",
       "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=Work+Stable",
@@ -49,7 +48,7 @@
       "Url": "/projects/workstable"
     },
     {
-      "id": "4",
+      "id": "5",
       "Title": "TeStress",
       "Description": "This is a personal project I am working on. This is a horror video game using Unreal Engine 5 and Blender. This is currently in progress and will be updated as the project progresses.",
       "Gif": "https://res.cloudinary.com/dm2o9jrso/image/upload/f_webp/q_auto/v1/IDXStudios/Images/hl4nhtnndzo0ctxbnhtr",
@@ -59,7 +58,7 @@
       "Url": "/projects/testress"
     },
     {
-      "id": "7",
+      "id": "6",
       "Title": "Froot Floofs",
       "Description": "A mobile puzzle game with a twist. This is a personal project I am working on. This is currently in progress and will be updated as the project progresses.",
       "Gif": "https://res.cloudinary.com/dm2o9jrso/image/upload/f_auto,q_auto/v1/IDXStudios/Images/nxw0jpng0x4cykh7lkxs",
@@ -68,31 +67,32 @@
       "Url": "/projects/frootfloofs"
     },
     {
-      "id": "5",
+      "id": "7",
         "Title": "Good Animals LLC Game",
         "Description": "A Contract I am working on finalizing with a client. This is a battle arena game with a unique twist to the genre. This is currently in progress and will be updated as the project progresses.",
         "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=Good+Animals+LLC+Game",
         "Video": null,
         "Status": "In Progress",
-        "Url": "/projects/goodanimalsllcgame"
-    },
-    {
-      "id": "6",
-      "Title": "Good Animals LLC Website",
-      "Description": "A Contract I am working on finalizing with a client. This is a website for the company to showcase their games and other projects. This is currently in progress and will be updated as the project progresses.",
-      "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=Good+Animals+LLC+Website",
-      "Video": null,
-      "Status": "In Progress",
-      "Url": "/projects/goodanimalsllcwebsite"
+        "Url": "https://goodanimalgames.com/"
     },
     {
       "id": "8",
-        "Title": "ImagiNation",
-        "Description": "A personal project to create a way to help people come up with unique ideas for any type of project. Currently on hold until I can find more time to work on it.",
-        "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=ImagiNation",
-        "Video": null,
-        "Status": "On Hold",
-        "Url": "/projects/imagination"
+      "Title": "Nymphs Nook",
+      "Description": "This is a website I am currently working on for a client. The client had requested a e-commerce website with customizations to the regular web-store. Currently this will be using shopify API to handle the store and inventory. Using Hydrogen as the front-end framework and a custom theme, I am able to create a unique experience for the client and their customers. This is currently in progress and will be updated as the project progresses.",
+      "Gif": "https://res.cloudinary.com/dm2o9jrso/image/upload/f_webp/q_auto/v1/IDXStudios/Images/kpvkipruyq4py0u2cqoe",
+      "CloudinaryImage": "IDXStudios/Images/kpvkipruyq4py0u2cqoe",
+      "Video": null,
+      "Status": "In Progress",
+      "Url": "https://nymphsnook.com/"
+    },
+    {
+      "id": "9",
+      "Title": "ImagiNation",
+      "Description": "A personal project to create a way to help people come up with unique ideas for any type of project. Currently on hold until I can find more time to work on it.",
+      "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=ImagiNation",
+      "Video": null,
+      "Status": "On Hold",
+      "Url": "/projects/imagination"
     }
   ]
 }
