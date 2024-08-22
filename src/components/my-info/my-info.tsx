@@ -10,13 +10,13 @@ export function MyInfo() {
 
   const cld = new Cloudinary({
     cloud: {
-      cloudName: 'dm2o9jrso',
+      cloudName: 'idx-studios',
     },
   });
-    
+
   return (
         <Section sectionId={'MyInfo'}>
-            
+
             <AdvancedImage cldImg={cld.image('IDXStudios/Images/j1ybfvp01nt04y5nlfhu')}
                            plugins={[responsive({ steps: 200 })]}
                             className={styles.headerImage}

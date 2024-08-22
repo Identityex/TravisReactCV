@@ -54,7 +54,7 @@ export function Projects(props: ProjectsProps) {
 
   const cld = new Cloudinary({
     cloud: {
-      cloudName: 'dm2o9jrso',
+      cloudName: 'idx-studios',
     },
   });
 
