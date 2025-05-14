@@ -1,6 +1,14 @@
 {
   "changes": [
     {
+      "date": "2025-05-14",
+      "changes": [
+        "Added filter projects by skill",
+        "Added filter projects by category",
+        "Added Animation to skills"
+      ]
+    },
+    {
       "date": "2024-06-27",
       "changes": [
         "Update Forebear link",

@@ -1,4 +1,5 @@
 import { Section } from '../section/Section.tsx';
+import { SkillTypes } from '../skills/skills.tsx';
 import { ReactElement, useEffect, useState } from 'react';
 import projectsJson from './projects.json';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -30,6 +31,8 @@ export interface ProjectData {
   Video: string | null;
   Status: ProjectStatus;
   Url: string | null;
+  Categories: string[];
+  Skills: string[];
 }
 
 interface ProjectsProps {
@@ -45,10 +48,44 @@ export function Projects(props: ProjectsProps) {
       .sort((a, b) => a.id.localeCompare(b.id));
 
     if (props.skills.length > 0) {
-      const filteredProjects = projectsData.filter((project) => {
-        return props.skills.some((skill) => project.Description.toLowerCase().includes(skill.toLowerCase()));
+      // First try to filter by description text matching the skill names
+      const filteredBySkills = projectsData.filter((project) => {
+        return props.skills.some((skill) => 
+          project.Description.toLowerCase().includes(skill.toLowerCase()) || project.Skills.some((pSkill) => pSkill.toLowerCase() === skill.toLowerCase()),
+        );
       });
-      setProjects(filteredProjects);
+
+      console.log(`Filtered by skills: ${filteredBySkills.length}`);
+      
+      // If we find matches based on skills in description, use those
+      // Otherwise, fall back to category matching
+      if (filteredBySkills.length > 0) {
+        setProjects(filteredBySkills);
+      } else {
+        // Get categories from the selected skills using the SkillTypes
+        const skillToCategory = new Map();
+        Object.entries(SkillTypes).forEach(([key, value]) => {
+          skillToCategory.set(value, value);
+        });
+        
+        // Try to match by categories
+        const filteredByCategories = projectsData.filter((project) => {
+          return props.skills.some((skill) => {
+            // Check if any of the project's categories match the category of this skill
+            if (project.Categories) {
+              for (const category of project.Categories) {
+                if (category.toLowerCase().includes(skill.toLowerCase()) || 
+                    skill.toLowerCase().includes(category.toLowerCase())) {
+                  return true;
+                }
+              }
+            }
+            return false;
+          });
+        });
+        
+        setProjects(filteredByCategories.length > 0 ? filteredByCategories : projectsData);  
+      }
     } else {
       setProjects(projectsData);
     }

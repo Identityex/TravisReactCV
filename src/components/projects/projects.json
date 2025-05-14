@@ -7,7 +7,9 @@
       "Gif": "https://res.cloudinary.com/idx-studios/image/upload/f_auto,q_auto/v1/IDXStudios/Images/j8gckugqmvqhu6zzwvx6",
       "Video": null,
       "Status": "Completed",
-      "Url": "https://freshcut.gg"
+      "Url": "https://freshcut.gg",
+      "Categories": ["Backend", "Frontend", "Artificial Intelligence / Machine Learning", "Cloud"],
+      "Skills": ["Typescript", "GraphQL", "NodeJS", "Express", "AWS", "PostgreSQL", "Redis", "Tensorflow", "PyTorch", "OpenCV", "Scikit-Learn", "Numpy", "Pandas", "Matplotlib", "Git", "Docker", "Terraform", "GitHub Actions", "GitLab CI/CD", "Azure DevOps", "Firebase", "Firestore", "Prisma", "Google Cloud Platform", "Git","GitHub", "Vercel", "Storybook", "React", "Mentoring", "Feature Planning", "Backend Architecture", "API Design", "Agile", "Figma", "Jira", "Python", "Scikit-Learn", "Pandas", "AI", "Machine Learning", "Cloud", "DevOps", "Artificial Intelligence / Machine Learning", "Data Engineering", "Cyber Security", "Leadership", "Go"]
     },
     {
       "id": "1",
@@ -17,7 +19,9 @@
       "cloudinaryImage": "IDXStudios/Images/dcdsgpjrdktmbiynhvyy",
       "Video": null,
       "Status": "Completed",
-      "Url": "https://staticrtv.idxstudios.ca/"
+      "Url": "https://staticrtv.idxstudios.ca/",
+      "Categories": ["Frontend", "Backend"],
+      "Skills": ["PHP", "Wordpress", "Elementor", "Git", "GitHub", "Client Relations", "CMS", "Bootstrap", "SCSS", "HTML", "CSS", "Elementor"]
     },
     {
       "id": "2",
@@ -27,7 +31,9 @@
       "cloudinaryImage": "IDXStudios/Images/ebtkmqs92ez9g4y9aqxj",
       "Video": null,
       "Status": "Completed",
-      "Url": "https://nymphsnotes.com/"
+      "Url": "https://nymphsnotes.com/",
+      "Categories": ["Frontend"],
+      "Skills": ["PHP", "Wordpress", "Elementor", "Git", "GitHub", "Client Relations", "CMS", "Bootstrap", "SCSS", "HTML", "CSS", "Elementor"]
     },
     {
       "id": "3",
@@ -36,7 +42,9 @@
       "Gif": null,
       "Video": "Forebear/Images/kovr3gdw7vi0bhjzqcz0",
       "Status": "In Progress",
-      "Url": "https://forebear.idxstudios.ca/"
+      "Url": "https://forebear.idxstudios.ca/",
+      "Categories": ["Game Development", "Frontend"],
+      "Skills": ["Unity", "Git", "GitHub", "Client Relations", "CMS", "Bootstrap", "SCSS", "HTML", "CSS", "Vercel", "React","HTML","Web Design", "C#", "Serialized Components"]
     },
     {
       "id": "4",
@@ -45,7 +53,9 @@
       "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=Work+Stable",
       "Video": null,
       "Status": "In Progress",
-      "Url": "/projects/workstable"
+      "Url": "/projects/workstable",
+      "Categories": ["Artificial Intelligence / Machine Learning", "Frontend", "Backend", "Cloud"],
+      "Skills": ["Typescript", "NodeJS", "Express", "AWS", "PostgreSQL", "Redis", "Tensorflow", "PyTorch", "OpenCV", "Scikit-Learn", "Numpy", "Pandas", "Matplotlib", "Git", "Docker", "Terraform", "GitHub Actions", "GitLab CI/CD", "Firebase", "Firestore", "Google Cloud Platform", "Git","GitHub", "Vercel", "Storybook", "React", "Mentoring", "Feature Planning", "Backend Architecture", "API Design", "Agile", "Figma", "Jira", "Web Design", "AI", "Machine Learning", "Data Engineering", "Cloud", "DevOps", "Artificial Intelligence / Machine Learning", "Data Engineering", "Cyber Security", "Leadership", "SCSS","Styled Components", "NextJS", "Python", "Scikit-Learn", "Pandas", "AI", "Machine Learning", "Data Engineering", "Cloud", "DevOps", "Artificial Intelligence / Machine Learning", "Data Engineering", "Cyber Security", "Leadership", "SCSS","Styled Components", "NextJS"]
     },
     {
       "id": "5",
@@ -55,7 +65,9 @@
       "cloudinaryImage": "IDXStudios/Images/hl4nhtnndzo0ctxbnhtr",
       "Video": null,
       "Status": "In Progress",
-      "Url": "/projects/testress"
+      "Url": "/projects/testress",
+      "Categories": ["Game Development", "Frontend", "Backend", "Cloud"],
+      "Skills": ["Unreal Engine", "C++", "Perforce", "Blueprints"]
     },
     {
       "id": "6",
@@ -65,7 +77,9 @@
       "Video": null,
       "Status": "Planned",
       "Url": "/projects/frootfloofs",
-      "cloudinaryImage": "IDXStudios/Images/nxw0jpng0x4cykh7lkxs"
+      "cloudinaryImage": "IDXStudios/Images/nxw0jpng0x4cykh7lkxs",
+      "Categories": ["Game Development", "Frontend", "Backend", "Cloud"],
+      "Skills": ["Unity", "C#", "Perforce"]
     },
     {
       "id": "7",
@@ -74,7 +88,9 @@
         "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=Good+Animals+LLC+Game",
         "Video": null,
         "Status": "In Progress",
-        "Url": "https://goodanimalgames.com/"
+        "Url": "https://goodanimalgames.com/",
+        "Categories": ["Game Development", "Frontend", "Backend", "Cloud"],
+        "Skills": ["Unreal Engine", "C++", "Perforce", "Blueprints", "Playfab", "Gameplay Ability System", "Serialized Components", "UnrealScript", "Thundernetes"]
     },
     {
       "id": "8",
@@ -84,7 +100,9 @@
       "cloudinaryImage": "IDXStudios/Images/kpvkipruyq4py0u2cqoe",
       "Video": null,
       "Status": "In Progress",
-      "Url": "https://nymphsnook.com/"
+      "Url": "https://nymphsnook.com/",
+      "Categories": ["Frontend", "Backend"],
+      "Skills": ["Hydrogen", "Shopify", "NextJS", "React", "TypeScript", "NodeJS", "Express", "AWS", "PostgreSQL", "Redis", "Tensorflow", "PyTorch", "OpenCV", "Scikit-Learn", "Numpy", "Pandas", "Matplotlib", "Git", "Docker", "Terraform", "GitHub Actions", "GitLab CI/CD", "Firebase", "Firestore", "Google Cloud Platform", "Git","GitHub", "Vercel", "Storybook", "React", "Mentoring", "Feature Planning", "Backend Architecture", "API Design", "Agile", "Figma", "Jira", "Web Design", "AI", "Machine Learning", "Data Engineering", "Cloud", "DevOps", "Artificial Intelligence / Machine Learning", "Data Engineering", "Cyber Security", "Leadership", "SCSS","Styled Components", "NextJS", "E-Commerce"]
     },
     {
       "id": "9",
@@ -93,7 +111,9 @@
       "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=ImagiNation",
       "Video": null,
       "Status": "On Hold",
-      "Url": "/projects/imagination"
+      "Url": "/projects/imagination",
+      "Categories": ["Game Development", "Frontend", "Backend", "Cloud"],
+      "Skills": ["NestJS", "TypeScript", "NodeJS", "Express","React", "Feature Planning", "Backend Architecture", "API Design", "Web Design", "Go"]
     }
   ]
 }
