@@ -1,18 +1,20 @@
-import { Section } from '../section/Section.tsx';
-import { SkillTypes } from '../skills/skills.tsx';
-import { ReactElement, useEffect, useState } from 'react';
-import projectsJson from './projects.json';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import React, { ReactElement, useEffect, useState, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
-import styles from './projects.module.css';
-import './projects-global.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBrain, faCircleCheck, faCode, faStopCircle } from '@fortawesome/free-solid-svg-icons';
-
+import { 
+  faBrain, 
+  faCircleCheck, 
+  faCode, 
+  faStopCircle, 
+  faExternalLinkAlt 
+} from '@fortawesome/free-solid-svg-icons';
 import { Cloudinary } from '@cloudinary/url-gen';
-
-// Import the responsive plugin
-import { AdvancedImage, AdvancedVideo, responsive } from '@cloudinary/react';
+import { AdvancedImage, AdvancedVideo } from '@cloudinary/react';
+import { Section } from '../section/Section';
+import styles from './projects.module.scss';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import projectsJson from './projects.json';
 
 export enum ProjectStatus {
   Completed = 'Completed',
@@ -26,146 +28,246 @@ export interface ProjectData {
   id: string;
   Title: string;
   Description: string;
-  Gif: string;
-  cloudinaryImage?: string;
-  Video: string | null;
-  Status: ProjectStatus;
-  Url: string | null;
   Categories: string[];
   Skills: string[];
+  Status: ProjectStatus;
+  Url?: string;
+  Video?: string;
+  cloudinaryImage?: any;
+  Gif?: string;
+  Image?: string;
+  previewImage?: string;
 }
 
 interface ProjectsProps {
   skills: string[];
 }
 
-export function Projects(props: ProjectsProps) {
-  const [projects, setProjects] = useState<ProjectData[]>([]);
+interface ProjectCardProps {
+  project: ProjectData;
+  cld: Cloudinary;
+}
 
-  useEffect(() => {
-    // Sort by id
-    const projectsData = (projectsJson.data as ProjectData[])
-      .sort((a, b) => a.id.localeCompare(b.id));
-
-    if (props.skills.length > 0) {
-      // First try to filter by description text matching the skill names
-      const filteredBySkills = projectsData.filter((project) => {
-        return props.skills.some((skill) => 
-          project.Description.toLowerCase().includes(skill.toLowerCase()) || project.Skills.some((pSkill) => pSkill.toLowerCase() === skill.toLowerCase()),
-        );
-      });
-
-      console.log(`Filtered by skills: ${filteredBySkills.length}`);
-      
-      // If we find matches based on skills in description, use those
-      // Otherwise, fall back to category matching
-      if (filteredBySkills.length > 0) {
-        setProjects(filteredBySkills);
+const ProjectCard = ({ project, cld }: ProjectCardProps) => {
+  const navigate = useNavigate();
+  
+  const handleClick = useCallback(() => {
+    if (project.Url) {
+      if (project.Url.startsWith('http')) {
+        window.open(project.Url, '_blank');
       } else {
-        // Get categories from the selected skills using the SkillTypes
-        const skillToCategory = new Map();
-        Object.entries(SkillTypes).forEach(([key, value]) => {
-          skillToCategory.set(value, value);
-        });
-        
-        // Try to match by categories
-        const filteredByCategories = projectsData.filter((project) => {
-          return props.skills.some((skill) => {
-            // Check if any of the project's categories match the category of this skill
-            if (project.Categories) {
-              for (const category of project.Categories) {
-                if (category.toLowerCase().includes(skill.toLowerCase()) || 
-                    skill.toLowerCase().includes(category.toLowerCase())) {
-                  return true;
-                }
-              }
-            }
-            return false;
-          });
-        });
-        
-        setProjects(filteredByCategories.length > 0 ? filteredByCategories : projectsData);  
+        navigate(project.Url);
       }
-    } else {
-      setProjects(projectsData);
     }
-  }, [props.skills]);
-
-  const cld = new Cloudinary({
-    cloud: {
-      cloudName: 'idx-studios',
-    },
-  });
+  }, [navigate, project.Url]);
 
   return (
-        <Section sectionId={'Projects'}>
-            <h1>Projects</h1>
-            <Carousel
-                selectedItem={0}
-                emulateTouch={true}
-                className={`${styles.projects}`}
-                showIndicators={false}
-                useKeyboardArrows={true}
-                showStatus={false}
-                // renderItem={(children) => children}
-                renderThumbs={(children) => children.map((project) => (
-                    <div className={styles.thumbnail}>
-                      {/* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */}
-                      { (project as ReactElement).props.children[0].props.children.props.children[0] }
-                    </div>
-                ))}
+    <div className={styles.projectCard} onClick={handleClick}>
+      <div className={styles.projectImageOverlay}>
+        {project.Video ? (
+          <AdvancedVideo
+            cldVid={cld.video(project.Video)}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className={styles.projectImage}
+          />
+        ) : project.cloudinaryImage ? (
+          <AdvancedImage
+            cldImg={cld.image(project.cloudinaryImage)}
+            alt={project.Title}
+            className={styles.projectImage}
+            loading="lazy"
+          />
+        ) : (
+          <img src={project.previewImage} alt={project.Title} className={styles.projectImage} loading="lazy" />
+        )}
+        <div 
+          className={`${styles.projectStatus} ${
+            project.Status === ProjectStatus.Completed ? 'completed' :
+            project.Status === ProjectStatus.InProgress ? 'inProgress' :
+            project.Status === ProjectStatus.Planned ? 'planned' : 'onHold'
+          }`}
+          title={project.Status}
+        >
+          <FontAwesomeIcon
+            icon={
+              project.Status === ProjectStatus.Completed ? faCircleCheck :
+              project.Status === ProjectStatus.InProgress ? faCode :
+              project.Status === ProjectStatus.Planned ? faBrain : faStopCircle
+            }
+          />
+        </div>
+      </div>
+      <div className={styles.projectContent}>
+        <h3>{project.Title}</h3>
+        <p>{project.Description}</p>
+        <div className={styles.projectMeta}>
+          <div className={styles.projectSkills}>
+            {project.Skills.slice(0, 5).map((skill, idx) => (
+              <span key={idx} className={styles.skillBadge}>
+                {skill}
+              </span>
+            ))}
+            {project.Skills.length > 5 && (
+              <span className={styles.moreSkills}>+{project.Skills.length - 5} more</span>
+            )}
+          </div>
+          {project.Url && (
+            <a 
+              href={project.Url} 
+              className={styles.projectLink}
+              target="_blank" 
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
             >
-                {projects.map((project) => {
+              View <FontAwesomeIcon icon={faExternalLinkAlt} />
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
 
-                  console.log(project);
+export function Projects({ skills }: ProjectsProps) {
+  const [projects, setProjects] = useState<ProjectData[]>([]);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-                  const url = project.cloudinaryImage ? cld.image(project.cloudinaryImage).toURL() : 'project.Gif';
-                  console.log(url);
-                  return (
-                    <div key={project.id}>
-                        <div className={`${styles.projectImage}`} onClick={() => project.Url && window.open(project.Url, '_blank')}>
-                            <div className={styles.projectImageOverlay}>
-                                {project.Video ?
-                                    // Should use video if available
-                                    <AdvancedVideo
-                                        cldVid={cld.video(project.Video)}
-                                        autoPlay={true}
-                                        muted={true}
-                                        loop={true}
-                                        playsInline={true}
-                                        className={styles.projectImage} /> :
-                                  project.cloudinaryImage ?
-                                    <AdvancedImage
-                                    cldImg={cld.image(project.cloudinaryImage)}
-                                    // plugins={[responsive({ steps: 200 })]}
-                                    alt={project.Title}
-                                    className={styles.projectImage}
-                                />
-                                    : <img src={project.Gif} alt={project.Title} />}
-                                <FontAwesomeIcon
-                                    className={`${styles.projectStatus} ${project.Status === ProjectStatus.Completed 
-                                      ? styles.completed : 
-                                      project.Status === ProjectStatus.InProgress ? styles.inProgress :
-                                        project.Status === ProjectStatus.Planned ? styles.planned :
-                                          project.Status === ProjectStatus.OnHold ? styles.onHold :
-                                            styles.inProgress}`}
-                                    icon={project.Status === ProjectStatus.Completed ? faCircleCheck :
-                                      project.Status === ProjectStatus.InProgress ? faCode :
-                                        project.Status === ProjectStatus.Planned ? faBrain :
-                                          project.Status === ProjectStatus.OnHold ? faStopCircle :
-                                            faCode}
-                                    title={project.Status}
-                                />
-                            </div>
-                        </div>
-                        <div>
-                            <h3>{project.Title}</h3>
-                            <p>{project.Description}</p>
-                        </div>
-                    </div>
-                  );
-                })}
-            </Carousel>
-        </Section>
+  const cld = new Cloudinary({
+    cloud: { cloudName: 'idx-studios' },
+  });
+
+  useEffect(() => {
+    const statusOrder = {
+      [ProjectStatus.Completed]: 0,
+      [ProjectStatus.InProgress]: 1,
+      [ProjectStatus.Planned]: 2,
+      [ProjectStatus.OnHold]: 3,
+      [ProjectStatus.Cancelled]: 4
+    };
+
+    let projectsData = ((projectsJson as any).data as ProjectData[])
+      ?.map(project => ({
+        ...project,
+        // Ensure we have a preview image
+        previewImage: project.Image || project.Gif || undefined
+      }))
+      ?.sort((a, b) => {
+        // First sort by status
+        const statusDiff = statusOrder[a.Status] - statusOrder[b.Status];
+        if (statusDiff !== 0) return statusDiff;
+        // Then by id
+        return a.id.localeCompare(b.id);
+      });
+
+    if (skills.length > 0) {
+      projectsData = projectsData.filter(project => 
+        project.Skills.some(skill => 
+          skills.includes(skill)
+        )
+      );
+    }
+
+    setProjects(projectsData);
+  }, [skills]);
+
+  const renderThumb = useCallback((children: any[]) => {
+    return children.map((child: any, index: number) => {
+      // Safely access the image element with proper type checking
+      const childProps = child.props as { children?: ReactElement[] };
+      const firstChild = childProps.children?.[0];
+      const firstChildProps = firstChild?.props as { children?: ReactElement[] } | undefined;
+      const firstGrandChild = firstChildProps?.children?.[0];
+      const grandChildProps = firstGrandChild?.props as { children?: ReactElement[] } | undefined;
+      const imageElement = grandChildProps?.children?.[0];
+      
+      // If we can't find the image element, return a placeholder
+      if (!React.isValidElement(imageElement)) {
+        return (
+          <div 
+            key={index} 
+            className={`${styles.thumbnail} ${activeIndex === index ? 'selected' : ''}`}
+          />
+        );
+      }
+      
+      // Create a new element with the same props but a different key
+      const clonedElement = React.cloneElement(imageElement as React.ReactElement<any>, {
+        key: `thumb-${index}`,
+        className: `${(imageElement.props as any).className || ''} ${styles.thumbnailImage}`
+      } as any);
+      
+      return (
+        <div 
+          key={index} 
+          className={`${styles.thumbnail} ${activeIndex === index ? 'selected' : ''}`}
+        >
+          {clonedElement}
+        </div>
+      );
+    });
+  },
+    [activeIndex]
+  );
+
+  if (projects.length === 0) {
+    return (
+      <Section sectionId="projects">
+        <h2>No projects found matching the selected skills</h2>
+        <p>Try selecting different skills or clear the filters to see all projects.</p>
+      </Section>
+    );
+  }
+
+  return (
+    <Section sectionId="projects">
+      <h2>Featured Projects</h2>
+      <p className="subtitle">A selection of my recent work and contributions</p>
+      
+      <div className={styles.projects}>
+        <Carousel
+          selectedItem={0}
+          emulateTouch
+          showArrows
+          showIndicators={false}
+          showStatus={false}
+          showThumbs={projects.length > 1}
+          useKeyboardArrows
+          className={styles.carousel}
+          renderThumbs={projects.length > 1 ? renderThumb : undefined}
+          onChange={(index) => setActiveIndex(index)}
+          renderArrowPrev={(onClickHandler, hasPrev, label) =>
+            hasPrev && (
+              <button
+                type="button"
+                onClick={onClickHandler}
+                title={label}
+                className={`${styles.controlArrow} ${styles.controlPrev}`}
+              >
+                ‹
+              </button>
+            )
+          }
+          renderArrowNext={(onClickHandler, hasNext, label) =>
+            hasNext && (
+              <button
+                type="button"
+                onClick={onClickHandler}
+                title={label}
+                className={`${styles.controlArrow} ${styles.controlNext}`}
+              >
+                ›
+              </button>
+            )
+          }
+        >
+          {projects.map((project) => (
+            <ProjectCard key={project.id} project={project} cld={cld} />
+          ))}
+        </Carousel>
+      </div>
+    </Section>
   );
 }

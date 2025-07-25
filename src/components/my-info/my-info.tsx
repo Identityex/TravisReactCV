@@ -19,8 +19,10 @@ export function MyInfo() {
 
             <AdvancedImage cldImg={cld.image('IDXStudios/Images/j1ybfvp01nt04y5nlfhu')}
                            plugins={[responsive({ steps: 200 })]}
-                            className={styles.headerImage}
+                           className={styles.headerImage}
                            alt="Profile Picture"
+                           loading="eager"
+                           fetchpriority="high"
             />
 
             <div className={styles.contentArea}>

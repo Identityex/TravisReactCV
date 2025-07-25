@@ -1,9 +1,27 @@
-import { useEffect, useState } from 'react';
-import { stackoverflowDark as highlightTheme } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import styles from './background-code.module.css';
 
 import { CodeType } from './code-type.ts';
-import SyntaxHighlighter from 'react-syntax-highlighter';
+
+// Lazy load syntax highlighter and theme together
+const LazyHighlighter = lazy(async () => {
+  const [highlighterModule, themeModule] = await Promise.all([
+    import('react-syntax-highlighter'),
+    import('react-syntax-highlighter/dist/esm/styles/hljs')
+  ]);
+  
+  const SyntaxHighlighter = highlighterModule.default;
+  const theme = themeModule.stackoverflowDark;
+  
+  // Return a component that includes the theme
+  return {
+    default: ({ children, language, className }: any) => (
+      <SyntaxHighlighter language={language} style={theme} className={className}>
+        {children}
+      </SyntaxHighlighter>
+    )
+  };
+});
 
 interface BackgroundCodeProps {
   codeType?: CodeType;
@@ -95,12 +113,13 @@ export function BackgroundCode(props: BackgroundCodeProps) {
 
   return (
         <div className={`${styles.backgroundCode} ${styles.parallaxLayer} ${styles.parallaxBack}`}>
-            <SyntaxHighlighter
-                language={'cpp'}
-                style={highlightTheme}
-                className={`${styles.hljs} ${styles.highlight} language-cpp`}>
-                {code}
-            </SyntaxHighlighter>
+            <Suspense fallback={<div className={styles.loadingCode}>Loading code...</div>}>
+                <LazyHighlighter
+                    language="cpp"
+                    className={`${styles.hljs} ${styles.highlight} language-cpp`}>
+                    {code}
+                </LazyHighlighter>
+            </Suspense>
             <span id="flashing-input"></span>
         </div>
   );

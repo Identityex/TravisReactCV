@@ -172,14 +172,6 @@ export function Skills(props: SkillsProps) {
   const [skillGroup, setSkillGroup] = useState('Primary');
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
 
-  const getSkillCategory = (skill: string): string | null => {
-    for (const [category, skillsObj] of Object.entries(skills)) {
-      if (Object.values(skillsObj).includes(skill)) {
-        return category;
-      }
-    }
-    return null;
-  };
 
   const toggleSkill = (skill: string) => {
     if (selectedSkills.includes(skill)) {
@@ -231,17 +223,6 @@ export function Skills(props: SkillsProps) {
   };
 
 
-  const buttonVariants = {
-    initial: { scale: 1 },
-    hover: { 
-      scale: 1.03,              // Reduced from 1.05 for subtler effect
-      transition: { duration: 0.1 }
-    },
-    tap: { 
-      scale: 0.97,              // Reduced from 0.95 for subtler effect
-      transition: { duration: 0.1 }
-    }
-  };
 
   return (
     <Section sectionId={'Skills'}>

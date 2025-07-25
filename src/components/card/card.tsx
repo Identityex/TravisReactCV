@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import styles from './card.module.scss';
 
 type CardProps = {
@@ -6,21 +7,18 @@ type CardProps = {
   tags: string[];
 };
 
-// Card component
-export function Card(props: CardProps) {
-  const { title, description, tags } = props;
-    
+export const Card = memo(function Card({ title, description, tags }: CardProps) {
   return (
-      <div className={styles.CardContainer}>
-        <h2 className={styles.CardTitle}>{title}</h2>
-        <hr />
-        <p className={styles.CardDescription}>{description}</p>
-        <hr />
-        <ul className={styles.CardTags}>
-            {tags.map((tag) => (
-                <li className={styles.CardTag} key={tag}>{tag}</li>
-            ))}
-        </ul>
-      </div>
+    <div className={styles.CardContainer}>
+      <h2 className={styles.CardTitle}>{title}</h2>
+      <p className={styles.CardDescription}>{description}</p>
+      <ul className={styles.CardTags}>
+        {tags.map((tag) => (
+          <li className={styles.CardTag} key={tag}>
+            {tag}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
-}
+});

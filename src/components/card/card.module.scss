@@ -10,52 +10,58 @@
 @import "../../../node_modules/bootstrap/scss/forms";
 
 .CardContainer {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 10px;
-  width: 300px;
-  background-color: #2b2f32;
-  @media (max-width: 600px) {
-    width: 100%;
-    margin: 10px 5px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  background-color: rgba(17, 17, 17, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background-color 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 280px;
+  max-width: 320px;
+
+  &:hover {
+    background-color: rgba(17, 17, 17, 0.9);
   }
 }
 
 .CardTitle {
-  margin: 0;
-  font-weight: 800;
-  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 1rem;
+  line-height: 1.4;
 }
 
 .CardDescription {
-  color: whitesmoke;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
 }
 
 .CardTags {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: flex-start;
+  gap: 0.5rem;
   list-style: none;
   padding: 0;
-  margin: 12px 0 0;
+  margin: 0;
 }
 
 .CardTag {
-  background-color: #535bf2;
-  border-radius: 20px;
-  padding: 5px;
-  margin-bottom: 8px;
+  background-color: rgba(99, 102, 241, 0.1);
+  color: #818cf8;
+  border-radius: 6px;
+  padding: 0.25rem 0.75rem;
   font-size: 0.8rem;
-
-  &:not(:last-child) {
-    margin-right: 8px;
-  }
-
-
-  @media (max-width: 600px) {
-    font-size: 0.7rem;
-    padding: 4px;
-  }
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
