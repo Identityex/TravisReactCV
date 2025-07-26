@@ -2,82 +2,39 @@
   "data": [
     {
       "id": "0",
-      "role": "Senior Software Engineer",
-      "company": "Glo",
-      "fromDate": "2024-02-18",
+      "role": "Senior Software Engineer (Contract)",
+      "company": "Glo Digital Inc",
+      "fromDate": "2024-02-01",
       "toDate": "Current",
+      "location": "Los Angeles, CA (Remote)",
       "accounts": [
         {
           "skillTypes": [
-            "GitHub Actions", "nodeJS", "AWS", "Javascript", "CI/CD", "Git", "Feature Planning", "API Design", "Backend Architecture", "Postgres", "MySQL"
+            "GraphQL", "AWS", "Terraform", "PostgreSQL", "MySQL", "CI/CD", "GitHub Actions", "NodeJS", "TypeScript", "Docker", "API Design", "Backend Architecture", "TDD"
           ],
-          "point": "Migrated MySQL to Postgres",
-          "description": "Successfully migrated a MySQL database to Postgres, enhancing data integrity and performance."
-        },
-        {
-            "skillTypes": [
-                "nodeJS", "AWS", "Javascript", "CI/CD", "Git", "Feature Planning", "API Design", "Backend Architecture", "Postgres", "MySQL", "GraphQL", "Typescript", "Mustache", "Handlebars", "Docker"
-            ],
-            "point": "Redesigning API systems for Scalability",
-            "description": "Redesigned API systems to support a 10X user base increase, ensuring scalability and performance."
-        }
-      ]
-    },
-    {
-      "id": "1",
-      "role": "Senior Software Engineer",
-      "company": "Freshcut.gg",
-      "fromDate": "2019-11-02",
-      "toDate": "2024-01-02",
-      "accounts": [
-        {
-          "skillTypes": [
-            "Terraform", "GitHub Actions", "nodeJS", "Docker", "GCP", "Typescript", "CI/CD", "Git"
-          ],
-          "point": "Improved Development Workflows",
-          "description": "Spearheaded the overhaul of development workflows, enhancing efficiency and developer experience by integrating scripts, Github Actions, and Terraform. This automation streamlined the deployment process, reducing errors and boosting productivity."
-        },
-        {
-          "point": "Mentorship and Leadership",
-          "description": "Actively mentored junior developers in code practices, ensuring comprehensive understanding and fostering a knowledge-rich environment.",
-          "skillTypes": [
-            "Leadership", "Mentorship", "nodeJS", "Typescript"
-          ]
+          "point": "GraphQL Gateway Architecture",
+          "description": "Proposed and implemented GraphQL gateway consolidating 3 legacy APIs into domain-driven architecture, reducing system complexity and providing unified data model for mobile/web teams"
         },
         {
           "skillTypes": [
-            "nodeJS", "Typescript", "Docker", "GCP", "CI/CD", "PostgreSQL", "Firestore", "NoSql", "Backend Architecture", "API Design", "Git", "Feature Planning", "API Design", "Backend Architecture"
+            "CI/CD", "GitHub Actions", "AWS CodePipeline", "Terraform", "Shell Scripts", "Infrastructure as Code"
           ],
-          "point": "API Development for Scalability",
-          "description": "Played a pivotal role in designing and implementing APIs to support a 100X user base increase within a month, showcasing ability to handle rapid scalability."
+          "point": "CI/CD Pipeline Implementation",
+          "description": "Built CI/CD pipelines for the project using GitHub Actions and AWS CodePipeline using Terraform and shell scripts"
         },
         {
           "skillTypes": [
-            "PostgresSQL", "Firestore", "NoSql", "Backend Architecture", "API Design", "GraphQL", "nodeJS", "Typescript", "Feature Planning", "API Design", "Backend Architecture"
+            "PostgreSQL", "MySQL", "ETL", "Database Architecture", "TDD", "Docker", "Data Migration"
           ],
-          "point": "Performance Optimization",
-          "description": "Optimized database queries and API code, achieving a 30% reduction in infrastructure costs through enhanced response times."
+          "point": "65% Query Performance Lift",
+          "description": "Led database architecture transformation: designed PostgreSQL migration strategy, built ETL pipeline for sanitized seed data, and created local development environment, enabling true TDD workflows for backend team"
         },
         {
           "skillTypes": [
-            "Python", "Jupyter Notebooks", "BigQuery", "Pytorch", "Scikit-learn", "NumPy", "Pandas", "OpenCV", "Feature Planning", "API Design", "Backend Architecture"
+            "Leadership", "Mentorship", "System Architecture", "Team Management"
           ],
-          "point": "Machine Learning Innovation",
-          "description": "Developed a machine learning system with 93% accuracy using Python and Jupyter notebooks to identify and mitigate risks from bad actors."
-        },
-        {
-          "point": "Security Enhancement",
-            "description": "Identified and rectified multiple security vulnerabilities, proposing preventive measures to safeguard against future risks.",
-            "skillTypes": [
-                "Nmap", "Burp Suite", "Code and Infrastructure Analysis", "nodeJS", "Typescript", "Docker", "GCP", "CI/CD", "Git"
-            ]
-        },
-        {
-            "point": "Operational Efficiency Initiative",
-            "description": "Helped lead in the design and implementation of a custom code generation tool, significantly reducing development time and improving code quality.",
-            "skillTypes": [
-                "Handlebars", "Mustache", "nodeJS", "Typescript", "Docker", "GCP", "CI/CD", "Git", "Feature Planning", "API Design", "Backend Architecture", "OpenAPI", "Swagger"
-            ]
+          "point": "Technical Leadership",
+          "description": "Guided team of developers in designing and implementing new system architecture, fostering culture of innovation and collaboration. Mentored team members, promoted best practices, and ensured alignment with project goals"
         }
       ]
     },
@@ -87,33 +44,93 @@
       "company": "Sheba-Films (Contract)",
       "fromDate": "2024-05-02",
       "toDate": "Current",
+      "location": "Thunder Bay, ON (Remote)",
       "accounts": [
         {
-          "point": "Game Design Leadership",
-          "description": "Leading the game design team in the development of a new game, overseeing the project from concept to launch.",
+          "point": "Ojibwe Roguelike Deckbuilder Lead",
+          "description": "Led 8-person multidisciplinary team through concept and design phases, securing CMF funding and establishing Unity development pipelines",
           "skillTypes": [
-            "Leadership", "Game Design", "Unity", "C#", "Game Development", "Feature Planning", "Game Design"
+            "Leadership", "Game Design", "Unity", "C#", "Game Development", "Feature Planning", "Project Management", "CMF Funding"
           ]
         },
         {
-          "point": "Game Development",
-          "description": "Developing game mechanics and systems, ensuring a seamless and engaging player experience.",
+          "point": "Culturally Respectful Game Design",
+          "description": "Designed modular game systems architecture supporting procedural generation and culturally respectful Ojibwe storytelling integration",
           "skillTypes": [
-            "Unity", "C#", "Game Development", "Feature Planning", "Game Design"
+            "Unity", "C#", "Game Development", "Feature Planning", "Game Design", "Cultural Sensitivity", "Procedural Generation"
           ]
         },
         {
           "point": "Team Collaboration",
-          "description": "Collaborating with artists, developers, and designers to bring the game to life.",
+          "description": "Collaborating with artists, developers, and designers to bring the game to life with authentic indigenous representation",
           "skillTypes": [
-            "Unity", "C#", "Game Development", "Feature Planning", "Game Design"
+            "Unity", "C#", "Game Development", "Feature Planning", "Game Design", "Team Leadership", "Cross-functional Collaboration"
           ]
         },
         {
           "point": "Project Management",
-          "description": "Managing the project timeline, resources, and deliverables to ensure timely completion.",
+          "description": "Managing the project timeline, resources, and deliverables to ensure timely completion and CMF compliance",
           "skillTypes": [
             "Leadership", "Project Management", "Game Design", "Unity", "C#", "Game Development", "Feature Planning", "Asana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1",
+      "role": "Senior Software Engineer",
+      "company": "Freshcut.gg",
+      "fromDate": "2021-11-01",
+      "toDate": "2024-01-01",
+      "location": "Los Angeles, CA (Remote)",
+      "accounts": [
+        {
+          "skillTypes": [
+            "Golang", "TypeScript", "Roblox API", "REST API", "Performance Optimization"
+          ],
+          "point": "Golang API Migration",
+          "description": "Built custom Golang API to interface with Roblox's API for in-game item distribution, migrating from TypeScript to Golang to improve performance and reduce memory usage"
+        },
+        {
+          "skillTypes": [
+            "GraphQL", "API Gateway", "High Performance", "Caching", "Rate Limiting", "Fault Tolerance"
+          ],
+          "point": "1M+ Requests/Hour API Gateway",
+          "description": "Built highly performant GraphQL API gateway supporting 1M+ requests per hour, with fault-tolerant caching and rate limiting"
+        },
+        {
+          "skillTypes": [
+            "API Design", "Scalability", "Performance Optimization", "High Availability"
+          ],
+          "point": "50x User Growth Support",
+          "description": "Designed and implemented APIs to support 5K → 250K daily active users; achieved 40% faster responses and 99.9% uptime during high-traffic promotions"
+        },
+        {
+          "skillTypes": [
+            "Python", "Machine Learning", "IsolationForest", "Fraud Detection", "Trust & Safety", "Jupyter Notebooks", "BigQuery", "PyTorch", "Scikit-learn", "NumPy", "Pandas", "OpenCV"
+          ],
+          "point": "93% Fraud Prevention",
+          "description": "Delivered IsolationForest trust-and-safety service achieving 93% accuracy in fraud detection, preventing $4K+ fraudulent payouts per incident while blocking bad actors from platform abuse"
+        },
+        {
+          "skillTypes": [
+            "Developer Tools", "CLI", "Code Generation", "Platform Engineering", "SDLC", "Handlebars", "Mustache", "OpenAPI", "Swagger"
+          ],
+          "point": "80% Faster Project Spin-up",
+          "description": "Led platform engineering initiative creating developer-experience tooling that cut boilerplate 80% and standardized SDLC practices across engineering team"
+        },
+        {
+          "point": "Security Enhancement",
+          "description": "Identified and rectified multiple security vulnerabilities, proposing preventive measures to safeguard against future risks",
+          "skillTypes": [
+            "Nmap", "Burp Suite", "Code and Infrastructure Analysis", "NodeJS", "TypeScript", "Docker", "GCP", "CI/CD", "Git"
+          ]
+        },
+        {
+          "point": "Mentorship and Leadership",
+          "description": "Actively mentored junior developers in code practices, ensuring comprehensive understanding and fostering a knowledge-rich environment",
+          "skillTypes": [
+            "Leadership", "Mentorship", "NodeJS", "TypeScript"
           ]
         }
       ]
@@ -124,33 +141,34 @@
       "company": "IDX Studios Canada LTD",
       "fromDate": "2021-11-02",
       "toDate": "Current",
+      "location": "Thunder Bay, ON (Remote)",
       "accounts": [
         {
-          "point": "Full-Stack Development",
-          "description": "Successfully completed numerous contracts across diverse languages and platforms (including WordPress, Next.js, Node.js), achieving high client satisfaction and efficient project delivery.",
+          "point": "Full-Stack Development & Consulting",
+          "description": "Successfully completed numerous contracts across diverse languages and platforms (including WordPress, Next.js, Node.js), achieving high client satisfaction and efficient project delivery",
           "skillTypes": [
-            "WordPress", "Next.js", "Node.js", "React", "Typescript", "Javascript", "jQuery", "HTML", "CSS", "SCSS", "PHP", "MySQL", "PostgreSQL", "NoSQL", "GraphQL", "API Design", "Adobe XD", "Figma", "Git", "Vercel", "Digital Ocean", "Apache", "Nginx", "Feature Planning", "API Design", "Backend Architecture"
+            "WordPress", "Next.js", "Node.js", "React", "TypeScript", "Javascript", "jQuery", "HTML", "CSS", "SCSS", "PHP", "MySQL", "PostgreSQL", "NoSQL", "GraphQL", "API Design", "Adobe XD", "Figma", "Git", "Vercel", "Digital Ocean", "Apache", "Nginx", "Feature Planning", "API Design", "Backend Architecture"
           ]
         },
         {
-          "point": "Development Direction",
-          "description": "Provided expert guidance to clients on development direction, ensuring optimal solutions for their needs.",
+          "point": "Web Development & E-commerce Solutions",
+          "description": "Built custom websites and e-commerce solutions using WordPress, Shopify, and Next.js, delivering tailored digital experiences for diverse client needs",
           "skillTypes": [
-            "Client Relations", "Leadership", "Mentorship"
+            "WordPress", "Shopify", "Next.js", "E-commerce", "Client Relations", "Web Design"
+          ]
+        },
+        {
+          "point": "Automation & Efficiency Solutions",
+          "description": "Developed 20+ custom automation solutions including Python scripts, API integrations, and workflow tools, reducing client operational overhead by 70%",
+          "skillTypes": [
+            "Python", "Automation", "API Integration", "Workflow Optimization", "Client Relations"
           ]
         },
         {
           "point": "Business Development",
-          "description": "Demonstrated leadership in expanding the business, hiring and training 3 employees, and managing industry outreach efforts to establish robust professional networks.",
+          "description": "Demonstrated leadership in expanding the business, hiring and training 3 employees, and managing industry outreach efforts to establish robust professional networks",
           "skillTypes": [
             "Leadership", "Mentorship", "Client Relations", "Business Development"
-          ]
-        },
-        {
-          "point": "Effectively researched target demographics",
-          "description": "Effectively researched target demographics and developed marketing strategies to attract new clients",
-          "skillTypes": [
-              "Leadership", "Mentorship", "Client Relations", "Business Development"
           ]
         }
       ]
@@ -159,91 +177,93 @@
       "id": "3",
       "role": "Full-Stack Developer",
       "company": "Thirdstream",
-      "fromDate": "2019-10-02",
-      "toDate": "2021-11-02",
+      "fromDate": "2019-10-01",
+      "toDate": "2021-11-01",
+      "location": "Lethbridge, AB (Remote)",
       "accounts": [
         {
-          "point": "Lead Developer Achievements",
-          "description": "Successfully led the development and deployment of 7 custom instances of the Thirdstream platform, integrating with various banking institutions and third-party services.",
           "skillTypes": [
-            "Leadership", "Mentorship", "Client Relations", "C#", "ASP.NET", "MVC", "Javascript", "jQuery", "HTML", "CSS", "SCSS", "Entity Framework", "SQL", "Git", "ASP.NET Core", "Azure", "Foundation", "Azure DevOps"
-          ]
+            ".NET Core", "Transunion API", "Equifax API", "Experian API", "Banking APIs", "C#", "ASP.NET"
+          ],
+          "point": "Banking Platform Development",
+          "description": "Using .NET Core, built a custom platform allowing for the creation of custom banking applications through Transunion, Equifax, and Experian APIs"
         },
         {
-          "point": "Developer Guidance and Best Practices",
-          "description": "Offered personalized support to developers, leading initiatives to instill industry-standard best practices and enhance long-term code quality and maintainability",
-            "skillTypes": [
-                "Leadership", "Mentorship", "API Design"
-            ]
+          "skillTypes": [
+            "Platform Deployment", "Core Banking APIs", "System Integration", "Leadership"
+          ],
+          "point": "7 Platform Instances Deployed",
+          "description": "Led development and deployment of 7 custom platform instances integrating core-banking APIs across various banking institutions"
         },
         {
+          "skillTypes": [
+            "Code Quality", "Best Practices", "Mentorship", "Developer Guidance"
+          ],
+          "point": "Engineering Best Practices",
+          "description": "Provided developer guidance and instilled industry-standard best practices, enhancing long-term code quality and maintainability"
+        },
+        {
+          "skillTypes": [
+            "Security", "XSS Prevention", "Authentication", "Authorization", "Vulnerability Remediation", "Nmap", "Burp Suite", "Code and Infrastructure Analysis"
+          ],
           "point": "Security Enhancement",
-          "description": "Identified and rectified multiple security vulnerabilities, proposing preventive measures to safeguard against future risks.",
-          "skillTypes": [
-            "Nmap", "Burp Suite", "Code and Infrastructure Analysis", "C#", "ASP.NET", "Entity Framework", "Javascript", "Azure", "SQL"
-          ]
+          "description": "Identified and remediated multiple security vulnerabilities including XSS and auth access issues"
         },
         {
           "point": "Operational Efficiency Initiative",
-          "description": "Identified a critical bottleneck in the development process and led the development of a custom javascript library to address the issue, significantly improving operational efficiency.",
-            "skillTypes": [
-                "Javascript", "jQuery", "HTML", "CSS", "SCSS", "ASP.NET Core", "Backend Architecture"
-            ]
-        },
-        {
-          "point": "Client Relations and Issue Resolution",
-          "description": "Directly interfaced with clients to resolve complex issues and ensure high client satisfaction.",
+          "description": "Identified a critical bottleneck in the development process and led the development of a custom javascript library to address the issue, significantly improving operational efficiency",
           "skillTypes": [
-            "Client Relations", "Leadership", "Mentorship", "C#", "ASP.NET", "Entity Framework", "SQL", "T-SQL"
+            "Javascript", "jQuery", "HTML", "CSS", "SCSS", "ASP.NET Core", "Backend Architecture"
           ]
         },
         {
-            "point": "Banking Software Solutions",
-            "description": "Developed custom banking software solutions, integrating with various banking institutions and third-party services.",
-            "skillTypes": [
-                "C#", "ASP.NET", "MVC", "Javascript", "jQuery", "HTML", "CSS", "SCSS", "Entity Framework", "SQL", "Git", "ASP.NET Core", "Azure", "Foundation", "Azure DevOps", "Feature Planning", "API Design", "Backend Architecture"
-            ]
+          "point": "Client Relations and Issue Resolution",
+          "description": "Directly interfaced with clients to resolve complex issues and ensure high client satisfaction",
+          "skillTypes": [
+            "Client Relations", "Leadership", "Mentorship", "C#", "ASP.NET", "Entity Framework", "SQL", "T-SQL"
+          ]
         }
       ]
     },
     {
       "id": "4",
-      "role": "Full-Stack Developer",
+      "role": "Full-Stack Developer (Contract)",
       "company": "Intrideo",
-      "fromDate": "2019-02-02",
-      "toDate": "2019-10-02",
+      "fromDate": "2019-02-01",
+      "toDate": "2019-10-01",
+      "location": "Thunder Bay, ON (Remote)",
       "accounts": [
         {
-          "point": "Innovative Service Architecture",
-          "description": "Developed a modular service architecture using .Net Core and REST, including a custom Docusign integration, significantly enhancing HR and employee form generation and boosting business attraction and sales.",
-            "skillTypes": [
-                "C#", "ASP.NET", ".NET Core", "MVC", "Javascript", "jQuery", "HTML", "CSS", "SCSS", "Entity Framework", "SQL", "Git", "ASP.NET Core", "Azure", "Bootstrap", "Vue", "Feature Planning", "API Design", "Backend Architecture"
-            ]
+          "skillTypes": [
+            ".NET Core", "DocuSign API", "HR Tech", "Document Processing", "API Integration"
+          ],
+          "point": "HR Document Engine",
+          "description": "Designed .NET Core HR-docs engine integrating DocuSign to process 3k forms/month, reducing employee onboarding time from 2 days to 1 hour"
         },
         {
-          "point": "Database Performance Enhancement",
-          "description": "Implemented a Redis-based caching solution, dramatically improving database read-operation performance and scalability.",
           "skillTypes": [
-            "Redis", "C#", "ASP.NET", "Entity Framework", "SQL", "T-SQL"
-          ]
+            "Workflow Automation", "Process Optimization", "Cross-functional Teams"
+          ],
+          "point": "24 Team-Hours Reclaimed Daily",
+          "description": "Built internal workflow application addressing inter-departmental bottlenecks, reclaiming 24 engineer-hours daily across R&D, QA, and Support teams"
         },
         {
-          "point": "Operational Efficiency Initiative",
-          "description": "Led the development of an internal application to address inter-departmental bottlenecks, improving overall operating efficiency and user experience.",
           "skillTypes": [
-            "C#", "ASP.NET", "Entity Framework", "SQL", "T-SQL", "Javascript", "jQuery", "HTML", "CSS", "SCSS", "Git", "ASP.NET Core", "Azure", "Bootstrap", "Project Management", "Feature Planning", "API Design", "Backend Architecture", "Agile"
-          ]
+            "Redis", "Caching", "Cost Optimization", "Database Performance", "Infrastructure"
+          ],
+          "point": "50% Infrastructure Cost Reduction",
+          "description": "Led cost-optimization initiative introducing Redis read-through cache, lowering SQL load 55% and operational costs 50%"
         },
         {
           "point": "Cost Reduction in Dev-Ops",
-          "description": "Collaborated with the Dev-Ops team to optimize Azure architecture, slashing operating expenses by over 50%.",
+          "description": "Collaborated with the Dev-Ops team to optimize Azure architecture, slashing operating expenses by over 50%",
           "skillTypes": [
             "Azure", "C#", "Backend Architecture", "CI/CD", "Azure DevOps", "PowerShell", "Git"
           ]
         },
         {
           "point": "Pre-Emptively resolved business-critical issues",
-          "description": "Went to each department and identified potential bottlenecks and issues, resolving them before they became critical.",
+          "description": "Went to each department and identified potential bottlenecks and issues, resolving them before they became critical",
           "skillTypes": [
             "Leadership", "Mentorship", "Client Relations", "C#", "ASP.NET", "Entity Framework", "SQL", "T-SQL"
           ]
@@ -252,56 +272,50 @@
     },
     {
       "id": "5",
-      "role": "Intermediate Developer / Systems Analyst",
+      "role": "Systems Analyst → Intermediate Developer",
       "company": "Health E(fx)",
-      "fromDate": "2015-08-02",
-      "toDate": "2019-02-02",
+      "fromDate": "2015-08-01",
+      "toDate": "2019-02-01",
+      "location": "Thunder Bay, ON (Remote)",
       "accounts": [
         {
-          "point": "Database Optimization",
-          "description": "Enhanced the performance of relational databases handling large datasets (1M+ records), significantly reducing runtime and processing requirements.",
           "skillTypes": [
-            "SQL", "T-SQL", "C#", "ASP.NET", "Entity Framework"
-          ]
+            "SQL", "Performance Optimization", "Batch Processing", "ACA Compliance", "Big Data"
+          ],
+          "point": "6 Hours to 15 Minutes Runtime",
+          "description": "Optimized ACA compliance analytics on 1M+ employee datasets, reducing batch runtime from 6 hours to 15 minutes"
         },
         {
-          "point": "Security Fortification",
-          "description": "Worked with an external security firm to identify and patch platform vulnerabilities, including XSS, injection, and validation issues, fortifying system security",
           "skillTypes": [
-            "C#", "ASP.NET", "Entity Framework", "SQL", "T-SQL", "Javascript", "jQuery", "HTML", "CSS", "SCSS", "Nmap", "Burp Suite", "Code and Infrastructure Analysis"
-          ]
-        },
-        {
-          "point": "Operational Efficiency Initiative",
-          "description": "Led the development of a custom CI/CD pipeline to help QA and development teams streamline their processes, reducing deployment time by 50%.",
-            "skillTypes": [
-                "C#", "ASP.NET", "Entity Framework", "SQL", "T-SQL", "Javascript", "jQuery", "HTML", "CSS", "SCSS", "Git", "Azure", "Bootstrap", "Azure DevOps", "CI/CD", "PowerShell", "Feature Planning"
-            ]
-        },
-        {
+            "Python", "SQL", "Reporting", "ACA Compliance", "Data Analytics"
+          ],
           "point": "Custom Reporting Solutions",
-          "description": "Developed intricate SQL reports to determine ACA eligibility, earnings, and projected costs, providing valuable insights for clients.",
-          "skillTypes": [
-            "SQL", "T-SQL", "C#", "ASP.NET", "Entity Framework", "Javascript", "jQuery", "HTML", "CSS", "SCSS"
-          ]
+          "description": "Created custom reports using Python and SQL for 100+ clients, including ACA compliance, employee demographics, and health plan summaries"
         },
         {
-          "point": "Team Management and Client Relations",
-          "description": "Led a team in resolving client data issues and system inconsistencies, ensuring high client satisfaction and data integrity.",
           "skillTypes": [
-              "Leadership", "Mentorship", "Client Relations", "SQL", "T-SQL", "C#", "ASP.NET", "Entity Framework", "Javascript", "jQuery", "HTML", "CSS", "SCSS"
-          ]
+            "Security", "SQLi Prevention", "XSS Prevention", "CSRF Protection", "HIPAA Compliance", "Penetration Testing"
+          ],
+          "point": "13 Security Vulnerabilities Remediated",
+          "description": "Remediated 13 security vulnerabilities (SQLi, XSS, CSRF) in partnership with external pen-test team, enabling HIPAA readiness"
+        },
+        {
+          "skillTypes": [
+            "Team Leadership", "Client Relations", "Data Quality", "Escalation Management"
+          ],
+          "point": "98% Client Satisfaction",
+          "description": "Led analyst team resolving employer-data escalations, sustaining 98% client-satisfaction score"
         },
         {
           "point": "Built a Custom CI/CD Pipeline",
-          "description": "Built a custom CI/CD pipeline into Azure DevOps, reducing the required time to onboard clients and test new features by 50%.",
+          "description": "Built a custom CI/CD pipeline into Azure DevOps, reducing the required time to onboard clients and test new features by 50%",
           "skillTypes": [
             "Azure DevOps", "CI/CD", "PowerShell", "Azure", "Git", "C#", "ASP.NET", "Entity Framework", "SQL", "T-SQL"
           ]
         },
         {
           "point": "Awarded for ability to resolve complex client data issues",
-          "description": "Awarded for ability to resolve complex client data issues, ensuring high client satisfaction and data integrity.",
+          "description": "Awarded for ability to resolve complex client data issues, ensuring high client satisfaction and data integrity",
           "skillTypes": [
             "Client Relations", "SQL", "T-SQL", "C#", "ASP.NET", "Entity Framework"
           ]

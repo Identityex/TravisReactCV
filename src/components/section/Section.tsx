@@ -9,21 +9,23 @@ export interface SectionProps {
   className?: string
 }
 
-
 export function Section(props: SectionProps) {
   return (
-        <div className={
-            'w-full h-screen flex flex-col justify-center items-center '
-            + (props.useParralax ? ' bg-fixed ' : '')
-            + (props.backgroundImg ? ' bg-cover bg-center ' : '')
-            + styles.section
-            + (props.className ? ' ' + props.className : '')
-        } style={{
-          backgroundImage: props.backgroundImg ? `url(${props.backgroundImg})` : undefined,
-        }}
-             id={props.sectionId}
+        <section 
+            className={
+                'w-full flex flex-col items-center '
+                + (props.useParralax ? ' bg-fixed ' : '')
+                + (props.backgroundImg ? ' bg-cover bg-center ' : '')
+                + styles.section
+                + (props.className ? ' ' + props.className : '')
+            } 
+            style={{
+              backgroundImage: props.backgroundImg ? `url(${props.backgroundImg})` : undefined,
+            }}
+            id={props.sectionId}
+            aria-labelledby={`${props.sectionId}-heading`}
         >
             {props.children}
-        </div>
+        </section>
   );
 }

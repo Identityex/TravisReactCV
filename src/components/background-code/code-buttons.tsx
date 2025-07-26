@@ -2,7 +2,7 @@ import styles from './code-buttons.module.scss';
 import { CodeType } from './code-type.ts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBoltLightning, faRefresh, faSnowflake } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export interface CodeButtonsProps {
   codeType?: CodeType,
@@ -13,17 +13,23 @@ export function CodeButtons(props: CodeButtonsProps) {
   const [hidden, setHidden] = useState<boolean>(false);
 
   //   If scroll is greater than 100, hide the buttons
+  useEffect(() => {
+    const handleScroll = () => {
+      const scroll = window.scrollY;
+      if (scroll > 100) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
+    };
 
-  const handleScroll = () => {
-    const scroll = window.scrollY;
-    if (scroll > 100) {
-      setHidden(true);
-    } else {
-      setHidden(false);
-    }
-  };
-
-  window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    
+    // Cleanup event listener on unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
 
   return (

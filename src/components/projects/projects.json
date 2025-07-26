@@ -13,15 +13,15 @@
     },
     {
       "id": "1",
-      "Title": "Research TV",
-      "Description": "Client had requested a 70s feel theme to the website with the ability to add and update content without the need of a developer. This was created using wordpress and a custom theme, allowing the client to update almost all aspects of the website. The client was quite pleased with the final product and had used it for a few years before deciding to move on to a new website.",
+      "Title": "Web Development & E-commerce Solutions",
+      "Description": "Built custom websites and e-commerce solutions using WordPress, Shopify, and Next.js, delivering tailored digital experiences for diverse client needs. Developed 20+ custom automation solutions including Python scripts, API integrations, and workflow tools, reducing client operational overhead by 70%. Successfully delivered projects across various industries with high client satisfaction.",
       "Gif": "https://res.cloudinary.com/idx-studios/image/upload/f_webp/q_auto/v1/IDXStudios/Images/dcdsgpjrdktmbiynhvyy",
       "cloudinaryImage": "IDXStudios/Images/dcdsgpjrdktmbiynhvyy",
       "Video": null,
       "Status": "Completed",
       "Url": "https://staticrtv.idxstudios.ca/",
-      "Categories": ["Frontend", "Backend"],
-      "Skills": ["PHP", "Wordpress", "Elementor", "Git", "GitHub", "Client Relations", "CMS", "Bootstrap", "SCSS", "HTML", "CSS", "Elementor"]
+      "Categories": ["Frontend", "Backend", "E-commerce", "Automation"],
+      "Skills": ["WordPress", "Shopify", "Next.js", "Python", "Automation", "API Integration", "PHP", "React", "TypeScript", "JavaScript", "E-commerce", "Client Relations", "SCSS", "HTML", "CSS"]
     },
     {
       "id": "2",
@@ -37,25 +37,25 @@
     },
     {
       "id": "3",
-      "Title": "Forebear",
-      "Description": "Currently working on a contract with a film production company, Sheba Films. Currently leading the development of a is a rogue-like, deck-building game that uniquely intertwines indigenous culture with engaging gameplay. As you traverse a world shaped by Ojibway and Cree folklore, you'll learn language and traditions organically through play. Featuring a procedurally-generated map and strategic card mechanics, every choice impacts your journey through rich narratives and authentic cultural encounters. Designed for desktop with expansions to mobile and consoles planned, this game offers a profound experience that educates, entertains, and enlightens—making indigenous heritage accessible to gamers everywhere. Built in Unity",
+      "Title": "Ojibwe Roguelike Deckbuilder - Forebear",
+      "Description": "Led 8-person multidisciplinary team through concept and design phases, securing CMF funding and establishing Unity development pipelines. Designed modular game systems architecture supporting procedural generation and culturally respectful Ojibwe storytelling integration. A rogue-like, deck-building game that uniquely intertwines indigenous culture with engaging gameplay, teaching language and traditions organically through play.",
       "Gif": null,
       "Video": "Forebear/Images/kovr3gdw7vi0bhjzqcz0",
       "Status": "In Progress",
       "Url": "https://forebear.idxstudios.ca/",
-      "Categories": ["Game Development", "Frontend"],
-      "Skills": ["Unity", "Git", "GitHub", "Client Relations", "CMS", "Bootstrap", "SCSS", "HTML", "CSS", "Vercel", "React","HTML","Web Design", "C#", "Serialized Components"]
+      "Categories": ["Game Development", "Frontend", "Cultural Technology"],
+      "Skills": ["Unity", "C#", "Procedural Generation", "Game Design", "Team Leadership", "CMF Funding", "Cultural Integration", "Git", "GitHub", "Project Management", "Modular Architecture", "Deck Building Mechanics"]
     },
     {
       "id": "4",
-      "Title": "Work Stable",
-      "Description": "A personal project I am working on. This is a SaaS that uses ML to help people find work and help job seekers find employment only bringing forward jobs that best match their skill-set and preferences. This is currently in progress and will be updated as the project progresses.",
-      "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=Work+Stable",
+      "Title": "Workstable - AI-Powered Job Board",
+      "Description": "Built job matching platform using vector embeddings and multi-LLM pipeline for skill extraction and compatibility analysis. Developed automated resume generation pipeline with intelligent parsing, template rendering, and PDF output using clean architecture principles. Currently architecting the full-stack solution to revolutionize how job seekers find their perfect match.",
+      "Gif": "https://placehold.co/1920x1080/000000/2b2a29/webp?text=Workstable",
       "Video": null,
       "Status": "In Progress",
       "Url": "/projects/workstable",
       "Categories": ["Artificial Intelligence / Machine Learning", "Frontend", "Backend", "Cloud"],
-      "Skills": ["Typescript", "NodeJS", "Express", "AWS", "PostgreSQL", "Redis", "Tensorflow", "PyTorch", "OpenCV", "Scikit-Learn", "Numpy", "Pandas", "Matplotlib", "Git", "Docker", "Terraform", "GitHub Actions", "GitLab CI/CD", "Firebase", "Firestore", "Google Cloud Platform", "Git","GitHub", "Vercel", "Storybook", "React", "Mentoring", "Feature Planning", "Backend Architecture", "API Design", "Agile", "Figma", "Jira", "Web Design", "AI", "Machine Learning", "Data Engineering", "Cloud", "DevOps", "Artificial Intelligence / Machine Learning", "Data Engineering", "Cyber Security", "Leadership", "SCSS","Styled Components", "NextJS", "Python", "Scikit-Learn", "Pandas", "AI", "Machine Learning", "Data Engineering", "Cloud", "DevOps", "Artificial Intelligence / Machine Learning", "Data Engineering", "Cyber Security", "Leadership", "SCSS","Styled Components", "NextJS"]
+      "Skills": ["TypeScript", "NodeJS", "Express", "AWS", "PostgreSQL", "Redis", "Vector Embeddings", "LLM", "OpenAI API", "Pinecone", "PyTorch", "Scikit-Learn", "NumPy", "Pandas", "Docker", "Terraform", "GitHub Actions", "React", "NextJS", "Clean Architecture", "API Design", "Python", "PDF Generation", "Resume Parsing"]
     },
     {
       "id": "5",

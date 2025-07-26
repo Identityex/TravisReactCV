@@ -1,232 +1,123 @@
 import { Section } from '../section/Section.tsx';
 import { SkillItem } from './skill-item.tsx';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './skills.module.scss';
+import skillsData from './skills.json';
 
-export const SkillTypes = {
-  languages: 'Languages',
-  backend: 'Backend',
-  frontend: 'Frontend',
-  cloud: 'Cloud',
-  devops: 'DevOps',
-  artificialIntelligence: 'Artificial Intelligence / Machine Learning',
-  dataEngineering: 'Data Engineering',
-  cyberSecurity: 'Cyber Security',
-  gameDevelopment: 'Game Development',
-  leadership: 'Leadership',
-  other: 'Other',
-};
-
-export const skills = {
-  [SkillTypes.languages]: {
-    typescript: 'Typescript',
-    javascript: 'Javascript',
-    cSharp: 'C#',
-    cPlusPlus: 'C++',
-    python: 'Python',
-    java: 'Java',
-    go: 'GO',
-    html: 'HTML',
-    css: 'CSS',
-    scss: 'SCSS',
-    sql: 'SQL',
-    graphQl: 'GraphQL',
-    bash: 'Bash',
-    powerShell: 'PowerShell',
-    php: 'PHP',
-    handlebars: 'Handlebars',
-    make: 'Make',
-    bashScript: 'Bash Script',
-    shellScript: 'Shell Script',
-    batchScript: 'Batch Script',
-  },
-  [SkillTypes.backend]: {
-    nodeJS: 'NodeJS',
-    express: 'Express',
-    nestJS: 'NestJS',
-    aspNet: 'ASP.NET',
-    netCore: '.NET Core',
-    mvc: 'MVC',
-    entityFramework: 'Entity Framework',
-    shopify: 'Shopify',
-    wordpress: 'Wordpress',
-    koa: 'Koa',
-    prisma: 'Prisma',
-    git: 'Git',
-    firebase: 'Firebase',
-    hydrogen: 'Hydrogen',
-  },
-  [SkillTypes.frontend]: {
-    react: 'React',
-    nextJS: 'NextJS',
-    vue: 'Vue',
-    nuxtJS: 'NuxtJS',
-    jQuery: 'jQuery',
-    bootstrap: 'Bootstrap',
-    foundation: 'Foundation',
-    sass: 'SASS',
-    scss: 'SCSS',
-    styledComponents: 'Styled Components',
-    storybook: 'Storybook',
-    elementor: 'Elementor',
-    wordpress: 'Wordpress',
-    shopify: 'Shopify',
-  },
-  [SkillTypes.cloud]: {
-    aws: 'AWS',
-    azure: 'Azure',
-    googleCloudPlatform: 'Google Cloud Platform',
-    firebase: 'Firebase',
-    vercel: 'Vercel',
-    digitalOcean: 'Digital Ocean',
-    apache: 'Apache',
-    nginx: 'Nginx',
-    gitHub: 'GitHub',
-    gitLab: 'GitLab',
-    bitBucket: 'BitBucket',
-    wordpress: 'Wordpress',
-  },
-  [SkillTypes.devops]: {
-    docker: 'Docker',
-    terraform: 'Terraform',
-    gitHubActions: 'GitHub Actions',
-    gitLabCiCd: 'GitLab CI/CD',
-    azureDevOps: 'Azure DevOps',
-  },
-  [SkillTypes.artificialIntelligence]: {
-    tensorflow: 'Tensorflow',
-    pyTorch: 'PyTorch',
-    openCV: 'OpenCV',
-    scikitLearn: 'Scikit-Learn',
-    numpy: 'Numpy',
-    pandas: 'Pandas',
-    matplotlib: 'Matplotlib',
-  },
-  [SkillTypes.dataEngineering]: {
-    postgreSQL: 'PostgreSQL',
-    firestore: 'Firestore',
-    sqlite: 'SQLite',
-    sql: 'SQL',
-    noSQL: 'NoSQL',
-    mySQL: 'MySQL',
-    tSQL: 'T-SQL',
-    redis: 'Redis',
-    memCached: 'MemCached',
-    elasticSearch: 'ElasticSearch',
-    kafka: 'Kafka',
-    bigQuery: 'BigQuery',
-  },
-  [SkillTypes.cyberSecurity]: {
-    nmap: 'Nmap',
-    burpSuite: 'Burp Suite',
-    codeAndInfrastructureAnalysis: 'Code and Infrastructure Analysis',
-  },
-  [SkillTypes.gameDevelopment]: { unity: 'Unity', unrealEngine: 'Unreal Engine', perforce: 'Perforce', thundernetes: 'Thundernetes', playfab: 'Playfab', gameplayAbilitySystem: 'Gameplay Ability System', serializedComponents: 'Serialized Components', blueprints: 'Blueprints', unrealScript: 'UnrealScript' },
-  [SkillTypes.leadership]: {
-    mentoring: 'Mentoring',
-    projectManagement: 'Project Management',
-    featurePlanning: 'Feature Planning',
-    backendArchitecture: 'Backend Architecture',
-    apiDesign: 'API Design',
-    webDesign: 'Web Design',
-    agile: 'Agile',
-    scrum: 'Scrum',
-    kanban: 'Kanban',
-  },
-  [SkillTypes.other]: {
-    jira: 'Jira',
-    mondayCom: 'Monday.com',
-    notion: 'Notion',
-    trello: 'Trello',
-    adobeXd: 'Adobe XD',
-    flStudio: 'FL Studio',
-    adobePremierePro: 'Adobe Premiere Pro',
-    figma: 'Figma',
-    eComm: 'E-Commerce',
-  },
-};
-
-export const primarySkills = [
-  skills[SkillTypes.languages].typescript,
-  skills[SkillTypes.languages].go,
-  skills[SkillTypes.languages].cSharp,
-  skills[SkillTypes.languages].python,
-  skills[SkillTypes.backend].nodeJS,
-  skills[SkillTypes.backend].netCore,
-  skills[SkillTypes.frontend].react,
-  skills[SkillTypes.cloud].googleCloudPlatform,
-  skills[SkillTypes.devops].docker,
-  skills[SkillTypes.devops].terraform,
-  skills[SkillTypes.dataEngineering].postgreSQL,
-  skills[SkillTypes.dataEngineering].redis,
-  skills[SkillTypes.dataEngineering].bigQuery,
-  skills[SkillTypes.artificialIntelligence].pyTorch,
-];
+interface Skill {
+  id: number;
+  name: string;
+  category: string;
+  proficiency: number;
+}
 
 interface SkillsProps {
   onSkillChange: (skills: string[]) => void;
 }
 
+
 export function Skills(props: SkillsProps) {
-  const [skillGroup, setSkillGroup] = useState('Primary');
+  const [selectedCategory, setSelectedCategory] = useState('Primary');
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
+  const [allSkills] = useState<Skill[]>(skillsData.data);
 
+  // Get unique categories from the skills data
+  const categories = useMemo(() => {
+    const uniqueCategories = Array.from(new Set(allSkills.map(skill => skill.category)));
+    return ['Primary', ...uniqueCategories.sort(), 'All'];
+  }, [allSkills]);
 
-  const toggleSkill = (skill: string) => {
-    if (selectedSkills.includes(skill)) {
-      setSelectedSkills(selectedSkills.filter((s) => s !== skill));
+  // Define primary skills - top skills with 90+ proficiency
+  const primarySkills = useMemo(() => {
+    return allSkills
+      .filter(skill => skill.proficiency >= 90)
+      .sort((a, b) => b.proficiency - a.proficiency)
+      .slice(0, 15)
+      .map(skill => skill.name);
+  }, [allSkills]);
+
+  const toggleSkill = (skillName: string) => {
+    if (selectedSkills.includes(skillName)) {
+      setSelectedSkills(selectedSkills.filter((s) => s !== skillName));
     } else {
-      setSelectedSkills([...selectedSkills, skill]);
+      setSelectedSkills([...selectedSkills, skillName]);
     }
   };
 
   useEffect(() => {
-    // Pass the actual selected skills to parent components
     props.onSkillChange(selectedSkills);
-  }, [selectedSkills]);
+  }, [selectedSkills, props]);
 
-  const skillGroups = ['Primary', ...(Object.keys(skills)), 'All'];
+  // Filter skills based on selected category
+  const visibleSkills = useMemo(() => {
+    if (selectedCategory === 'All') {
+      return allSkills;
+    } else if (selectedCategory === 'Primary') {
+      return allSkills.filter(skill => primarySkills.includes(skill.name));
+    } else {
+      return allSkills.filter(skill => skill.category === selectedCategory);
+    }
+  }, [selectedCategory, allSkills, primarySkills]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.02,  // Reduced from 0.05 for faster staggering
-        delayChildren: 0.05,    // Reduced from 0.1 for faster start
-        duration: 0.2          // Added for smoother transitions
-      }
-    }
+        staggerChildren: 0.02,
+        delayChildren: 0.05,
+        duration: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
-    hidden: { y: 10, opacity: 0 },  // Reduced from y:20 for less movement
+    hidden: { y: 10, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
         type: 'spring',
-        stiffness: 300,          // Increased from 100 for snappier animation
-        damping: 15,             // Adjusted for smoother stop
-        mass: 0.5,               // Added for better control
-        velocity: 2              // Added for initial velocity
-      }
+        stiffness: 300,
+        damping: 15,
+        mass: 0.5,
+        velocity: 2,
+      },
     },
     exit: { 
-      y: -10,                    // Reduced from y:-20 for less movement
+      y: -10,
       opacity: 0,
       transition: {
-        duration: 0.15           // Faster exit
-      }
-    }
+        duration: 0.15,
+      },
+    },
   };
 
-
+  const headingVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.6, -0.05, 0.01, 0.99],
+      },
+    },
+  };
 
   return (
     <Section sectionId={'Skills'}>
-      <h1>Skills</h1>
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={headingVariants}
+        className={styles.headingContainer}
+      >
+        <h1 id="Skills-heading" className={styles.gradientHeading}>Core Competencies</h1>
+        <p className={styles.subtitle}>14+ years of expertise across the full technology stack</p>
+      </motion.div>
+      
       <div className={styles.skillsArea}>
         <motion.div 
           className={styles.skillGroups}
@@ -234,10 +125,10 @@ export function Skills(props: SkillsProps) {
           animate="visible"
           variants={containerVariants}
         >
-          {skillGroups.map((sg, index) => (
+          {categories.map((category, index) => (
             <motion.button 
-              className={`${styles.skillGroup} ${sg === skillGroup ? styles.active : ''}`}
-              onClick={() => setSkillGroup(sg)} 
+              className={`${styles.skillGroup} ${category === selectedCategory ? styles.active : ''}`}
+              onClick={() => setSelectedCategory(category)} 
               key={index}
               variants={itemVariants}
               whileHover={{ scale: 1.03 }}
@@ -246,10 +137,10 @@ export function Skills(props: SkillsProps) {
                 type: 'spring', 
                 stiffness: 400, 
                 damping: 15,
-                duration: 0.1 
+                duration: 0.1, 
               }}
             >
-              {sg}
+              {category}
             </motion.button>
           ))}
         </motion.div>
@@ -264,42 +155,33 @@ export function Skills(props: SkillsProps) {
         <AnimatePresence mode="wait">
           <motion.div 
             className={styles.skills}
-            key={skillGroup}
+            key={selectedCategory}
             initial="hidden"
             animate="visible"
             exit="exit"
             variants={containerVariants}
           >
-            {Object.keys(skills).map((sg) =>
-              Object.values(skills[sg]).map((skill, index) => {
-                const isVisible = skillGroup === 'All' || 
-                               (skillGroup === 'Primary' && primarySkills.includes(skill as string)) || 
-                               sg === skillGroup;
-                
-                if (!isVisible) return null;
-                
-                return (
-                  <motion.div
-                    key={`${skill}-${index}`}
-                    variants={itemVariants}
-                    layout
-                    transition={{ 
-                      type: 'spring', 
-                      stiffness: 400, 
-                      damping: 18,
-                      duration: 0.2,
-                    }}
-                  >
-                    <SkillItem
-                      skill={skill as string}
-                      isActive={selectedSkills.includes(skill as string)}
-                      onClick={() => toggleSkill(skill as string)}
-                      isVisible={true}
-                    />
-                  </motion.div>
-                );
-              })
-            )}
+            {visibleSkills.map((skill) => (
+              <motion.div
+                key={skill.id}
+                variants={itemVariants}
+                layout
+                transition={{ 
+                  type: 'spring', 
+                  stiffness: 400, 
+                  damping: 18,
+                  duration: 0.2,
+                }}
+              >
+                <SkillItem
+                  skill={skill.name}
+                  isActive={selectedSkills.includes(skill.name)}
+                  onClick={() => toggleSkill(skill.name)}
+                  isVisible={true}
+                  proficiency={skill.proficiency}
+                />
+              </motion.div>
+            ))}
           </motion.div>
         </AnimatePresence>
       </div>
@@ -307,3 +189,36 @@ export function Skills(props: SkillsProps) {
   );
 }
 
+// Keep these exports for backward compatibility
+export const SkillTypes = {
+  languages: 'Languages',
+  backend: 'Backend',
+  frontend: 'Frontend',
+  cloud: 'Cloud',
+  devops: 'DevOps',
+  artificialIntelligence: 'AI/ML',
+  dataEngineering: 'Database',
+  cyberSecurity: 'Security',
+  gameDevelopment: 'Game Development',
+  leadership: 'Soft Skills',
+  architecture: 'Architecture',
+  api: 'API',
+  development: 'Development',
+  methodology: 'Methodology',
+  tools: 'Tools',
+  infrastructure: 'Infrastructure',
+};
+
+// Create a skills object from the JSON data for backward compatibility
+export const skills = skillsData.data.reduce((acc, skill) => {
+  const category = skill.category;
+  if (!acc[category]) {
+    acc[category] = {};
+  }
+  acc[category][skill.name.toLowerCase().replace(/[\s/.+-]/g, '')] = skill.name;
+  return acc;
+}, {} as Record<string, Record<string, string>>);
+
+export const primarySkills = skillsData.data
+  .filter(skill => skill.proficiency >= 90)
+  .map(skill => skill.name);

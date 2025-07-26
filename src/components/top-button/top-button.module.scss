@@ -1,40 +1,74 @@
 .topButton {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 100;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  width: 60px;
+  height: 60px;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: all 0.5s ease-in-out;
-
-  &:hover {
-    cursor: pointer;
+  
+  &:focus {
+    outline: none;
   }
-
-  .top-button-icon {
-    font-size: 2rem;
-    color: white;
-    transition: all 0.5s ease-in-out;
+  
+  &:focus-visible {
+    outline: 2px solid rgba(102, 126, 234, 0.6);
+    outline-offset: 3px;
   }
+}
 
-  .top-button-text {
-    font-size: 1rem;
-    color: white;
-    transition: all 0.5s ease-in-out;
+.progressRing {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+}
+
+.iconWrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .topButton {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
   }
-
-  &.hidden {
-    right: -100px;
-    opacity: 0;
-
-    .top-button-icon {
-      font-size: 0;
-    }
-
-    .top-button-text {
-      font-size: 0;
-    }
+  
+  .progressRing {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .progressRing circle {
+    cx: 25;
+    cy: 25;
+    r: 23;
+    stroke-width: 3;
+  }
+  
+  .icon {
+    font-size: 1.2rem;
   }
 }

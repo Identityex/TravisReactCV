@@ -20,16 +20,21 @@ export const ExperienceItem = memo(function ExperienceItem(props: ExperienceItem
   const toDateString = formatDate(props.item.toDate);
   const dateString = `${fromDateString} - ${toDateString}`;
 
+
   return (
     <div
       id={props.item.id}
-      className={`${styles.experienceItem} ${props.index % 2 === 0 ? styles.left : styles.right}`}
+      className={`${styles.experienceItem}`}
+      style={{ opacity: 1, transform: 'translateY(0px)' }}
     >
       <div className={styles.header}>
         <h3 className={styles.position}>{props.item.role}</h3>
         <div className={styles.company}>
           {props.item.company} · {dateString}
         </div>
+        {props.item.location && (
+          <div className={styles.location}>{props.item.location}</div>
+        )}
       </div>
       <div className={styles.cardArea}>
         {props.item.accounts.map((account, index) => (

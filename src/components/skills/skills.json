@@ -2,7 +2,243 @@
   "data": [
     {
       "id": 1,
-      "name": R
+      "name": "Golang",
+      "category": "Backend",
+      "proficiency": 90
+    },
+    {
+      "id": 2,
+      "name": "TypeScript / Node",
+      "category": "Backend",
+      "proficiency": 95
+    },
+    {
+      "id": 3,
+      "name": ".NET Core",
+      "category": "Backend",
+      "proficiency": 90
+    },
+    {
+      "id": 4,
+      "name": "Python",
+      "category": "Backend",
+      "proficiency": 85
+    },
+    {
+      "id": 5,
+      "name": "PostgreSQL",
+      "category": "Database",
+      "proficiency": 95
+    },
+    {
+      "id": 6,
+      "name": "MySQL",
+      "category": "Database",
+      "proficiency": 90
+    },
+    {
+      "id": 7,
+      "name": "Redis Caching",
+      "category": "Database",
+      "proficiency": 85
+    },
+    {
+      "id": 8,
+      "name": "GraphQL",
+      "category": "API",
+      "proficiency": 95
+    },
+    {
+      "id": 9,
+      "name": "REST / OpenAPI",
+      "category": "API",
+      "proficiency": 95
+    },
+    {
+      "id": 10,
+      "name": "Microservices",
+      "category": "Architecture",
+      "proficiency": 90
+    },
+    {
+      "id": 11,
+      "name": "Serverless Architecture",
+      "category": "Architecture",
+      "proficiency": 85
+    },
+    {
+      "id": 12,
+      "name": "Kubernetes",
+      "category": "DevOps",
+      "proficiency": 85
+    },
+    {
+      "id": 13,
+      "name": "Docker",
+      "category": "DevOps",
+      "proficiency": 90
+    },
+    {
+      "id": 14,
+      "name": "Terraform",
+      "category": "DevOps",
+      "proficiency": 85
+    },
+    {
+      "id": 15,
+      "name": "AWS",
+      "category": "Cloud",
+      "proficiency": 90
+    },
+    {
+      "id": 16,
+      "name": "GCP",
+      "category": "Cloud",
+      "proficiency": 85
+    },
+    {
+      "id": 17,
+      "name": "CI/CD Pipelines",
+      "category": "DevOps",
+      "proficiency": 95
+    },
+    {
+      "id": 18,
+      "name": "LLM / Vector DB",
+      "category": "AI/ML",
+      "proficiency": 85
+    },
+    {
+      "id": 19,
+      "name": "Performance Optimization",
+      "category": "Architecture",
+      "proficiency": 95
+    },
+    {
+      "id": 20,
+      "name": "Test-Driven Development",
+      "category": "Development",
+      "proficiency": 90
+    },
+    {
+      "id": 21,
+      "name": "React",
+      "category": "Frontend",
+      "proficiency": 90
+    },
+    {
+      "id": 22,
+      "name": "Next.js",
+      "category": "Frontend",
+      "proficiency": 90
+    },
+    {
+      "id": 23,
+      "name": "Vue",
+      "category": "Frontend",
+      "proficiency": 80
+    },
+    {
+      "id": 24,
+      "name": "Machine Learning",
+      "category": "AI/ML",
+      "proficiency": 85
+    },
+    {
+      "id": 25,
+      "name": "Unity",
+      "category": "Game Development",
+      "proficiency": 85
+    },
+    {
+      "id": 26,
+      "name": "C#",
+      "category": "Backend",
+      "proficiency": 95
+    },
+    {
+      "id": 27,
+      "name": "JavaScript",
+      "category": "Frontend",
+      "proficiency": 95
+    },
+    {
+      "id": 28,
+      "name": "HTML/CSS/SCSS",
+      "category": "Frontend",
+      "proficiency": 95
+    },
+    {
+      "id": 29,
+      "name": "Git",
+      "category": "Tools",
+      "proficiency": 95
+    },
+    {
+      "id": 30,
+      "name": "Agile/Scrum",
+      "category": "Methodology",
+      "proficiency": 90
+    },
+    {
+      "id": 31,
+      "name": "Team Leadership",
+      "category": "Soft Skills",
+      "proficiency": 95
+    },
+    {
+      "id": 32,
+      "name": "Mentorship",
+      "category": "Soft Skills",
+      "proficiency": 95
+    },
+    {
+      "id": 33,
+      "name": "System Architecture",
+      "category": "Architecture",
+      "proficiency": 90
+    },
+    {
+      "id": 34,
+      "name": "Security Best Practices",
+      "category": "Security",
+      "proficiency": 90
+    },
+    {
+      "id": 35,
+      "name": "Azure",
+      "category": "Cloud",
+      "proficiency": 85
+    },
+    {
+      "id": 36,
+      "name": "MongoDB/NoSQL",
+      "category": "Database",
+      "proficiency": 85
+    },
+    {
+      "id": 37,
+      "name": "ElasticSearch",
+      "category": "Database",
+      "proficiency": 80
+    },
+    {
+      "id": 38,
+      "name": "RabbitMQ/SQS",
+      "category": "Infrastructure",
+      "proficiency": 85
+    },
+    {
+      "id": 39,
+      "name": "GitHub Actions",
+      "category": "DevOps",
+      "proficiency": 90
+    },
+    {
+      "id": 40,
+      "name": "AWS Lambda",
+      "category": "Cloud",
+      "proficiency": 85
     }
   ]
 }

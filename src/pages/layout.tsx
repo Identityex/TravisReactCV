@@ -1,25 +1,27 @@
 import { Outlet } from 'react-router-dom';
 import { TopButton } from '../components/top-button/top-button.tsx';
+import { Header } from '../components/header/header.tsx';
 
 const Layout = () => {
   return (
         <>
-            {/*<nav>*/}
-            {/*    <ul>*/}
-            {/*        <li>*/}
-            {/*            <Link to="/">Home</Link>*/}
-            {/*        </li>*/}
-            {/*        <li>*/}
-            {/*            <Link to="/blogs">Blogs</Link>*/}
-            {/*        </li>*/}
-            {/*        <li>*/}
-            {/*            <Link to="/contact">Contact</Link>*/}
-            {/*        </li>*/}
-            {/*    </ul>*/}
-            {/*</nav>*/}
-
+            <a href="#main-content" className="skip-link">
+                Skip to main content
+            </a>
+            <Header />
             <TopButton/>
-            <Outlet/>
+            <main id="main-content" role="main" style={{ 
+                paddingTop: '80px',
+            }}>
+                <style>{`
+                    @media (max-width: 768px) {
+                        #main-content {
+                            padding-top: 60px !important;
+                        }
+                    }
+                `}</style>
+                <Outlet/>
+            </main>
         </>
   );
 };

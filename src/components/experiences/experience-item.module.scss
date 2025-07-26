@@ -1,91 +1,186 @@
-//@import "~bootstrap/scss/functions";
-//@import "~bootstrap/scss/variables";
-//@import "~bootstrap/scss/mixins";
-@import "../../../node_modules/bootstrap/scss/functions";
-@import "../../../node_modules/bootstrap/scss/mixins";
-@import "../../../node_modules/bootstrap/scss/variables";
-@import "../../../node_modules/bootstrap/scss/variables-dark";
-@import "../../../node_modules/bootstrap/scss/bootstrap-grid";
-@import "../../../node_modules/bootstrap/scss/bootstrap-utilities";
-@import "../../../node_modules/bootstrap/scss/utilities";
-@import "../../../node_modules/bootstrap/scss/card";
-@import "../../../node_modules/bootstrap/scss/containers";
-@import "../../../node_modules/bootstrap/scss/forms";
-
-.position {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 0.2rem;
-  margin-right: auto;
-}
-
 .experienceItem {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  flex-flow: column;
-  align-items: center;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background-color: RGBA(105, 105, 105, 0.45);
-  transition: all 0.3s ease-in-out;
-  width: 80%;
-  border: 1px solid black;
-
-  // If the screen is small make width 100%
-  @include media-breakpoint-down(md) {
-    width: 100%;
-    padding: 0.2rem;
+  padding: 3rem;
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  width: 100%;
+  max-width: none;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at top left,
+      rgba(102, 126, 234, 0.1) 0%,
+      transparent 50%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
   }
-
-  //&.left {
-  //  margin-right: auto;
-  //}
-  //
-  //&.right {
-  //  margin-left: auto;
-  //}
-
-  .experienceItem__title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 0.2rem;
-    width: 100%;
-  }
-
-  .company {
-    font-size: 0.8rem;
-    font-weight: bold;
-    margin-bottom: 0.2rem;
-  }
-
-  .spacer {
-    font-size: 0.8rem;
-    font-weight: bold;
-    margin-bottom: 0.2rem;
-
-
-    @include media-breakpoint-down(lg) {
-      display: none;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(102, 126, 234, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+    
+    &::before {
+      opacity: 1;
     }
   }
-
-  .date {
-    font-size: 0.8rem;
-    font-weight: bold;
-    margin-bottom: 0.2rem;
+  
+  &.left,
+  &.right {
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
   }
-
+  
+  .header {
+    width: 100%;
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-bottom: 2rem;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1) 20%,
+        rgba(255, 255, 255, 0.1) 80%,
+        transparent
+      );
+    }
+    
+    .position {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    
+    .company {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 0.5rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+    
+    .location {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-style: normal;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      
+      &::before {
+        content: '•';
+        font-size: 0.8rem;
+        color: rgba(102, 126, 234, 0.6);
+      }
+    }
+  }
+  
   .cardArea {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    padding: 1rem;
+    gap: 2rem;
     width: 100%;
-    border-radius: 0.5rem;
-    flex-basis: content;
-    align-items: self-start;
-    justify-content: center;
+    box-sizing: border-box;
+    
+    > * {
+      flex: 1 1 calc(50% - 1rem);
+      min-width: 300px;
+      box-sizing: border-box;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .cardArea {
+      > * {
+        flex: 1 1 100%;
+      }
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    padding: 2.5rem;
+    width: 100%;
+    
+    .header {
+      .position {
+        font-size: 1.75rem;
+      }
+      
+      .company {
+        font-size: 1.1rem;
+      }
+    }
+    
+    .cardArea {
+      gap: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    padding: 2rem;
+    width: 100%;
+    border-radius: 16px;
+    
+    .header {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      
+      .position {
+        font-size: 1.5rem;
+      }
+      
+      .company {
+        font-size: 1.05rem;
+      }
+      
+      .location {
+        font-size: 0.95rem;
+      }
+    }
+    
+    .cardArea {
+      gap: 1rem;
+    }
   }
 }

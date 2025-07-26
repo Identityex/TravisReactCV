@@ -1,27 +1,9 @@
-import { useEffect, useState, lazy, Suspense } from 'react';
+import { useEffect, useState, Suspense } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './background-code.module.css';
 
 import { CodeType } from './code-type.ts';
-
-// Lazy load syntax highlighter and theme together
-const LazyHighlighter = lazy(async () => {
-  const [highlighterModule, themeModule] = await Promise.all([
-    import('react-syntax-highlighter'),
-    import('react-syntax-highlighter/dist/esm/styles/hljs')
-  ]);
-  
-  const SyntaxHighlighter = highlighterModule.default;
-  const theme = themeModule.stackoverflowDark;
-  
-  // Return a component that includes the theme
-  return {
-    default: ({ children, language, className }: any) => (
-      <SyntaxHighlighter language={language} style={theme} className={className}>
-        {children}
-      </SyntaxHighlighter>
-    )
-  };
-});
+import { OptimizedHighlighter } from './optimized-highlighter.tsx';
 
 interface BackgroundCodeProps {
   codeType?: CodeType;
@@ -111,16 +93,23 @@ export function BackgroundCode(props: BackgroundCodeProps) {
     };
   }, [currentLineIndex, lines, codeTypingSpeed, currentCharIndex]);
 
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 1000], [0, -200]);
+  const opacity = useTransform(scrollY, [0, 500], [0.3, 0.1]);
+
   return (
-        <div className={`${styles.backgroundCode} ${styles.parallaxLayer} ${styles.parallaxBack}`}>
+        <motion.div 
+            className={`${styles.backgroundCode} ${styles.parallaxLayer} ${styles.parallaxBack}`}
+            style={{ y, opacity }}
+        >
             <Suspense fallback={<div className={styles.loadingCode}>Loading code...</div>}>
-                <LazyHighlighter
+                <OptimizedHighlighter
                     language="cpp"
                     className={`${styles.hljs} ${styles.highlight} language-cpp`}>
                     {code}
-                </LazyHighlighter>
+                </OptimizedHighlighter>
             </Suspense>
             <span id="flashing-input"></span>
-        </div>
+        </motion.div>
   );
 }

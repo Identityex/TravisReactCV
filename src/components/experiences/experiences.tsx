@@ -1,7 +1,7 @@
 import experiencesJson from './experiences.json';
 import { Section } from '../section/Section.tsx';
 import { ExperienceItem } from './experience-item.tsx';
-import styles from './experiences.module.scss';
+import styles from './experiences.module.css';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
 export interface ExperienceAccount {
@@ -16,6 +16,7 @@ export interface ExperienceData {
   company: string;
   fromDate: string;
   toDate: string;
+  location?: string;
   accounts: ExperienceAccount[];
 }
 
@@ -28,19 +29,22 @@ export function Experiences(props: ExperiencesProps) {
 
   const filterExperiences = useCallback(
     (experiencesData: ExperienceData[]) => {
-      if (props.skills.length === 0) return experiencesData;
+      // Show all experiences when no skills are selected
+      if (!props.skills || props.skills.length === 0) {
+        return experiencesData;
+      }
 
       return experiencesData.filter((experience) =>
         props.skills.some((skill) =>
           experience.accounts.some((account) =>
             account.skillTypes.some(
-              (s) => s.toLowerCase() === skill.toLowerCase()
-            )
-          )
-        )
+              (s) => s.toLowerCase() === skill.toLowerCase(),
+            ),
+          ),
+        ),
       );
     },
-    [props.skills]
+    [props.skills],
   );
 
   useEffect(() => {
@@ -56,32 +60,24 @@ export function Experiences(props: ExperiencesProps) {
         const dateB = b.toDate === 'Current' ? new Date() : new Date(b.toDate);
         return dateB.getTime() - dateA.getTime();
       }),
-    [experiences]
+    [experiences],
   );
 
   return (
     <Section sectionId={'Experiences'}>
-      <div className="mb-12">
-        <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent pb-2">
-          Experience
-        </h1>
-        <p className="text-gray-500 dark:text-gray-400 text-lg mt-2 max-w-2xl">
-          A journey through my professional experiences and achievements
-        </p>
+      <div className={styles.experienceHeader}>
+        <h1 id="Experiences-heading">Experience</h1>
+        <p>14+ years of professional software development</p>
       </div>
-      <div
-        className={`${styles.experience} grid grid-cols-1 md:grid-cols-2 gap-8 w-full`}
-      >
-        {sortedExperiences
-          .filter(Boolean)
-          .map((exp, index) => (
-            <ExperienceItem
-              item={exp}
-              key={exp.id}
-              index={index}
-              skillFilters={props.skills}
-            />
-          ))}
+      <div className={styles.experience}>
+        {sortedExperiences.map((exp, index) => (
+          <ExperienceItem
+            item={exp}
+            key={exp.id}
+            index={index}
+            skillFilters={props.skills}
+          />
+        ))}
       </div>
     </Section>
   );

@@ -16,7 +16,7 @@ module.exports = {
     'airbnb-typescript',
     'plugin:react-hooks/recommended', // Replace 'airbnb/hooks' with this
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts', 'vite-plugin-image-optimizer.ts'],
   plugins: ['react-refresh'],
   rules: {
     'react-refresh/only-export-components': [

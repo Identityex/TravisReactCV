@@ -7,7 +7,7 @@ import {
   faCircleCheck, 
   faCode, 
   faStopCircle, 
-  faExternalLinkAlt 
+  faExternalLinkAlt, 
 } from '@fortawesome/free-solid-svg-icons';
 import { Cloudinary } from '@cloudinary/url-gen';
 import { AdvancedImage, AdvancedVideo } from '@cloudinary/react';
@@ -15,6 +15,10 @@ import { Section } from '../section/Section';
 import styles from './projects.module.scss';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import projectsJson from './projects.json';
+
+interface ProjectsJson {
+  data: ProjectData[];
+}
 
 export enum ProjectStatus {
   Completed = 'Completed',
@@ -31,12 +35,12 @@ export interface ProjectData {
   Categories: string[];
   Skills: string[];
   Status: ProjectStatus;
-  Url?: string;
-  Video?: string;
-  cloudinaryImage?: any;
-  Gif?: string;
-  Image?: string;
-  previewImage?: string;
+  Url?: string | null;
+  Video?: string | null;
+  cloudinaryImage?: string | null;
+  Gif?: string | null;
+  Image?: string | null;
+  previewImage?: string | null;
 }
 
 interface ProjectsProps {
@@ -81,21 +85,21 @@ const ProjectCard = ({ project, cld }: ProjectCardProps) => {
             loading="lazy"
           />
         ) : (
-          <img src={project.previewImage} alt={project.Title} className={styles.projectImage} loading="lazy" />
+          <img src={project.previewImage || ''} alt={project.Title} className={styles.projectImage} loading="lazy" />
         )}
         <div 
           className={`${styles.projectStatus} ${
             project.Status === ProjectStatus.Completed ? 'completed' :
-            project.Status === ProjectStatus.InProgress ? 'inProgress' :
-            project.Status === ProjectStatus.Planned ? 'planned' : 'onHold'
+              project.Status === ProjectStatus.InProgress ? 'inProgress' :
+                project.Status === ProjectStatus.Planned ? 'planned' : 'onHold'
           }`}
           title={project.Status}
         >
           <FontAwesomeIcon
             icon={
               project.Status === ProjectStatus.Completed ? faCircleCheck :
-              project.Status === ProjectStatus.InProgress ? faCode :
-              project.Status === ProjectStatus.Planned ? faBrain : faStopCircle
+                project.Status === ProjectStatus.InProgress ? faCode :
+                  project.Status === ProjectStatus.Planned ? faBrain : faStopCircle
             }
           />
         </div>
@@ -145,14 +149,14 @@ export function Projects({ skills }: ProjectsProps) {
       [ProjectStatus.InProgress]: 1,
       [ProjectStatus.Planned]: 2,
       [ProjectStatus.OnHold]: 3,
-      [ProjectStatus.Cancelled]: 4
+      [ProjectStatus.Cancelled]: 4,
     };
 
-    let projectsData = ((projectsJson as any).data as ProjectData[])
+    let projectsData = ((projectsJson as ProjectsJson).data)
       ?.map(project => ({
         ...project,
         // Ensure we have a preview image
-        previewImage: project.Image || project.Gif || undefined
+        previewImage: project.Image || project.Gif || undefined,
       }))
       ?.sort((a, b) => {
         // First sort by status
@@ -165,16 +169,21 @@ export function Projects({ skills }: ProjectsProps) {
     if (skills.length > 0) {
       projectsData = projectsData.filter(project => 
         project.Skills.some(skill => 
-          skills.includes(skill)
-        )
+          skills.includes(skill),
+        ),
       );
     }
 
     setProjects(projectsData);
   }, [skills]);
 
-  const renderThumb = useCallback((children: any[]) => {
-    return children.map((child: any, index: number) => {
+  const renderThumb = useCallback((children: React.ReactChild[]) => {
+    return children.map((child: React.ReactChild, index: number) => {
+      if (typeof child === 'string' || typeof child === 'number' || !child) {
+        return (
+          <div key={index} className={styles.thumbnail} />
+        );
+      }
       // Safely access the image element with proper type checking
       const childProps = child.props as { children?: ReactElement[] };
       const firstChild = childProps.children?.[0];
@@ -194,10 +203,10 @@ export function Projects({ skills }: ProjectsProps) {
       }
       
       // Create a new element with the same props but a different key
-      const clonedElement = React.cloneElement(imageElement as React.ReactElement<any>, {
+      const clonedElement = React.cloneElement(imageElement as React.ReactElement<{ className?: string }>, {
         key: `thumb-${index}`,
-        className: `${(imageElement.props as any).className || ''} ${styles.thumbnailImage}`
-      } as any);
+        className: `${(imageElement.props as { className?: string }).className || ''} ${styles.thumbnailImage}`,
+      });
       
       return (
         <div 
@@ -209,13 +218,13 @@ export function Projects({ skills }: ProjectsProps) {
       );
     });
   },
-    [activeIndex]
+  [activeIndex],
   );
 
   if (projects.length === 0) {
     return (
       <Section sectionId="projects">
-        <h2>No projects found matching the selected skills</h2>
+        <h2 id="projects-heading">No projects found matching the selected skills</h2>
         <p>Try selecting different skills or clear the filters to see all projects.</p>
       </Section>
     );
@@ -223,7 +232,7 @@ export function Projects({ skills }: ProjectsProps) {
 
   return (
     <Section sectionId="projects">
-      <h2>Featured Projects</h2>
+      <h2 id="projects-heading">Featured Projects</h2>
       <p className="subtitle">A selection of my recent work and contributions</p>
       
       <div className={styles.projects}>

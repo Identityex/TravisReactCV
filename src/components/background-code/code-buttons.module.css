@@ -7,6 +7,7 @@
   left: 0.3rem;
   transition: all 0.5s ease-in-out;
   opacity: 1;
+  z-index: 1100;
 }
 .codeButtons.hidden {
   left: -100px;
@@ -16,7 +17,9 @@
   padding: 0.5rem;
   border-radius: 0.5rem;
   transition: all 0.3s ease-in-out;
+  height: -moz-fit-content;
   height: fit-content;
+  width: -moz-fit-content;
   width: fit-content;
 }
 .codeButtons .codeButton:hover {
@@ -34,6 +37,4 @@
 }
 .codeButtons .codeButton:not(:last-child) {
   margin-right: 5px;
-}
-
-/*# sourceMappingURL=code-buttons.module.css.map */
+}/*# sourceMappingURL=code-buttons.module.css.map */
