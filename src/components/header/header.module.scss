@@ -121,28 +121,79 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 300px;
+  width: 100%;
+  max-width: 320px;
   height: 100vh;
-  background: rgba(10, 10, 10, 0.98);
+  background: linear-gradient(
+    135deg,
+    rgba(10, 10, 10, 0.98) 0%,
+    rgba(20, 20, 20, 0.98) 100%
+  );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: 100px 2rem 2rem;
   box-shadow: -4px 0 30px rgba(0, 0, 0, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-y: auto;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(
+      180deg,
+      rgba(10, 10, 10, 0.98) 0%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
 }
 
 .mobileNavLink {
   display: block;
   color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 500;
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+  padding: 1.25rem 1rem;
+  margin: 0 -1rem;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(102, 126, 234, 0.1) 50%,
+      transparent 100%
+    );
+    transition: left 0.5s ease;
+  }
   
   &:hover {
     color: #667eea;
-    transform: translateX(10px);
+    background: rgba(102, 126, 234, 0.1);
+    transform: translateX(8px);
+    padding-left: 1.5rem;
+    
+    &::before {
+      left: 100%;
+    }
+  }
+  
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -169,5 +220,22 @@
   
   .logoText {
     font-size: 1.5rem;
+  }
+}
+
+.mobileOverlay {
+  display: none;
+  
+  @media (max-width: 768px) {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: -1;
   }
 }

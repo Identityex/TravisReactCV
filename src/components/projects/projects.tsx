@@ -56,14 +56,9 @@ const ProjectCard = ({ project, cld }: ProjectCardProps) => {
   const navigate = useNavigate();
   
   const handleClick = useCallback(() => {
-    if (project.Url) {
-      if (project.Url.startsWith('http')) {
-        window.open(project.Url, '_blank');
-      } else {
-        navigate(project.Url);
-      }
-    }
-  }, [navigate, project.Url]);
+    // Navigate to project detail page
+    navigate(`/project/${project.id}`);
+  }, [navigate, project.id]);
 
   return (
     <div className={styles.projectCard} onClick={handleClick}>
@@ -177,48 +172,47 @@ export function Projects({ skills }: ProjectsProps) {
     setProjects(projectsData);
   }, [skills]);
 
-  const renderThumb = useCallback((children: React.ReactChild[]) => {
-    return children.map((child: React.ReactChild, index: number) => {
-      if (typeof child === 'string' || typeof child === 'number' || !child) {
-        return (
-          <div key={index} className={styles.thumbnail} />
-        );
-      }
-      // Safely access the image element with proper type checking
-      const childProps = child.props as { children?: ReactElement[] };
-      const firstChild = childProps.children?.[0];
-      const firstChildProps = firstChild?.props as { children?: ReactElement[] } | undefined;
-      const firstGrandChild = firstChildProps?.children?.[0];
-      const grandChildProps = firstGrandChild?.props as { children?: ReactElement[] } | undefined;
-      const imageElement = grandChildProps?.children?.[0];
-      
-      // If we can't find the image element, return a placeholder
-      if (!React.isValidElement(imageElement)) {
-        return (
-          <div 
-            key={index} 
-            className={`${styles.thumbnail} ${activeIndex === index ? 'selected' : ''}`}
-          />
-        );
-      }
-      
-      // Create a new element with the same props but a different key
-      const clonedElement = React.cloneElement(imageElement as React.ReactElement<{ className?: string }>, {
-        key: `thumb-${index}`,
-        className: `${(imageElement.props as { className?: string }).className || ''} ${styles.thumbnailImage}`,
-      });
+  const renderThumb = useCallback(() => {
+    return projects.map((project, index) => {
+      const isSelected = activeIndex === index;
+      const thumbnailSrc = project.previewImage || project.Gif || project.Image || '';
       
       return (
         <div 
-          key={index} 
-          className={`${styles.thumbnail} ${activeIndex === index ? 'selected' : ''}`}
+          key={project.id} 
+          className={`${styles.thumbnail} ${isSelected ? styles.selected : ''}`}
         >
-          {clonedElement}
+          {project.Video ? (
+            <AdvancedVideo
+              cldVid={cld.video(project.Video)}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className={styles.thumbnailImage}
+            />
+          ) : project.cloudinaryImage ? (
+            <AdvancedImage
+              cldImg={cld.image(project.cloudinaryImage)}
+              alt={project.Title}
+              className={styles.thumbnailImage}
+              loading="lazy"
+            />
+          ) : thumbnailSrc ? (
+            <img 
+              src={thumbnailSrc} 
+              alt={project.Title} 
+              className={styles.thumbnailImage}
+              loading="lazy"
+            />
+          ) : (
+            <div className={styles.thumbnailPlaceholder} />
+          )}
         </div>
       );
     });
   },
-  [activeIndex],
+  [activeIndex, projects, cld],
   );
 
   if (projects.length === 0) {
@@ -247,6 +241,9 @@ export function Projects({ skills }: ProjectsProps) {
           className={styles.carousel}
           renderThumbs={projects.length > 1 ? renderThumb : undefined}
           onChange={(index) => setActiveIndex(index)}
+          transitionTime={300}
+          swipeable={false}
+          animationHandler="slide"
           renderArrowPrev={(onClickHandler, hasPrev, label) =>
             hasPrev && (
               <button

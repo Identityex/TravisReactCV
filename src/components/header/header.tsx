@@ -153,6 +153,18 @@ export function Header() {
           </motion.a>
         ))}
       </motion.nav>
+
+      {/* Mobile menu overlay */}
+      {isMobileMenuOpen && (
+        <motion.div
+          className={styles.mobileOverlay}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setIsMobileMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
     </motion.header>
   );
 }
