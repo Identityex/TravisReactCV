@@ -1,4 +1,4 @@
-import { useEffect, useState, Suspense } from 'react';
+import { useEffect, useState, Suspense, useRef, useMemo } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './background-code.module.css';
 
@@ -13,85 +13,82 @@ interface BackgroundCodeProps {
 const BaseTypingSpeed = 200;
 
 export function BackgroundCode(props: BackgroundCodeProps) {
-  const [code, setCode] = useState<string>('');
-  const [lines, setLines] = useState<string[]>([]);
-  const [currentLineIndex, setCurrentLineIndex] = useState<number>(0);
-  const [currentCharIndex, setCurrentCharIndex] = useState<number>(0);
+  const [displayedCode, setDisplayedCode] = useState<string>('');
+  const [fullCode, setFullCode] = useState<string>('');
+  const animationRef = useRef<number | null>(null);
+  const currentIndexRef = useRef<number>(0);
 
   const loadCodeFile = async (path: string) => {
     const response = await fetch(path);
     const text = await response.text();
-    setLines(text.split('\n'));
-    setCode('');
-    setCurrentLineIndex(0);
-    setCurrentCharIndex(0);
+    setFullCode(text);
+    setDisplayedCode('');
+    currentIndexRef.current = 0;
   };
 
-
-  let codeTypingSpeed: number;
-
-  switch (props.codeType) {
-    case CodeType.Freeze:
-      codeTypingSpeed = 1500;
-      break;
-    case CodeType.Crunch:
-      codeTypingSpeed = 20;
-      break;
-    case CodeType.Reload:
-      codeTypingSpeed = BaseTypingSpeed;
-      void loadCodeFile('/Equipment.cpp');
-      props.onReloaded();
-      break;
-    default:
-      codeTypingSpeed = BaseTypingSpeed;
-      break;
-  }
+  const codeTypingSpeed = useMemo(() => {
+    switch (props.codeType) {
+      case CodeType.Freeze:
+        return 1500;
+      case CodeType.Crunch:
+        return 20;
+      case CodeType.Reload:
+        void loadCodeFile('/Equipment.cpp');
+        props.onReloaded();
+        return BaseTypingSpeed;
+      default:
+        return BaseTypingSpeed;
+    }
+  }, [props.codeType, props.onReloaded]);
 
   useEffect(() => {
     void loadCodeFile('/Equipment.cpp');
   }, []);
 
   useEffect(() => {
-    let isCancelled = false;
+    // Cancel any existing animation
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+      animationRef.current = null;
+    }
 
-    if (props.codeType === CodeType.Reload) {
-      isCancelled = true;
+    if (!fullCode || fullCode.length === 0 || props.codeType === CodeType.Reload) {
       return;
     }
 
-    const typeLine = async (line: string) => {
-      for (let i = currentCharIndex; i < line.length; i++) {
-        // eslint-disable-next-line @typescript-eslint/no-loop-func
-        await new Promise((resolve) => {
-          const timeout = setTimeout(() => {
-            if (!isCancelled) {
-              setCode((prevCode) => `${prevCode}${line[i]}`);
-              setCurrentCharIndex(i + 1); // Update the character index
-              resolve(true);
-            }
-          }, Math.floor(Math.random() * codeTypingSpeed));
+    let lastTime = performance.now();
+    let accumulated = 0;
 
-          if (isCancelled) {
-            clearTimeout(timeout);
-            resolve(true);
-          }
-        });
+    const animate = () => {
+      const now = performance.now();
+      const delta = now - lastTime;
+      lastTime = now;
+      accumulated += delta;
+
+      // Calculate how many characters should be shown
+      const charsToShow = Math.floor(accumulated / codeTypingSpeed);
+      
+      if (charsToShow > currentIndexRef.current) {
+        currentIndexRef.current = Math.min(charsToShow, fullCode.length);
+        setDisplayedCode(fullCode.substring(0, currentIndexRef.current));
       }
-      if (!isCancelled) {
-        setCode((prevCode) => `${prevCode}\n`);
-        setCurrentLineIndex((prevIndex) => prevIndex + 1);
-        setCurrentCharIndex(0); // Reset the character index for the next line
+
+      if (currentIndexRef.current < fullCode.length) {
+        animationRef.current = requestAnimationFrame(animate);
       }
     };
 
-    if (currentLineIndex < lines.length) {
-      void typeLine(lines[currentLineIndex]);
-    }
+    // Start animation
+    animationRef.current = requestAnimationFrame(animate);
 
+    // Cleanup
     return () => {
-      isCancelled = true;
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+        animationRef.current = null;
+      }
     };
-  }, [currentLineIndex, lines, codeTypingSpeed, currentCharIndex]);
+  }, [fullCode, codeTypingSpeed, props.codeType]);
 
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 1000], [0, -200]);
@@ -106,7 +103,7 @@ export function BackgroundCode(props: BackgroundCodeProps) {
                 <OptimizedHighlighter
                     language="cpp"
                     className={`${styles.hljs} ${styles.highlight} language-cpp`}>
-                    {code}
+                    {displayedCode}
                 </OptimizedHighlighter>
             </Suspense>
             <span id="flashing-input"></span>

@@ -1,6 +1,53 @@
 {
   "changes": [
     {
+      "date": "2025-08-04",
+      "changes": [
+        "Fixed critical performance issues causing frame drops",
+        "Replaced setTimeout with requestAnimationFrame in BackgroundCode animation",
+        "Added React.memo to Skills, Projects, and Experiences components",
+        "Removed expensive backdrop-filter CSS effects",
+        "Implemented lazy loading with Intersection Observer for project images",
+        "Optimized Framer Motion animations and replaced with CSS animations",
+        "Added useMemo and useCallback hooks for better React performance",
+        "Fixed TypeScript errors in project pages",
+        "Reduced CSS transition durations for snappier interactions"
+      ]
+    },
+    {
+      "date": "2025-07-20",
+      "changes": [
+        "Added nodemailer support for contact form functionality",
+        "Enhanced contact component styling with animations",
+        "Improved responsive design across contact section"
+      ]
+    },
+    {
+      "date": "2025-06-15",
+      "changes": [
+        "Updated header and project components with improved styling",
+        "Enhanced project detail loading mechanism",
+        "Improved responsive design for mobile devices"
+      ]
+    },
+    {
+      "date": "2025-06-01",
+      "changes": [
+        "Enhanced styling and layout across all components",
+        "Improved accessibility features",
+        "Optimized performance with responsive design adjustments"
+      ]
+    },
+    {
+      "date": "2025-05-20",
+      "changes": [
+        "Implemented lazy loading for better performance",
+        "Added preloading for critical assets",
+        "Enhanced project filtering functionality",
+        "Improved overall user experience"
+      ]
+    },
+    {
       "date": "2025-05-14",
       "changes": [
         "Added filter projects by skill",

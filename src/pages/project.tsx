@@ -1,5 +1,4 @@
-import React from 'react';
-import { Params, useLoaderData, useNavigate, Link } from 'react-router-dom';
+import { Params, useLoaderData, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faArrowLeft, 
@@ -16,7 +15,7 @@ import { ProjectStatus } from '../components/projects/projects.tsx';
 import { ChangelogItem } from './changelog.tsx';
 import { NoProjectPage } from './projects/NoProject.tsx';
 import projectsJson from '../components/projects/projects.json';
-import { fadeInUp, staggerContainer, staggerItem } from '../utils/animations';
+import { staggerContainer, staggerItem } from '../utils/animations';
 import styles from './project.module.scss';
 
 export interface ProjectData {
@@ -53,7 +52,7 @@ export async function loader({ params }: { params: Params<string> }) {
       description: basicProject.Description,
       gif: basicProject.Gif || '',
       video: basicProject.Video,
-      status: basicProject.Status,
+      status: basicProject.Status as ProjectStatus,
       expectedCompletion: null,
       url: basicProject.Url || null,
       changeLog: []
@@ -207,7 +206,7 @@ export function Project() {
               {projectData.changeLog.map((item, index) => (
                 <div key={index} className={styles.changelogItem}>
                   <span className={styles.date}>{item.date}</span>
-                  <p>{item.description}</p>
+                  <div>{item.changes.map((change, changeIndex) => <p key={changeIndex}>{change}</p>)}</div>
                 </div>
               ))}
             </div>

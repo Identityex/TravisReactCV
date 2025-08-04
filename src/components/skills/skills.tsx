@@ -1,6 +1,6 @@
 import { Section } from '../section/Section.tsx';
 import { SkillItem } from './skill-item.tsx';
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, memo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './skills.module.scss';
 import skillsData from './skills.json';
@@ -17,7 +17,7 @@ interface SkillsProps {
 }
 
 
-export function Skills(props: SkillsProps) {
+export const Skills = memo(function Skills(props: SkillsProps) {
   const [selectedCategory, setSelectedCategory] = useState('Primary');
   const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
   const [allSkills] = useState<Skill[]>(skillsData.data);
@@ -37,13 +37,15 @@ export function Skills(props: SkillsProps) {
       .map(skill => skill.name);
   }, [allSkills]);
 
-  const toggleSkill = (skillName: string) => {
-    if (selectedSkills.includes(skillName)) {
-      setSelectedSkills(selectedSkills.filter((s) => s !== skillName));
-    } else {
-      setSelectedSkills([...selectedSkills, skillName]);
-    }
-  };
+  const toggleSkill = useCallback((skillName: string) => {
+    setSelectedSkills(prev => {
+      if (prev.includes(skillName)) {
+        return prev.filter((s) => s !== skillName);
+      } else {
+        return [...prev, skillName];
+      }
+    });
+  }, []);
 
   useEffect(() => {
     props.onSkillChange(selectedSkills);
@@ -187,7 +189,7 @@ export function Skills(props: SkillsProps) {
       </div>
     </Section>
   );
-}
+});
 
 // Keep these exports for backward compatibility
 export const SkillTypes = {

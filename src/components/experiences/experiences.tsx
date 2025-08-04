@@ -2,7 +2,7 @@ import experiencesJson from './experiences.json';
 import { Section } from '../section/Section.tsx';
 import { ExperienceItem } from './experience-item.tsx';
 import styles from './experiences.module.css';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState, memo } from 'react';
 
 export interface ExperienceAccount {
   point: string;
@@ -24,7 +24,7 @@ interface ExperiencesProps {
   skills: string[];
 }
 
-export function Experiences(props: ExperiencesProps) {
+export const Experiences = memo(function Experiences(props: ExperiencesProps) {
   const [experiences, setExperiences] = useState<ExperienceData[]>([]);
 
   const filterExperiences = useCallback(
@@ -81,5 +81,5 @@ export function Experiences(props: ExperiencesProps) {
       </div>
     </Section>
   );
-}
+});
 

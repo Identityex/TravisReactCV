@@ -28,15 +28,14 @@
   
   .filterButton {
     padding: 0.625rem 1.25rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 100px;
     color: #9ca3af;
     font-size: 0.875rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(10px);
+    transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
     
     &:hover {
       background: rgba(255, 255, 255, 0.08);
@@ -73,7 +72,8 @@
 
 .projectCard {
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.5s ease-out both;
+  will-change: transform;
   
   .cardInner {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
@@ -83,16 +83,13 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
     
     &:hover {
       border-color: rgba(99, 102, 241, 0.3);
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
-      box-shadow: 
-        0 10px 40px rgba(0, 0, 0, 0.2),
-        0 0 80px rgba(99, 102, 241, 0.1),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      transform: translateY(-4px);
     }
   }
 }
@@ -124,7 +121,6 @@
     
     &:not(.loaded)::before {
       opacity: 1;
-      animation: shimmer 2s infinite;
     }
   }
   
@@ -133,7 +129,7 @@
     height: 100%;
     object-fit: cover;
     object-position: center top;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s ease;
   }
   
   .noImage {
@@ -152,7 +148,7 @@
   
   .projectCard:hover & {
     .projectMedia {
-      transform: scale(1.05);
+      transform: scale(1.02);
     }
   }
 }
@@ -165,8 +161,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.9);
   border-radius: 100px;
   font-size: 0.75rem;
   font-weight: 600;
@@ -306,7 +301,7 @@
       font-size: 0.875rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: background 0.2s ease, transform 0.2s ease;
       
       svg {
         font-size: 0.75rem;
@@ -314,12 +309,11 @@
       }
       
       &:hover {
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%);
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%);
         transform: translateY(-1px);
-        box-shadow: 0 4px 20px rgba(99, 102, 241, 0.2);
         
         svg {
-          transform: translateX(3px);
+          transform: translateX(2px);
         }
       }
       
@@ -354,12 +348,14 @@
   }
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  100% {
-    background-position: 1000px 0;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

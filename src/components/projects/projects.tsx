@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useState, useCallback } from 'react';
+import { useState, useCallback, memo, useMemo, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
@@ -11,7 +11,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Cloudinary } from '@cloudinary/url-gen';
 import { AdvancedImage, AdvancedVideo } from '@cloudinary/react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Section } from '../section/Section';
 import styles from './projects.module.scss';
 import projectsJson from './projects.json';
@@ -53,9 +52,31 @@ interface ProjectCardProps {
   index: number;
 }
 
-const ProjectCard = ({ project, cld, index }: ProjectCardProps) => {
+// Optimized ProjectCard with lazy loading
+const ProjectCard = memo(({ project, cld, index }: ProjectCardProps) => {
   const navigate = useNavigate();
+  const [isVisible, setIsVisible] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+  
+  // Intersection Observer for lazy loading
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: '50px' }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
   
   const handleClick = useCallback(() => {
     navigate(`/project/${project.id}`);
@@ -88,48 +109,50 @@ const ProjectCard = ({ project, cld, index }: ProjectCardProps) => {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
-      whileHover={{ y: -8 }}
+    <div
+      ref={cardRef}
       className={styles.projectCard}
       onClick={handleClick}
+      style={{ animationDelay: `${index * 50}ms` }}
     >
       <div className={styles.cardInner}>
         {/* Image Section */}
         <div className={styles.imageWrapper}>
           <div className={`${styles.imagePlaceholder} ${imageLoaded ? styles.loaded : ''}`}>
-            {project.Video ? (
-              <AdvancedVideo
-                cldVid={cld.video(project.Video)}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className={styles.projectMedia}
-                onLoadedData={() => setImageLoaded(true)}
-              />
-            ) : project.cloudinaryImage ? (
-              <AdvancedImage
-                cldImg={cld.image(project.cloudinaryImage)}
-                alt={project.Title}
-                className={styles.projectMedia}
-                loading="lazy"
-                onLoad={() => setImageLoaded(true)}
-              />
-            ) : project.previewImage || project.Gif || project.Image ? (
-              <img 
-                src={project.previewImage || project.Gif || project.Image || ''} 
-                alt={project.Title} 
-                className={styles.projectMedia}
-                loading="lazy"
-                onLoad={() => setImageLoaded(true)}
-              />
-            ) : (
-              <div className={styles.noImage}>
-                <FontAwesomeIcon icon={faCode} />
-              </div>
+            {isVisible && (
+              <>
+                {project.Video ? (
+                  <AdvancedVideo
+                    cldVid={cld.video(project.Video)}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className={styles.projectMedia}
+                    onLoadedData={() => setImageLoaded(true)}
+                  />
+                ) : project.cloudinaryImage ? (
+                  <AdvancedImage
+                    cldImg={cld.image(project.cloudinaryImage)}
+                    alt={project.Title}
+                    className={styles.projectMedia}
+                    loading="lazy"
+                    onLoad={() => setImageLoaded(true)}
+                  />
+                ) : project.previewImage || project.Gif || project.Image ? (
+                  <img 
+                    src={project.previewImage || project.Gif || project.Image || ''} 
+                    alt={project.Title} 
+                    className={styles.projectMedia}
+                    loading="lazy"
+                    onLoad={() => setImageLoaded(true)}
+                  />
+                ) : (
+                  <div className={styles.noImage}>
+                    <FontAwesomeIcon icon={faCode} />
+                  </div>
+                )}
+              </>
             )}
           </div>
           
@@ -178,27 +201,29 @@ const ProjectCard = ({ project, cld, index }: ProjectCardProps) => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
-};
+});
 
-export function Projects({ skills }: ProjectsProps) {
-  const [projects, setProjects] = useState<ProjectData[]>([]);
+ProjectCard.displayName = 'ProjectCard';
+
+export const Projects = memo(function Projects({ skills }: ProjectsProps) {
   const [filter, setFilter] = useState<string>('all');
 
-  const cld = new Cloudinary({
+  const cld = useMemo(() => new Cloudinary({
     cloud: { cloudName: 'idx-studios' },
-  });
+  }), []);
 
-  useEffect(() => {
-    const statusOrder = {
-      [ProjectStatus.Completed]: 0,
-      [ProjectStatus.InProgress]: 1,
-      [ProjectStatus.Planned]: 2,
-      [ProjectStatus.OnHold]: 3,
-      [ProjectStatus.Cancelled]: 4,
-    };
+  const statusOrder = useMemo(() => ({
+    [ProjectStatus.Completed]: 0,
+    [ProjectStatus.InProgress]: 1,
+    [ProjectStatus.Planned]: 2,
+    [ProjectStatus.OnHold]: 3,
+    [ProjectStatus.Cancelled]: 4,
+  }), []);
 
+  // Memoize the filtered and sorted projects
+  const projects = useMemo(() => {
     let projectsData = ((projectsJson as ProjectsJson).data)
       ?.map(project => ({
         ...project,
@@ -224,11 +249,11 @@ export function Projects({ skills }: ProjectsProps) {
       );
     }
 
-    setProjects(projectsData);
-  }, [skills, filter]);
+    return projectsData;
+  }, [skills, filter, statusOrder]);
 
   // Get unique statuses for filter buttons
-  const statuses = ['all', ...Array.from(new Set(projectsJson.data.map(p => p.Status)))];
+  const statuses = useMemo(() => ['all', ...Array.from(new Set(projectsJson.data.map(p => p.Status)))], []);
 
   if (projects.length === 0 && skills.length > 0) {
     return (
@@ -261,26 +286,17 @@ export function Projects({ skills }: ProjectsProps) {
         ))}
       </div>
 
-      {/* Projects Grid */}
-      <AnimatePresence mode="wait">
-        <motion.div 
-          className={styles.projectsGrid}
-          key={filter}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          {projects.map((project, index) => (
-            <ProjectCard 
-              key={project.id} 
-              project={project} 
-              cld={cld} 
-              index={index}
-            />
-          ))}
-        </motion.div>
-      </AnimatePresence>
+      {/* Projects Grid - Removed AnimatePresence for better performance */}
+      <div className={styles.projectsGrid}>
+        {projects.map((project, index) => (
+          <ProjectCard 
+            key={project.id} 
+            project={project} 
+            cld={cld} 
+            index={index}
+          />
+        ))}
+      </div>
     </Section>
   );
-}
+});
