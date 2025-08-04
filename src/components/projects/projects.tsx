@@ -1,19 +1,19 @@
 import React, { ReactElement, useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Carousel } from 'react-responsive-carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faBrain, 
   faCircleCheck, 
   faCode, 
   faStopCircle, 
-  faExternalLinkAlt, 
+  faExternalLinkAlt,
+  faArrowRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { Cloudinary } from '@cloudinary/url-gen';
 import { AdvancedImage, AdvancedVideo } from '@cloudinary/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Section } from '../section/Section';
 import styles from './projects.module.scss';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import projectsJson from './projects.json';
 
 interface ProjectsJson {
@@ -50,89 +50,141 @@ interface ProjectsProps {
 interface ProjectCardProps {
   project: ProjectData;
   cld: Cloudinary;
+  index: number;
 }
 
-const ProjectCard = ({ project, cld }: ProjectCardProps) => {
+const ProjectCard = ({ project, cld, index }: ProjectCardProps) => {
   const navigate = useNavigate();
+  const [imageLoaded, setImageLoaded] = useState(false);
   
   const handleClick = useCallback(() => {
-    // Navigate to project detail page
     navigate(`/project/${project.id}`);
   }, [navigate, project.id]);
 
+  const getStatusIcon = () => {
+    switch (project.Status) {
+      case ProjectStatus.Completed:
+        return faCircleCheck;
+      case ProjectStatus.InProgress:
+        return faCode;
+      case ProjectStatus.Planned:
+        return faBrain;
+      default:
+        return faStopCircle;
+    }
+  };
+
+  const getStatusClass = () => {
+    switch (project.Status) {
+      case ProjectStatus.Completed:
+        return styles.statusCompleted;
+      case ProjectStatus.InProgress:
+        return styles.statusInProgress;
+      case ProjectStatus.Planned:
+        return styles.statusPlanned;
+      default:
+        return styles.statusOnHold;
+    }
+  };
+
   return (
-    <div className={styles.projectCard} onClick={handleClick}>
-      <div className={styles.projectImageOverlay}>
-        {project.Video ? (
-          <AdvancedVideo
-            cldVid={cld.video(project.Video)}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className={styles.projectImage}
-          />
-        ) : project.cloudinaryImage ? (
-          <AdvancedImage
-            cldImg={cld.image(project.cloudinaryImage)}
-            alt={project.Title}
-            className={styles.projectImage}
-            loading="lazy"
-          />
-        ) : (
-          <img src={project.previewImage || ''} alt={project.Title} className={styles.projectImage} loading="lazy" />
-        )}
-        <div 
-          className={`${styles.projectStatus} ${
-            project.Status === ProjectStatus.Completed ? 'completed' :
-              project.Status === ProjectStatus.InProgress ? 'inProgress' :
-                project.Status === ProjectStatus.Planned ? 'planned' : 'onHold'
-          }`}
-          title={project.Status}
-        >
-          <FontAwesomeIcon
-            icon={
-              project.Status === ProjectStatus.Completed ? faCircleCheck :
-                project.Status === ProjectStatus.InProgress ? faCode :
-                  project.Status === ProjectStatus.Planned ? faBrain : faStopCircle
-            }
-          />
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
+      whileHover={{ y: -8 }}
+      className={styles.projectCard}
+      onClick={handleClick}
+    >
+      <div className={styles.cardInner}>
+        {/* Image Section */}
+        <div className={styles.imageWrapper}>
+          <div className={`${styles.imagePlaceholder} ${imageLoaded ? styles.loaded : ''}`}>
+            {project.Video ? (
+              <AdvancedVideo
+                cldVid={cld.video(project.Video)}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className={styles.projectMedia}
+                onLoadedData={() => setImageLoaded(true)}
+              />
+            ) : project.cloudinaryImage ? (
+              <AdvancedImage
+                cldImg={cld.image(project.cloudinaryImage)}
+                alt={project.Title}
+                className={styles.projectMedia}
+                loading="lazy"
+                onLoad={() => setImageLoaded(true)}
+              />
+            ) : project.previewImage || project.Gif || project.Image ? (
+              <img 
+                src={project.previewImage || project.Gif || project.Image || ''} 
+                alt={project.Title} 
+                className={styles.projectMedia}
+                loading="lazy"
+                onLoad={() => setImageLoaded(true)}
+              />
+            ) : (
+              <div className={styles.noImage}>
+                <FontAwesomeIcon icon={faCode} />
+              </div>
+            )}
+          </div>
+          
+          {/* Status Badge */}
+          <div className={`${styles.statusBadge} ${getStatusClass()}`}>
+            <FontAwesomeIcon icon={getStatusIcon()} />
+            <span>{project.Status}</span>
+          </div>
         </div>
-      </div>
-      <div className={styles.projectContent}>
-        <h3>{project.Title}</h3>
-        <p>{project.Description}</p>
-        <div className={styles.projectMeta}>
-          <div className={styles.projectSkills}>
-            {project.Skills.slice(0, 5).map((skill, idx) => (
-              <span key={idx} className={styles.skillBadge}>
+
+        {/* Content Section */}
+        <div className={styles.content}>
+          <h3 className={styles.title}>{project.Title}</h3>
+          <p className={styles.description}>{project.Description}</p>
+          
+          {/* Skills */}
+          <div className={styles.skills}>
+            {project.Skills.slice(0, 4).map((skill, idx) => (
+              <span key={idx} className={styles.skill}>
                 {skill}
               </span>
             ))}
-            {project.Skills.length > 5 && (
-              <span className={styles.moreSkills}>+{project.Skills.length - 5} more</span>
+            {project.Skills.length > 4 && (
+              <span className={styles.moreSkills}>+{project.Skills.length - 4}</span>
             )}
           </div>
-          {project.Url && (
-            <a 
-              href={project.Url} 
-              className={styles.projectLink}
-              target="_blank" 
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-            >
-              View <FontAwesomeIcon icon={faExternalLinkAlt} />
-            </a>
-          )}
+
+          {/* Actions */}
+          <div className={styles.actions}>
+            <button className={styles.viewDetails} aria-label={`View ${project.Title} details`}>
+              View Details
+              <FontAwesomeIcon icon={faArrowRight} />
+            </button>
+            {project.Url && (
+              <a 
+                href={project.Url} 
+                className={styles.externalLink}
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                aria-label={`Visit ${project.Title} website`}
+              >
+                <FontAwesomeIcon icon={faExternalLinkAlt} />
+              </a>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 export function Projects({ skills }: ProjectsProps) {
   const [projects, setProjects] = useState<ProjectData[]>([]);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [filter, setFilter] = useState<string>('all');
 
   const cld = new Cloudinary({
     cloud: { cloudName: 'idx-studios' },
@@ -150,14 +202,11 @@ export function Projects({ skills }: ProjectsProps) {
     let projectsData = ((projectsJson as ProjectsJson).data)
       ?.map(project => ({
         ...project,
-        // Ensure we have a preview image
         previewImage: project.Image || project.Gif || undefined,
       }))
       ?.sort((a, b) => {
-        // First sort by status
         const statusDiff = statusOrder[a.Status] - statusOrder[b.Status];
         if (statusDiff !== 0) return statusDiff;
-        // Then by id
         return a.id.localeCompare(b.id);
       });
 
@@ -169,111 +218,69 @@ export function Projects({ skills }: ProjectsProps) {
       );
     }
 
-    setProjects(projectsData);
-  }, [skills]);
-
-  const renderThumb = useCallback(() => {
-    return projects.map((project, index) => {
-      const isSelected = activeIndex === index;
-      const thumbnailSrc = project.previewImage || project.Gif || project.Image || '';
-      
-      return (
-        <div 
-          key={project.id} 
-          className={`${styles.thumbnail} ${isSelected ? styles.selected : ''}`}
-        >
-          {project.Video ? (
-            <AdvancedVideo
-              cldVid={cld.video(project.Video)}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className={styles.thumbnailImage}
-            />
-          ) : project.cloudinaryImage ? (
-            <AdvancedImage
-              cldImg={cld.image(project.cloudinaryImage)}
-              alt={project.Title}
-              className={styles.thumbnailImage}
-              loading="lazy"
-            />
-          ) : thumbnailSrc ? (
-            <img 
-              src={thumbnailSrc} 
-              alt={project.Title} 
-              className={styles.thumbnailImage}
-              loading="lazy"
-            />
-          ) : (
-            <div className={styles.thumbnailPlaceholder} />
-          )}
-        </div>
+    if (filter !== 'all') {
+      projectsData = projectsData.filter(project => 
+        project.Status === filter
       );
-    });
-  },
-  [activeIndex, projects, cld],
-  );
+    }
 
-  if (projects.length === 0) {
+    setProjects(projectsData);
+  }, [skills, filter]);
+
+  // Get unique statuses for filter buttons
+  const statuses = ['all', ...Array.from(new Set(projectsJson.data.map(p => p.Status)))];
+
+  if (projects.length === 0 && skills.length > 0) {
     return (
       <Section sectionId="projects">
-        <h2 id="projects-heading">No projects found matching the selected skills</h2>
-        <p>Try selecting different skills or clear the filters to see all projects.</p>
+        <div className={styles.header}>
+          <h2 id="projects-heading">Projects</h2>
+          <p className={styles.subtitle}>No projects found matching the selected skills</p>
+        </div>
       </Section>
     );
   }
 
   return (
     <Section sectionId="projects">
-      <h2 id="projects-heading">Featured Projects</h2>
-      <p className="subtitle">A selection of my recent work and contributions</p>
-      
-      <div className={styles.projects}>
-        <Carousel
-          selectedItem={0}
-          emulateTouch
-          showArrows
-          showIndicators={false}
-          showStatus={false}
-          showThumbs={projects.length > 1}
-          useKeyboardArrows
-          className={styles.carousel}
-          renderThumbs={projects.length > 1 ? renderThumb : undefined}
-          onChange={(index) => setActiveIndex(index)}
-          transitionTime={300}
-          swipeable={false}
-          animationHandler="slide"
-          renderArrowPrev={(onClickHandler, hasPrev, label) =>
-            hasPrev && (
-              <button
-                type="button"
-                onClick={onClickHandler}
-                title={label}
-                className={`${styles.controlArrow} ${styles.controlPrev}`}
-              >
-                ‹
-              </button>
-            )
-          }
-          renderArrowNext={(onClickHandler, hasNext, label) =>
-            hasNext && (
-              <button
-                type="button"
-                onClick={onClickHandler}
-                title={label}
-                className={`${styles.controlArrow} ${styles.controlNext}`}
-              >
-                ›
-              </button>
-            )
-          }
-        >
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} cld={cld} />
-          ))}
-        </Carousel>
+      <div className={styles.header}>
+        <h2 id="projects-heading">Featured Projects</h2>
+        <p className={styles.subtitle}>A selection of my recent work and contributions</p>
       </div>
+      
+      {/* Filter Buttons */}
+      <div className={styles.filterButtons}>
+        {statuses.map(status => (
+          <button
+            key={status}
+            className={`${styles.filterButton} ${filter === status ? styles.active : ''}`}
+            onClick={() => setFilter(status)}
+          >
+            {status === 'all' ? 'All Projects' : status}
+          </button>
+        ))}
+      </div>
+
+      {/* Projects Grid */}
+      <AnimatePresence mode="wait">
+        <motion.div 
+          className={styles.projectsGrid}
+          key={filter}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          {projects.map((project, index) => (
+            <ProjectCard 
+              key={project.id} 
+              project={project} 
+              cld={cld} 
+              index={index}
+            />
+          ))}
+        </motion.div>
+      </AnimatePresence>
     </Section>
   );
 }

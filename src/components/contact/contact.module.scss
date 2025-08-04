@@ -1,155 +1,496 @@
 .contactContainer {
-  padding: 4rem 2rem;
+  position: relative;
+  padding: 3rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.backgroundPattern {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150%;
+  height: 120%;
+  background-image: 
+    radial-gradient(circle at 30% 20%, rgba(99, 102, 241, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 40%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.7;
+}
+
+.headerSection {
   text-align: center;
+  margin-bottom: 3rem;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 2rem;
+  }
 }
 
 .gradientHeading {
-  font-size: 3rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  font-size: clamp(2.75rem, 6vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 1rem;
+  margin: 0 0 1.25rem;
+  line-height: 1.1;
 }
 
 .subtitle {
-  font-size: 1.2rem;
-  color: #666;
-  margin-bottom: 3rem;
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+  color: #64748b;
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
 }
 
-.contactGrid {
+.contactLayout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 .contactCard {
-  background: rgba(255, 255, 255, 0.05);
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 2rem;
-  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
   
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    border-color: rgba(102, 126, 234, 0.5);
-  }
-  
-  h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: #333;
-  }
-}
-
-.iconWrapper {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 50%;
-  margin-bottom: 1rem;
-}
-
-.icon {
-  font-size: 1.5rem;
-  color: white;
-}
-
-.contactLink {
-  color: #667eea;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  
-  &:hover {
-    color: #764ba2;
-    text-decoration: underline;
-  }
-}
-
-.contactText {
-  color: #666;
-  margin: 0;
-}
-
-.socialSection {
-  margin: 3rem 0;
-  
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: #333;
-  }
-}
-
-.socialLinks {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.socialLink {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  color: #667eea;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    transform: scale(1.1);
-  }
-}
-
-.businessInfo {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  text-align: center;
-  
-  .companyLogo {
-    width: 150px;
-    height: auto;
-    margin-bottom: 1rem;
-    opacity: 0.8;
-  }
-  
-  .companyName {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 0.5rem;
-  }
-  
-  .hours {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    color: #666;
-    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(99, 102, 241, 0.15);
+    transform: translateY(-6px);
+    box-shadow: 
+      0 20px 60px rgba(0, 0, 0, 0.12),
+      0 0 30px rgba(99, 102, 241, 0.08);
     
-    .clockIcon {
-      color: #667eea;
+    &::before {
+      opacity: 1;
     }
   }
 }
 
+.primaryCard {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.02) 0%, rgba(168, 85, 247, 0.02) 100%);
+  
+  &:hover {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.04) 0%, rgba(168, 85, 247, 0.04) 100%);
+  }
+}
+
+.cardContent {
+  padding: 2.5rem;
+  
+  @media (max-width: 768px) {
+    padding: 1.75rem 1.5rem;
+  }
+}
+
+.formHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.iconBadge {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.3);
+  flex-shrink: 0;
+}
+
+.formInfo {
+  flex: 1;
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardLabel {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 0.75rem;
+  line-height: 1.3;
+  
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
+}
+
+.cardDescription {
+  font-size: 1.125rem;
+  color: #64748b;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 1.125rem 2.25rem;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 24px rgba(99, 102, 241, 0.3);
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 36px rgba(99, 102, 241, 0.4);
+    text-decoration: none;
+  }
+  
+  .buttonIcon {
+    font-size: 0.875rem;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover .buttonIcon {
+    transform: translateX(5px);
+  }
+}
+
+.secondaryCard {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  min-height: 200px;
+  
+  @media (max-width: 768px) {
+    padding: 2rem;
+    min-height: auto;
+  }
+  
+  h4 {
+    font-size: 1.25rem;
+    color: #334155;
+    margin: 1rem 0 0.75rem;
+    font-weight: 600;
+  }
+}
+
+.miniIcon {
+  width: 56px;
+  height: 56px;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.375rem;
+  color: #6366f1;
+  transition: all 0.3s ease;
+  
+  .contactCard:hover & {
+    background: rgba(99, 102, 241, 0.15);
+    transform: scale(1.1);
+  }
+}
+
+.phoneLink {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #6366f1;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+  
+  &:hover {
+    color: #8b5cf6;
+  }
+}
+
+.availability {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.locationText {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #334155;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.timezone {
+  font-size: 0.875rem;
+  color: #64748b;
+  display: inline-block;
+  padding: 0.375rem 0.875rem;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.socialCard {
+  grid-column: 1 / -1;
+  padding: 3rem;
+  text-align: center;
+  
+  @media (max-width: 768px) {
+    padding: 2.5rem 2rem;
+  }
+  
+  h4 {
+    font-size: 1.75rem;
+    color: #1e293b;
+    margin: 0 0 0.75rem;
+    font-weight: 700;
+  }
+}
+
+.socialText {
+  color: #64748b;
+  margin-bottom: 2rem;
+  font-size: 1.125rem;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.socialButtons {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+  
+  @media (max-width: 480px) {
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+}
+
+.socialButton {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  min-width: 140px;
+  
+  &:hover {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 10px 28px rgba(99, 102, 241, 0.3);
+    transform: translateY(-3px);
+  }
+  
+  svg {
+    font-size: 1.375rem;
+  }
+}
+
+.bottomSection {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(226, 232, 240, 0.2);
+}
+
+.businessInfo {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  justify-content: center;
+  
+  @media (max-width: 640px) {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+}
+
+.companyLogo {
+  width: 90px;
+  height: auto;
+  opacity: 0.6;
+  filter: brightness(0) invert(0.3);
+  transition: opacity 0.3s ease;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.businessDetails {
+  h4 {
+    font-size: 1.375rem;
+    color: #334155;
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+  }
+}
+
+.businessHours {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  color: #64748b;
+  font-size: 1rem;
+  
+  @media (max-width: 640px) {
+    justify-content: center;
+  }
+  
+  svg {
+    color: #6366f1;
+    font-size: 0.875rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .backgroundPattern {
+    opacity: 0.5;
+  }
+  
+  .subtitle {
+    color: #cbd5e1;
+  }
+  
+  .contactCard {
+    background: rgba(255, 255, 255, 0.01);
+    border-color: rgba(255, 255, 255, 0.03);
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.02);
+      border-color: rgba(99, 102, 241, 0.2);
+    }
+  }
+  
+  .primaryCard {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(168, 85, 247, 0.05) 100%);
+    
+    &:hover {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(168, 85, 247, 0.08) 100%);
+    }
+  }
+  
+  .cardTitle {
+    color: #f1f5f9;
+  }
+  
+  .secondaryCard h4,
+  .socialCard h4,
+  .businessDetails h4 {
+    color: #e2e8f0;
+  }
+  
+  .cardDescription,
+  .socialText,
+  .businessHours {
+    color: #cbd5e1;
+  }
+  
+  .cardLabel,
+  .availability {
+    color: #94a3b8;
+  }
+  
+  .locationText {
+    color: #e2e8f0;
+  }
+  
+  .timezone {
+    color: #cbd5e1;
+    background: rgba(99, 102, 241, 0.15);
+  }
+  
+  .companyLogo {
+    filter: brightness(0) invert(0.9);
+    opacity: 0.8;
+  }
+  
+  .bottomSection {
+    border-color: rgba(148, 163, 184, 0.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contactCard,
+  .primaryButton,
+  .socialButton,
+  .miniIcon {
+    transition: none;
+  }
+}
